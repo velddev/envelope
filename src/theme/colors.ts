@@ -27,6 +27,12 @@ export const colors = (colorMode: ColorMode) => ({
     80: getGrayColor(colorMode, 0.8),
     100: getGrayColor(colorMode, 1.0),
   },
+  system: {
+    danger: "#EE5D5D",
+    info: "#499DFF",
+    success: "#33E03A",
+    warning: "#FFCF53",
+  },
   bg: colorMode === "light" ? "#fff" : "#141520",
   bg2: colorMode === "light" ? "#e6e8eb" : "#323452",
 });

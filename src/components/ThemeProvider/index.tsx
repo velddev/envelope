@@ -5,11 +5,20 @@ import {
   useColorMode,
   CSSReset,
   GlobalStyle,
+  Theme,
+  extendTheme,
 } from "@chakra-ui/react";
 import React, { PropsWithChildren, useMemo } from "react";
 import { getTheme } from "../..";
 
-export const ThemeProvider = ({ children }: PropsWithChildren<unknown>) => {
+type Props = {
+  themeFactory?: (colorMode: "light" | "dark") => Partial<Theme>;
+};
+
+export const ThemeProvider = ({
+  children,
+  themeFactory,
+}: PropsWithChildren<Props>) => {
   return (
     <IdProvider>
       <ColorModeProvider
@@ -17,15 +26,21 @@ export const ThemeProvider = ({ children }: PropsWithChildren<unknown>) => {
           initialColorMode: "light",
         }}
       >
-        <InnerProvider>{children}</InnerProvider>
+        <InnerProvider themeFactory={themeFactory}>{children}</InnerProvider>
       </ColorModeProvider>
     </IdProvider>
   );
 };
 
-const InnerProvider = ({ children }: PropsWithChildren<unknown>) => {
+const InnerProvider = ({
+  children,
+  themeFactory,
+}: PropsWithChildren<Props>) => {
   const { colorMode } = useColorMode();
-  const chakraTheme = useMemo(() => getTheme(colorMode), [colorMode]);
+  const chakraTheme = useMemo(
+    () => extendTheme(getTheme(colorMode), themeFactory?.(colorMode)),
+    [colorMode]
+  );
 
   return (
     <ChakraThemeProvider theme={chakraTheme}>

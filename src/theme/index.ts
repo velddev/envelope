@@ -3,8 +3,9 @@ import { ColorMode, extendTheme } from "@chakra-ui/react";
 import breakpoints from "./breakpoints";
 import components from "./components";
 import { colors } from "./colors";
+import { Dict } from "@chakra-ui/utils";
 
-export const getTheme = (colorMode: ColorMode) =>
+export const getTheme = (colorMode: ColorMode): Dict =>
   extendTheme({
     breakpoints,
     colors: colors(colorMode),
