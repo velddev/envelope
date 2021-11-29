@@ -1,7 +1,7 @@
 import { Box, SimpleGrid, VStack } from "@chakra-ui/layout";
 import { useBreakpointValue } from "@chakra-ui/media-query";
-import { AnimateSharedLayout } from "framer-motion";
-import React, { useRef, useState } from "react";
+import { AnimateSharedLayout, useMotionValue } from "framer-motion";
+import React, { useMemo, useRef, useState } from "react";
 import { MotionBox } from "../MotionBox";
 import { Stepper } from "../Stepper";
 
@@ -11,16 +11,22 @@ type Props = {
 };
 
 export const Carousel = ({ columns, children }: Props) => {
-  const refs = useRef([]);
+  const refs = useRef<HTMLDivElement[]>([]);
   const [index, setIndex] = useState(0);
 
   const colCount = Array.isArray(columns)
     ? useBreakpointValue(columns)
     : columns;
 
+  const leftOffset = useMemo(() => {
+    return -1 + (refs.current?.[index]?.offsetLeft ?? 0);
+  }, [refs.current, index]);
+
+  console.log(leftOffset);
+
   return (
-    <VStack spacing="8">
-      <Box position="relative">
+    <VStack spacing="8" w="full">
+      <Box position="relative" w="full">
         <Box
           position="absolute"
           right="0"
@@ -31,29 +37,25 @@ export const Carousel = ({ columns, children }: Props) => {
           zIndex="1"
         />
         <Box overflowX="hidden" w="full">
-          <AnimateSharedLayout>
-            <MotionBox
-              animate={{
-                x: 1 + -1 * refs.current?.[index]?.offsetLeft ?? 0,
-              }}
-              w="100%"
-              position="relative"
+          <MotionBox
+            animate={{
+              x: -leftOffset,
+            }}
+            transition={{ ease: [0.19, 0.92, 0.51, 1], duration: 0.26 }}
+            w="100%"
+          >
+            <SimpleGrid
+              templateColumns={`repeat(${children.length}, ${90 / colCount}%)`}
+              spacing="8"
+              maxW="95vw"
             >
-              <SimpleGrid
-                templateColumns={`repeat(${children.length}, ${
-                  90 / colCount
-                }%)`}
-                spacing="8"
-                maxW="95vw"
-              >
-                {children.map((x, i) => (
-                  <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
-                    {x}
-                  </Box>
-                ))}
-              </SimpleGrid>
-            </MotionBox>
-          </AnimateSharedLayout>
+              {children.map((x, i) => (
+                <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
+                  {x}
+                </Box>
+              ))}
+            </SimpleGrid>
+          </MotionBox>
         </Box>
       </Box>
       <Stepper
