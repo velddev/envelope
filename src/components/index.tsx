@@ -5,6 +5,7 @@ import { DiscordMessage } from "./DiscordMessage";
 import { DiscordMessageFrame } from "./DiscordMessageFrame";
 import { Fab } from "./Fab";
 import { Markdown } from "./Markdown";
+import { MotionBox } from "./MotionBox";
 import { Stepper } from "./Stepper";
 import { ThemeProvider } from "./ThemeProvider";
 
@@ -16,6 +17,7 @@ export {
   DiscordMessageFrame,
   Fab,
   Markdown,
+  MotionBox,
   Stepper,
   ThemeProvider,
 };

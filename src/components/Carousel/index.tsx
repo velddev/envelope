@@ -1,16 +1,15 @@
 import { Box, SimpleGrid, VStack } from "@chakra-ui/layout";
 import { useBreakpointValue } from "@chakra-ui/media-query";
-import { AnimateSharedLayout, useMotionValue } from "framer-motion";
 import React, { useMemo, useRef, useState } from "react";
 import { MotionBox } from "../MotionBox";
 import { Stepper } from "../Stepper";
 
-type Props = {
+export type CarouselProps = {
   columns: number | number[];
   children: React.ReactNode[];
 };
 
-export const Carousel = ({ columns, children }: Props) => {
+export const Carousel = ({ columns, children }: CarouselProps) => {
   const refs = useRef<HTMLDivElement[]>([]);
   const [index, setIndex] = useState(0);
 
@@ -22,10 +21,8 @@ export const Carousel = ({ columns, children }: Props) => {
     return -1 + (refs.current?.[index]?.offsetLeft ?? 0);
   }, [refs.current, index]);
 
-  console.log(leftOffset);
-
   return (
-    <VStack spacing="8" w="full">
+    <VStack spacing="0" w="full" overflow="hidden">
       <Box position="relative" w="full">
         <Box
           position="absolute"
@@ -36,7 +33,7 @@ export const Carousel = ({ columns, children }: Props) => {
           bgGradient="linear(to-r, transparent, bg)"
           zIndex="1"
         />
-        <Box overflowX="hidden" w="full">
+        <Box overflowX="hidden" pb="12" w="full">
           <MotionBox
             animate={{
               x: -leftOffset,
@@ -47,7 +44,6 @@ export const Carousel = ({ columns, children }: Props) => {
             <SimpleGrid
               templateColumns={`repeat(${children.length}, ${90 / colCount}%)`}
               spacing="8"
-              maxW="95vw"
             >
               {children.map((x, i) => (
                 <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
