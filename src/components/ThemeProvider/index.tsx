@@ -8,11 +8,12 @@ import {
   Theme,
   extendTheme,
 } from "@chakra-ui/react";
+import type { Dict } from "@chakra-ui/utils";
 import React, { PropsWithChildren, useMemo } from "react";
 import { getTheme } from "../..";
 
 type Props = {
-  themeFactory?: (colorMode: "light" | "dark") => Partial<Theme>;
+  themeFactory?: (colorMode: "light" | "dark") => Partial<Dict>;
 };
 
 export const ThemeProvider = ({
