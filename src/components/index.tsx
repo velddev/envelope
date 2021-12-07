@@ -3,6 +3,7 @@ import { Carousel } from "./Carousel";
 import { ColorSwitch } from "./ColorSwitch";
 import { DiscordMessage } from "./DiscordMessage";
 import { DiscordMessageFrame } from "./DiscordMessageFrame";
+import { ItemInput } from "./ItemInput";
 import { Fab } from "./Fab";
 import { Markdown } from "./Markdown";
 import { MotionBox } from "./MotionBox";
@@ -16,6 +17,7 @@ export {
   DiscordMessage,
   DiscordMessageFrame,
   Fab,
+  ItemInput,
   Markdown,
   MotionBox,
   Stepper,

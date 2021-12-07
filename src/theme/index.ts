@@ -18,6 +18,9 @@ export const getTheme = (colorMode: ColorMode): Dict =>
         body: {
           bg: colorMode === "light" ? "white" : "#141520",
         },
+        "&::-webkit-calendar-picker-indicator": {
+          filter: colorMode == "light" ? undefined : "invert(1)",
+        },
       },
     },
     fonts: {
