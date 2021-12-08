@@ -1,0 +1,94 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "next",
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": [
+        "@typescript-eslint",
+        "jest",
+        "react"
+    ],
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest": true
+    },
+    "rules": {
+        "react-hooks/exhaustive-deps": "off",
+        "react/no-array-index-key": "off",
+        "no-restricted-imports": ["error", {
+            "paths": [
+                "next/link",
+                {
+                    "name": "@chakra-ui/react",
+                    "importNames": ["Link"],
+                    "message": "Use custom Link component instead."
+                }
+            ]
+        }],
+        "react/require-default-props": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "off",
+        "import/prefer-default-export": "off",
+        "react/prop-types": "off",
+        "import/no-cycle": "off",
+        "no-multi-assign": "off",
+        "import/imports-first": [
+            "error",
+            "absolute-first"
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
+        "quotes": [
+            2,
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "semi": [
+            "error",
+            "never"
+        ]
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [
+                ".js",
+                ".jsx",
+                ".ts",
+                ".tsx"
+            ]
+        },
+        "import/resolver": {
+            "babel-module": {},
+            "typescript": {}
+        },
+        "react": {
+            "version": "detect"
+        }
+    },
+    "parserOptions": {
+        // Allows for the parsing of modern ECMAScript features
+        "ecmaVersion": 2018,
+        // Allows for the use of imports
+        "sourceType": "module",
+        // https://blog.geographer.fr/eslint-parser-services, https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
+        "project": "./tsconfig.json"
+    }
+}
