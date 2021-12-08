@@ -13,8 +13,9 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": true,
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "build",
+    "moduleResolution": "node",
     "lib": [
       "es2019",
       "dom"

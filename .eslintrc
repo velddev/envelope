@@ -20,6 +20,7 @@
         "jest": true
     },
     "rules": {
+        "import/no-extraneous-dependencies": "off",
         "react-hooks/exhaustive-deps": "off",
         "react/no-array-index-key": "off",
         "react/require-default-props": "off",
@@ -32,17 +33,6 @@
         "import/imports-first": [
             "error",
             "absolute-first"
-        ],
-        "react/jsx-filename-extension": [
-            1,
-            {
-                "extensions": [
-                    ".js",
-                    ".jsx",
-                    ".ts",
-                    ".tsx"
-                ]
-            }
         ],
         "quotes": [
             2,
@@ -64,10 +54,6 @@
                 ".ts",
                 ".tsx"
             ]
-        },
-        "import/resolver": {
-            "babel-module": {},
-            "typescript": {}
         },
         "react": {
             "version": "detect"
