@@ -2,11 +2,11 @@ import { Box } from "@chakra-ui/layout";
 import { css } from "@emotion/react";
 import React from "react";
 
-type Props = {
+export type MarkdownProps = {
   content: string;
 };
 
-export const Markdown = ({ content }: Props) => {
+export const Markdown = ({ content }: MarkdownProps) => {
   const markdownCss = css`
     table {
       width: 100%;
