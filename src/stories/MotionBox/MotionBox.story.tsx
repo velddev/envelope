@@ -1,8 +1,8 @@
 import React from "react";
-import {MotionBox} from "./index";
 import {createMeta, MetaType} from "../../utils/storybook";
 import {VStack} from "@chakra-ui/layout";
 import {Button, useBoolean} from "@chakra-ui/react";
+import {MotionBox} from "../../components";
 
 export default createMeta({
   type: MetaType.Component,

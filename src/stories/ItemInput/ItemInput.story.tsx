@@ -1,6 +1,6 @@
 import React from "react";
-import {ItemInput} from "./index";
 import {createMeta, MetaType} from "../../utils/storybook";
+import {ItemInput} from "../../components";
 
 export default createMeta({
   type: MetaType.Component,

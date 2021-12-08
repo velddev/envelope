@@ -1,7 +1,7 @@
 import React from "react";
-import {Fab} from "./index";
 import {createMeta, MetaType} from "../../utils/storybook";
 import {HamburgerIcon} from "../../icons";
+import {Fab} from "../../components";
 
 export default createMeta({
   type: MetaType.Component,

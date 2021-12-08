@@ -5,7 +5,7 @@ const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
   stories: [
-    "../src/**/*.@(stories|story).@(ts|tsx)"
+    "../src/stories/**/*.@(stories|story).@(ts|tsx)"
   ],
   addons: [
     "@storybook/addon-links",

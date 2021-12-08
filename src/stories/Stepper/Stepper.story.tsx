@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import {Stepper} from "./index";
 import {createMeta, MetaType} from "../../utils/storybook";
 import {VStack} from "@chakra-ui/layout";
 import {Button, Divider, Text} from "@chakra-ui/react";
+import {Stepper} from "../../components";
 
 export default createMeta({
   type: MetaType.Component,

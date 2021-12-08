@@ -1,6 +1,6 @@
 import React from "react";
-import {ColorSwitch} from "./index";
 import {createMeta, MetaType} from "../../utils/storybook";
+import {ColorSwitch} from "../../components";
 
 export default createMeta({
   type: MetaType.Component,

@@ -1,7 +1,7 @@
 import React from "react";
 import {DiscordBadge} from "../components/DiscordBadge";
 import {createMeta, MetaType} from "../utils/storybook";
-import {CardBox, DiscordMessage, DiscordMessageFrame} from "../components";
+import {CardBox} from "../components";
 
 export default createMeta({
   type: MetaType.Component,

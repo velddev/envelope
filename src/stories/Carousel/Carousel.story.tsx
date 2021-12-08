@@ -1,8 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {Carousel, CarouselProps} from "./index";
 import {Center, Text} from "@chakra-ui/react";
 import {createMeta, MetaType} from "../../utils/storybook";
+import {Carousel, CarouselProps} from "../../components/Carousel";
 
 export default createMeta({
   name: "Carousel",

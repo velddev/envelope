@@ -1,6 +1,7 @@
 import React from "react";
-import {Markdown, MarkdownProps} from "./index";
 import {createMeta, MetaType} from "../../utils/storybook";
+import {Markdown} from "../../components";
+import {MarkdownProps} from "../../components/Markdown";
 
 export default createMeta({
   type: MetaType.Component,
