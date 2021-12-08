@@ -1,10 +1,10 @@
-import { Box } from "@chakra-ui/layout";
-import { css } from "@emotion/react";
-import React from "react";
+import { Box } from '@chakra-ui/layout'
+import { css } from '@emotion/react'
+import React from 'react'
 
 export type MarkdownProps = {
-  content: string;
-};
+  content: string
+}
 
 export const Markdown = ({ content }: MarkdownProps) => {
   const markdownCss = css`
@@ -71,9 +71,7 @@ export const Markdown = ({ content }: MarkdownProps) => {
     img {
       max-width: 100%;
     }
-  `;
+  `
 
-  return (
-    <Box css={markdownCss} dangerouslySetInnerHTML={{ __html: content }} />
-  );
-};
+  return <Box css={markdownCss} dangerouslySetInnerHTML={{ __html: content }} />
+}

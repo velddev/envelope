@@ -1,55 +1,51 @@
-import { inputAnatomy as parts } from "@chakra-ui/anatomy";
-import type {
-  PartsStyleFunction,
-  PartsStyleObject,
-  SystemStyleObject,
-} from "@chakra-ui/theme-tools";
-import { getColor, mode } from "@chakra-ui/theme-tools";
+import { inputAnatomy as parts } from '@chakra-ui/anatomy'
+import type { PartsStyleFunction, PartsStyleObject, SystemStyleObject } from '@chakra-ui/theme-tools'
+import { getColor, mode } from '@chakra-ui/theme-tools'
 
 const baseStyle: PartsStyleObject<typeof parts> = {
   field: {
-    width: "100%",
+    width: '100%',
     minWidth: 0,
     outline: 0,
-    position: "relative",
-    appearance: "none",
-    transitionProperty: "common",
-    transitionDuration: "normal",
+    position: 'relative',
+    appearance: 'none',
+    transitionProperty: 'common',
+    transitionDuration: 'normal',
   },
   addon: {
-    bg: "transparent",
+    bg: 'transparent',
   },
-};
+}
 
 const size: Record<string, SystemStyleObject> = {
   lg: {
-    fontSize: "lg",
+    fontSize: 'lg',
     px: 4,
     h: 12,
-    borderRadius: "md",
+    borderRadius: 'md',
   },
 
   md: {
-    fontSize: "md",
+    fontSize: 'md',
     px: 4,
     h: 10,
-    borderRadius: "md",
+    borderRadius: 'md',
   },
 
   sm: {
-    fontSize: "sm",
+    fontSize: 'sm',
     px: 3,
     h: 8,
-    borderRadius: "sm",
+    borderRadius: 'sm',
   },
 
   xs: {
-    fontSize: "xs",
+    fontSize: 'xs',
     px: 2,
     h: 6,
-    borderRadius: "sm",
+    borderRadius: 'sm',
   },
-};
+}
 
 const sizes: Record<string, PartsStyleObject<typeof parts>> = {
   lg: {
@@ -68,98 +64,98 @@ const sizes: Record<string, PartsStyleObject<typeof parts>> = {
     field: size.xs,
     addon: size.xs,
   },
-};
+}
 
 function getDefaults(props: Record<string, any>) {
-  const { focusBorderColor: fc, errorBorderColor: ec } = props;
+  const { focusBorderColor: fc, errorBorderColor: ec } = props
   return {
-    focusBorderColor: fc || mode("blue.500", "blue.300")(props),
-    errorBorderColor: ec || mode("red.500", "red.300")(props),
-  };
+    focusBorderColor: fc || mode('blue.500', 'blue.300')(props),
+    errorBorderColor: ec || mode('red.500', 'red.300')(props),
+  }
 }
 
 const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
   return {
     field: {
-      border: "1px solid",
-      borderColor: "inherit",
-      bg: "inherit",
+      border: '1px solid',
+      borderColor: 'inherit',
+      bg: 'inherit',
       _hover: {
-        borderColor: mode("gray.300", "whiteAlpha.400")(props),
+        borderColor: mode('gray.300', 'whiteAlpha.400')(props),
       },
       _readOnly: {
-        boxShadow: "none !important",
-        userSelect: "all",
+        boxShadow: 'none !important',
+        userSelect: 'all',
       },
       _disabled: {
         opacity: 0.4,
-        cursor: "not-allowed",
+        cursor: 'not-allowed',
       },
       _invalid: {
-        borderColor: "system.danger",
+        borderColor: 'system.danger',
       },
       _focus: {
         zIndex: 1,
-        borderColor: "ui.40",
+        borderColor: 'ui.40',
       },
     },
     addon: {
-      border: "1px solid",
-      borderColor: mode("inherit", "whiteAlpha.50")(props),
+      border: '1px solid',
+      borderColor: mode('inherit', 'whiteAlpha.50')(props),
     },
-  };
-};
+  }
+}
 
 const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
-  const { theme } = props;
-  const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props);
+  const { theme } = props
+  const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props)
 
   return {
     field: {
-      border: "2px solid",
-      borderColor: "transparent",
-      bg: mode("gray.100", "whiteAlpha.50")(props),
+      border: '2px solid',
+      borderColor: 'transparent',
+      bg: mode('gray.100', 'whiteAlpha.50')(props),
       _hover: {
-        bg: mode("gray.200", "whiteAlpha.100")(props),
+        bg: mode('gray.200', 'whiteAlpha.100')(props),
       },
       _readOnly: {
-        boxShadow: "none !important",
-        userSelect: "all",
+        boxShadow: 'none !important',
+        userSelect: 'all',
       },
       _disabled: {
         opacity: 0.4,
-        cursor: "not-allowed",
+        cursor: 'not-allowed',
       },
       _invalid: {
         borderColor: getColor(theme, ec),
       },
       _focus: {
-        bg: "transparent",
+        bg: 'transparent',
         borderColor: getColor(theme, fc),
       },
     },
     addon: {
-      border: "2px solid",
-      borderColor: "transparent",
-      bg: mode("gray.100", "whiteAlpha.50")(props),
+      border: '2px solid',
+      borderColor: 'transparent',
+      bg: mode('gray.100', 'whiteAlpha.50')(props),
     },
-  };
-};
+  }
+}
 
 const variantFlushed: PartsStyleFunction<typeof parts> = (props) => {
-  const { theme } = props;
-  const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props);
+  const { theme } = props
+  const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props)
 
   return {
     field: {
-      borderBottom: "1px solid",
-      borderColor: "inherit",
+      borderBottom: '1px solid',
+      borderColor: 'inherit',
       borderRadius: 0,
       px: 0,
-      bg: "transparent",
+      bg: 'transparent',
       _readOnly: {
-        boxShadow: "none !important",
-        userSelect: "all",
+        boxShadow: 'none !important',
+        userSelect: 'all',
       },
       _invalid: {
         borderColor: getColor(theme, ec),
@@ -171,39 +167,39 @@ const variantFlushed: PartsStyleFunction<typeof parts> = (props) => {
       },
     },
     addon: {
-      borderBottom: "2px solid",
-      borderColor: "inherit",
+      borderBottom: '2px solid',
+      borderColor: 'inherit',
       borderRadius: 0,
       px: 0,
-      bg: "transparent",
+      bg: 'transparent',
     },
-  };
-};
+  }
+}
 
 const variantUnstyled: PartsStyleObject<typeof parts> = {
   field: {
-    bg: "transparent",
+    bg: 'transparent',
     px: 0,
-    height: "auto",
+    height: 'auto',
   },
   addon: {
-    bg: "transparent",
+    bg: 'transparent',
     px: 0,
-    height: "auto",
+    height: 'auto',
   },
-};
+}
 
 const variants = {
   outline: variantOutline,
   filled: variantFilled,
   flushed: variantFlushed,
   unstyled: variantUnstyled,
-};
+}
 
 const defaultProps = {
-  size: "md",
-  variant: "outline",
-};
+  size: 'md',
+  variant: 'outline',
+}
 
 export default {
   parts: parts.keys,
@@ -211,4 +207,4 @@ export default {
   sizes,
   variants,
   defaultProps,
-};
+}

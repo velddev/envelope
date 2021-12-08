@@ -1,5 +1,5 @@
 export default {
   baseStyle: {
-    color: "ui.100",
+    color: 'ui.100',
   },
-};
+}

@@ -7,41 +7,32 @@ import {
   GlobalStyle,
   Theme,
   extendTheme,
-} from "@chakra-ui/react";
-import type { Dict } from "@chakra-ui/utils";
-import React, { PropsWithChildren, useMemo } from "react";
-import { getTheme } from "../..";
+} from '@chakra-ui/react'
+import type { Dict } from '@chakra-ui/utils'
+import React, { PropsWithChildren, useMemo } from 'react'
+import { getTheme } from '../..'
 
 type Props = {
-  themeFactory?: (colorMode: "light" | "dark") => Partial<Dict>;
-};
+  themeFactory?: (colorMode: 'light' | 'dark') => Partial<Dict>
+}
 
-export const ThemeProvider = ({
-  children,
-  themeFactory,
-}: PropsWithChildren<Props>) => {
+export const ThemeProvider = ({ children, themeFactory }: PropsWithChildren<Props>) => {
   return (
     <IdProvider>
       <ColorModeProvider
         options={{
-          initialColorMode: "light",
+          initialColorMode: 'light',
         }}
       >
         <InnerProvider themeFactory={themeFactory}>{children}</InnerProvider>
       </ColorModeProvider>
     </IdProvider>
-  );
-};
+  )
+}
 
-const InnerProvider = ({
-  children,
-  themeFactory,
-}: PropsWithChildren<Props>) => {
-  const { colorMode } = useColorMode();
-  const chakraTheme = useMemo(
-    () => extendTheme(getTheme(colorMode), themeFactory?.(colorMode)),
-    [colorMode]
-  );
+const InnerProvider = ({ children, themeFactory }: PropsWithChildren<Props>) => {
+  const { colorMode } = useColorMode()
+  const chakraTheme = useMemo(() => extendTheme(getTheme(colorMode), themeFactory?.(colorMode)), [colorMode])
 
   return (
     <ChakraThemeProvider theme={chakraTheme}>
@@ -49,5 +40,5 @@ const InnerProvider = ({
       <GlobalStyle />
       {children}
     </ChakraThemeProvider>
-  );
-};
+  )
+}

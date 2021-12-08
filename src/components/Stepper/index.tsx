@@ -1,34 +1,23 @@
-import { Box, HStack, IconButton } from "@chakra-ui/react";
-import React, { useMemo } from "react";
-import { CaretLeftIcon, CaretRightIcon } from "../../icons";
+import { Box, HStack, IconButton } from '@chakra-ui/react'
+import React, { useMemo } from 'react'
+import { CaretLeftIcon, CaretRightIcon } from '../../icons'
 
 type Props = {
-  index: number;
-  pageCount: number;
-  onIndexChange?: (index: number) => void;
-  onPrevious?: () => void;
-  onNext?: () => void;
-  step?: (index: number) => React.ReactNode;
-  hideControls?: boolean;
-};
+  index: number
+  pageCount: number
+  onIndexChange?: (index: number) => void
+  onPrevious?: () => void
+  onNext?: () => void
+  step?: (index: number) => React.ReactNode
+  hideControls?: boolean
+}
 
-export const Stepper = ({
-  index,
-  onPrevious,
-  onNext,
-  onIndexChange,
-  step,
-  pageCount,
-  hideControls,
-}: Props) => {
-  const pageArray = useMemo(
-    () => Array.from("0".repeat(pageCount)),
-    [pageCount]
-  );
+export const Stepper = ({ index, onPrevious, onNext, onIndexChange, step, pageCount, hideControls }: Props) => {
+  const pageArray = useMemo(() => Array.from('0'.repeat(pageCount)), [pageCount])
 
   const handleIndexChange = (newIndex: number) => {
-    onIndexChange?.(newIndex);
-  };
+    onIndexChange?.(newIndex)
+  }
 
   return (
     <HStack spacing="8">
@@ -39,8 +28,8 @@ export const Stepper = ({
           borderRadius="full"
           onClick={() => {
             if (index > 0) {
-              handleIndexChange(index - 1);
-              onPrevious?.();
+              handleIndexChange(index - 1)
+              onPrevious?.()
             }
           }}
         />
@@ -56,9 +45,9 @@ export const Stepper = ({
               rounded="full"
               transition="all 0.2s"
               transform={`scale(${i === index ? 1.25 : 1.0})`}
-              bg={index == i ? "ui.40" : "ui.10"}
+              bg={index == i ? 'ui.40' : 'ui.10'}
             />
-          )
+          ),
         )}
       </HStack>
       {!hideControls && (
@@ -68,12 +57,12 @@ export const Stepper = ({
           borderRadius="full"
           onClick={() => {
             if (index < pageCount - 1) {
-              handleIndexChange(index + 1);
-              onNext?.();
+              handleIndexChange(index + 1)
+              onNext?.()
             }
           }}
         />
       )}
     </HStack>
-  );
-};
+  )
+}

@@ -1,33 +1,33 @@
 const primaryVariant = {
-  bg: "accent.100",
-  color: "black",
+  bg: 'accent.100',
+  color: 'black',
   _hover: {
-    bg: "accent.80",
+    bg: 'accent.80',
   },
   _active: {
-    bg: "accent.60",
+    bg: 'accent.60',
   },
-};
+}
 
 const solidVariant = {
-  bg: "ui.5",
+  bg: 'ui.5',
   _hover: {
-    bg: "ui.10",
+    bg: 'ui.10',
   },
   _active: {
-    bg: "ui.20",
+    bg: 'ui.20',
   },
-};
+}
 
 const ghostVariant = {
-  bg: "transparent",
+  bg: 'transparent',
   _hover: {
-    bg: "ui.5",
+    bg: 'ui.5',
   },
   _active: {
-    bg: "ui.10",
+    bg: 'ui.10',
   },
-};
+}
 
 export default {
   variants: {
@@ -35,4 +35,4 @@ export default {
     solid: solidVariant,
     primary: primaryVariant,
   },
-};
+}
