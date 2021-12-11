@@ -3,6 +3,7 @@ import { useBreakpointValue } from "@chakra-ui/media-query";
 import React, { useMemo, useRef, useState } from "react";
 import { MotionBox } from "../MotionBox";
 import { Stepper } from "../Stepper";
+import {Transition} from "../MotionBox/transitions";
 
 export type CarouselProps = {
   columns: number | number[];
@@ -38,7 +39,7 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
             animate={{
               x: -leftOffset,
             }}
-            transition={{ ease: [0.19, 0.92, 0.51, 1], duration: 0.26 }}
+            transition={Transition.Default}
             w="100%"
           >
             <SimpleGrid
