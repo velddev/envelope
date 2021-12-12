@@ -16,10 +16,7 @@ type Props = {
   themeFactory?: (colorMode: "light" | "dark") => Partial<Dict>;
 };
 
-export const ThemeProvider = ({
-  children,
-  themeFactory,
-}: PropsWithChildren<Props>) => {
+export const ThemeProvider = ({ children, themeFactory }: PropsWithChildren<Props>) => {
   return (
     <IdProvider>
       <ColorModeProvider
@@ -33,14 +30,11 @@ export const ThemeProvider = ({
   );
 };
 
-const InnerProvider = ({
-  children,
-  themeFactory,
-}: PropsWithChildren<Props>) => {
+const InnerProvider = ({ children, themeFactory }: PropsWithChildren<Props>) => {
   const { colorMode } = useColorMode();
   const chakraTheme = useMemo(
     () => extendTheme(getTheme(colorMode), themeFactory?.(colorMode)),
-    [colorMode]
+    [colorMode],
   );
 
   return (

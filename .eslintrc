@@ -3,11 +3,8 @@
     "extends": [
         "next",
         "plugin:react/recommended",
-        "airbnb",
-        "airbnb-typescript",
         "plugin:jsx-a11y/recommended",
         "plugin:react-hooks/recommended",
-        "plugin:prettier/recommended"
     ],
     "plugins": [
         "@typescript-eslint",
@@ -26,7 +23,6 @@
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off",
         "import/prefer-default-export": "off",
-        "react/prop-types": "off",
         "import/no-cycle": "off",
         "no-multi-assign": "off",
         "import/imports-first": [
@@ -44,17 +40,6 @@
                 ]
             }
         ],
-        "quotes": [
-            2,
-            "single",
-            {
-                "avoidEscape": true
-            }
-        ],
-        "semi": [
-            "error",
-            "never"
-        ]
     },
     "settings": {
         "import/parsers": {
