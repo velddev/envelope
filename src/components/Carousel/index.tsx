@@ -3,7 +3,7 @@ import { useBreakpointValue } from "@chakra-ui/media-query";
 import React, { useMemo, useRef, useState } from "react";
 import { MotionBox } from "../MotionBox";
 import { Stepper } from "../Stepper";
-import {Transition} from "../MotionBox/transitions";
+import { Transition } from "../MotionBox/transitions";
 
 export type CarouselProps = {
   columns: number | number[];
@@ -14,9 +14,7 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
   const refs = useRef<HTMLDivElement[]>([]);
   const [index, setIndex] = useState(0);
 
-  const colCount = Array.isArray(columns)
-    ? useBreakpointValue(columns)
-    : columns;
+  const colCount = useBreakpointValue(Array.isArray(columns) ? columns : [columns]);
 
   const leftOffset = useMemo(() => {
     return -1 + (refs.current?.[index]?.offsetLeft ?? 0);
