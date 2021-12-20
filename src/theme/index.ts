@@ -21,6 +21,24 @@ export const getTheme = (colorMode: ColorMode): Dict =>
         "&::-webkit-calendar-picker-indicator": {
           filter: colorMode == "light" ? undefined : "invert(1)",
         },
+        "::-webkit-scrollbar": {
+          w: "3",
+          h: "3",
+        },
+
+        "::-webkit-scrollbar-track": {
+          borderRadius: "full",
+          background: "var(--miki-colors-ui-5)",
+        },
+
+        "::-webkit-scrollbar-thumb": {
+          borderRadius: "full",
+          background: "var(--miki-colors-ui-10)",
+        },
+
+        "::-webkit-scrollbar-thumb:hover": {
+          background: "var(--miki-colors-ui-10)",
+        },
       },
     },
     fonts: {
