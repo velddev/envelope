@@ -14,14 +14,19 @@ import { getTheme } from "../..";
 
 type Props = {
   themeFactory?: (colorMode: "light" | "dark") => Partial<Dict>;
+  initialColorMode?: "light" | "dark";
 };
 
-export const ThemeProvider = ({ children, themeFactory }: PropsWithChildren<Props>) => {
+export const ThemeProvider = ({
+  initialColorMode,
+  children,
+  themeFactory,
+}: PropsWithChildren<Props>) => {
   return (
     <IdProvider>
       <ColorModeProvider
         options={{
-          initialColorMode: "light",
+          initialColorMode: initialColorMode || "light",
         }}
       >
         <InnerProvider themeFactory={themeFactory}>{children}</InnerProvider>

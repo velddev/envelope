@@ -83,7 +83,6 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
     field: {
       border: "1px solid",
       borderColor: "inherit",
-      bg: "inherit",
       _hover: {
         borderColor: mode("gray.300", "whiteAlpha.400")(props),
       },
@@ -116,11 +115,11 @@ const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
 
   return {
     field: {
-      border: "2px solid",
-      borderColor: "transparent",
-      bg: mode("gray.100", "whiteAlpha.50")(props),
+      border: "1x solid",
+      borderColor: "ui.5",
+      bg: "ui.5",
       _hover: {
-        bg: mode("gray.200", "whiteAlpha.100")(props),
+        bg: "ui.10",
       },
       _readOnly: {
         boxShadow: "none !important",
@@ -131,7 +130,7 @@ const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
         cursor: "not-allowed",
       },
       _invalid: {
-        borderColor: getColor(theme, ec),
+        borderColor: "system.danger",
       },
       _focus: {
         bg: "transparent",
