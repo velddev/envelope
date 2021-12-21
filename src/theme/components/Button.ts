@@ -3,9 +3,15 @@ const primaryVariant = {
   color: "black",
   _hover: {
     bg: "accent.80",
+    _disabled: {
+      bg: "accent.20",
+    },
   },
   _active: {
     bg: "accent.60",
+  },
+  _disabled: {
+    bg: "accent.40",
   },
 };
 
