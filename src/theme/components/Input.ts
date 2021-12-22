@@ -95,7 +95,7 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
         cursor: "not-allowed",
       },
       _invalid: {
-        borderColor: "system.danger",
+        borderColor: "system.danger.100",
       },
       _focus: {
         zIndex: 1,
@@ -130,7 +130,7 @@ const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
         cursor: "not-allowed",
       },
       _invalid: {
-        borderColor: "system.danger",
+        borderColor: "system.danger.100",
       },
       _focus: {
         bg: "transparent",
