@@ -4,6 +4,7 @@ import Heading from "./Heading";
 import Input from "./Input";
 import Modal from "./Modal";
 import Switch from "./Switch";
+import Tabs from "./Tabs";
 import Text from "./Text";
 
 export default {
@@ -13,5 +14,6 @@ export default {
   Input,
   Modal,
   Switch,
+  Tabs,
   Text,
 };
