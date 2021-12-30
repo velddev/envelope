@@ -1,9 +1,9 @@
 import { ColorMode, extendTheme } from "@chakra-ui/react";
+import { Dict } from "@chakra-ui/utils";
 
 import breakpoints from "./breakpoints";
 import components from "./components";
 import { colors } from "./colors";
-import { Dict } from "@chakra-ui/utils";
 
 export const getTheme = (colorMode: ColorMode): Dict => {
   return extendTheme({
