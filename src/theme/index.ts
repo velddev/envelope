@@ -5,8 +5,8 @@ import components from "./components";
 import { colors } from "./colors";
 import { Dict } from "@chakra-ui/utils";
 
-export const getTheme = (colorMode: ColorMode): Dict =>
-  extendTheme({
+export const getTheme = (colorMode: ColorMode): Dict => {
+  return extendTheme({
     breakpoints,
     colors: colors(colorMode),
     components,
@@ -16,7 +16,7 @@ export const getTheme = (colorMode: ColorMode): Dict =>
     styles: {
       global: {
         body: {
-          bg: colorMode === "light" ? "white" : "#141520",
+          bg: "bg",
         },
         "&::-webkit-calendar-picker-indicator": {
           filter: colorMode == "light" ? undefined : "invert(1)",
@@ -27,17 +27,16 @@ export const getTheme = (colorMode: ColorMode): Dict =>
         },
 
         "::-webkit-scrollbar-track": {
-          borderRadius: "full",
-          background: "var(--miki-colors-ui-5)",
+          bg: "bg",
         },
 
         "::-webkit-scrollbar-thumb": {
           borderRadius: "full",
-          background: "var(--miki-colors-ui-10)",
+          bg: "ui.10",
         },
 
         "::-webkit-scrollbar-thumb:hover": {
-          background: "var(--miki-colors-ui-10)",
+          bg: "ui.10",
         },
       },
     },
@@ -89,3 +88,4 @@ export const getTheme = (colorMode: ColorMode): Dict =>
       },
     },
   });
+};
