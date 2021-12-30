@@ -6,8 +6,7 @@ import type {
   SystemStyleObject,
 } from "@chakra-ui/theme-tools";
 import { mergeWith } from "@chakra-ui/utils";
-import { mode } from "@chakra-ui/theme-tools";
-import Input from "./input";
+import Input from "./Input";
 
 const baseStyleField: SystemStyleFunction = (props) => {
   return {
