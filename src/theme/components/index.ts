@@ -3,6 +3,7 @@ import Container from "./Container";
 import Heading from "./Heading";
 import Input from "./Input";
 import Kbd from "./Kbd";
+import Menu from "./Menu";
 import Modal from "./Modal";
 import Select from "./Select";
 import Switch from "./Switch";
@@ -15,6 +16,7 @@ export default {
   Heading,
   Input,
   Kbd,
+  Menu,
   Modal,
   Select,
   Switch,

@@ -43,6 +43,7 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
             <SimpleGrid
               templateColumns={`repeat(${children.length}, ${90 / colCount}%)`}
               spacing="8"
+              maxW="95vw"
             >
               {children.map((x, i) => (
                 <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">

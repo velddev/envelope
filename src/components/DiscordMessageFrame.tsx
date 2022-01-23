@@ -19,5 +19,5 @@ export const DiscordMessageFrame = forwardRef(
         shadow="lg"
       />
     );
-  }
+  },
 );

@@ -6,7 +6,7 @@ import components from "./components";
 import { colors } from "./colors";
 
 export const getTheme = (colorMode: ColorMode): Dict => {
-  return extendTheme({
+  return {
     breakpoints,
     colors: colors(colorMode),
     components,
@@ -86,6 +86,14 @@ export const getTheme = (colorMode: ColorMode): Dict => {
           fontWeight: "semibold",
         },
       },
+      display: {
+        md: {
+          fontFamily: "heading",
+          fontSize: "58px",
+          fontWeight: "black",
+          lineHeight: "48px",
+        },
+      },
     },
-  });
+  };
 };
