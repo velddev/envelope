@@ -1,4 +1,4 @@
-import { ColorMode, extendTheme } from "@chakra-ui/react";
+import { ColorMode } from "@chakra-ui/react";
 import { Dict } from "@chakra-ui/utils";
 
 import breakpoints from "./breakpoints";

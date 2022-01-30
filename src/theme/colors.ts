@@ -10,7 +10,6 @@ const transparentize = (color: string, opacity: number) => {
 
 const getGrayColor = (colorMode: ColorMode, opacity: number) => {
   const color = colorMode === "dark" ? "255,255,255" : "0,0,0";
-
   return transparentize(color, opacity);
 };
 
@@ -70,5 +69,5 @@ export const colors = (colorMode: ColorMode) => ({
     },
   },
   bg: colorMode === "light" ? "#fff" : "#141520",
-  bg2: colorMode === "light" ? "#e6e8eb" : "#323452",
+  bg2: colorMode === "light" ? "#F2F2F2" : "#20212B",
 });
