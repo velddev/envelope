@@ -8,7 +8,6 @@ import { Fab } from "./Fab";
 import { Markdown } from "./Markdown";
 import { MotionBox } from "./MotionBox";
 import { Stepper } from "./Stepper";
-import { ThemeProvider } from "./ThemeProvider";
 
 export {
   CardBox,
@@ -21,5 +20,4 @@ export {
   Markdown,
   MotionBox,
   Stepper,
-  ThemeProvider,
 };

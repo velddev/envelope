@@ -1,25 +1,65 @@
-import { ColorMode } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
 import { Dict } from "@chakra-ui/utils";
 
 import breakpoints from "./breakpoints";
 import components from "./components";
 import { colors } from "./colors";
 
-export const getTheme = (colorMode: ColorMode): Dict => {
+export const getTheme = (): Dict => {
   return {
     breakpoints,
-    colors: colors(colorMode),
+    semanticTokens: {
+      colors: {
+        "ui.5": {
+          default: "uiLight.5",
+          _dark: "uiDark.5",
+        },
+        "ui.10": {
+          default: "uiLight.10",
+          _dark: "uiDark.10",
+        },
+        "ui.20": {
+          default: "uiLight.20",
+          _dark: "uiDark.20",
+        },
+        "ui.40": {
+          default: "uiLight.40",
+          _dark: "uiDark.40",
+        },
+        "ui.60": {
+          default: "uiLight.60",
+          _dark: "uiDark.60",
+        },
+        "ui.80": {
+          default: "uiLight.80",
+          _dark: "uiDark.80",
+        },
+        "ui.100": {
+          default: "uiLight.100",
+          _dark: "uiDark.100",
+        },
+        bg: {
+          default: "bgLight",
+          _dark: "bgDark",
+        },
+        bg2: {
+          default: "bgLight2",
+          _dark: "bgDark2",
+        },
+      },
+    },
+    colors,
     components,
     config: {
       cssVarPrefix: "miki",
     },
     styles: {
-      global: {
+      global: (props) => ({
         body: {
           bg: "bg",
         },
         "&::-webkit-calendar-picker-indicator": {
-          filter: colorMode == "light" ? undefined : "invert(1)",
+          filter: mode(undefined, "invert(1)")(props),
         },
         "::-webkit-scrollbar": {
           w: "3",
@@ -38,7 +78,7 @@ export const getTheme = (colorMode: ColorMode): Dict => {
         "::-webkit-scrollbar-thumb:hover": {
           bg: "ui.10",
         },
-      },
+      }),
     },
     fonts: {
       heading: "Poppins",

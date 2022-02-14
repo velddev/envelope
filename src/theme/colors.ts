@@ -13,7 +13,7 @@ const getGrayColor = (colorMode: ColorMode, opacity: number) => {
   return transparentize(color, opacity);
 };
 
-export const colors = (colorMode: ColorMode) => ({
+export const colors = {
   accent: {
     20: "rgba(46, 167, 230, 0.2)",
     40: "rgba(46, 167, 230, 0.4)",
@@ -21,14 +21,23 @@ export const colors = (colorMode: ColorMode) => ({
     80: "rgba(46, 167, 230, 0.8)",
     100: "rgba(46, 167, 230, 1.0)",
   },
-  ui: {
-    5: getGrayColor(colorMode, 0.05),
-    10: getGrayColor(colorMode, 0.1),
-    20: getGrayColor(colorMode, 0.2),
-    40: getGrayColor(colorMode, 0.4),
-    60: getGrayColor(colorMode, 0.6),
-    80: getGrayColor(colorMode, 0.8),
-    100: getGrayColor(colorMode, 1.0),
+  uiLight: {
+    5: getGrayColor("light", 0.05),
+    10: getGrayColor("light", 0.1),
+    20: getGrayColor("light", 0.2),
+    40: getGrayColor("light", 0.4),
+    60: getGrayColor("light", 0.6),
+    80: getGrayColor("light", 0.8),
+    100: getGrayColor("light", 1.0),
+  },
+  uiDark: {
+    5: getGrayColor("dark", 0.05),
+    10: getGrayColor("dark", 0.1),
+    20: getGrayColor("dark", 0.2),
+    40: getGrayColor("dark", 0.4),
+    60: getGrayColor("dark", 0.6),
+    80: getGrayColor("dark", 0.8),
+    100: getGrayColor("dark", 1.0),
   },
   system: {
     danger: {
@@ -68,6 +77,8 @@ export const colors = (colorMode: ColorMode) => ({
       5: transparentize("255, 207, 83", 0.05),
     },
   },
-  bg: colorMode === "light" ? "#fff" : "#141520",
-  bg2: colorMode === "light" ? "#F2F2F2" : "#20212B",
-});
+  bgLight: "#fff",
+  bgDark: "#141520",
+  bg2Light: "#F2F2F2",
+  bg2Dark: "#20212B",
+};

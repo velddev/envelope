@@ -1,5 +1,6 @@
 import React from "react";
-import { Avatar, HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Text, VStack } from "@chakra-ui/layout";
+import { Avatar } from "@chakra-ui/avatar";
 import { DiscordBadge } from "./DiscordBadge";
 
 type Props = {
