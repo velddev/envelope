@@ -22,12 +22,12 @@ export const colors = {
     100: "rgba(46, 167, 230, 1.0)",
   },
   uiLight: {
-    5: getGrayColor("light", 0.05),
-    10: getGrayColor("light", 0.1),
-    20: getGrayColor("light", 0.2),
-    40: getGrayColor("light", 0.4),
-    60: getGrayColor("light", 0.6),
-    80: getGrayColor("light", 0.8),
+    5: getGrayColor("light", 0.1),
+    10: getGrayColor("light", 0.2),
+    20: getGrayColor("light", 0.4),
+    40: getGrayColor("light", 0.6),
+    60: getGrayColor("light", 0.8),
+    80: getGrayColor("light", 0.9),
     100: getGrayColor("light", 1.0),
   },
   uiDark: {
@@ -67,7 +67,16 @@ export const colors = {
       10: transparentize("#33E03A", 0.1),
       5: transparentize("#33E03A", 0.05),
     },
-    warning: {
+    warningLight: {
+      100: transparentize("217, 111, 0", 1.0),
+      80: transparentize("217, 111, 0", 0.9),
+      60: transparentize("217, 111, 0", 0.8),
+      40: transparentize("217, 111, 0", 0.6),
+      20: transparentize("217, 111, 0", 0.4),
+      10: transparentize("217, 111, 0", 0.2),
+      5: transparentize("217, 111, 0", 0.1),
+    },
+    warningDark: {
       100: transparentize("255, 207, 83", 1.0),
       80: transparentize("255, 207, 83", 0.8),
       60: transparentize("255, 207, 83", 0.6),

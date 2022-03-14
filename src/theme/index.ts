@@ -38,6 +38,34 @@ export const getTheme = (): Dict => {
           default: "uiLight.100",
           _dark: "uiDark.100",
         },
+        "system.warning.5": {
+          default: "system.warningLight.5",
+          _dark: "system.warningDark.5",
+        },
+        "system.warning.10": {
+          default: "system.warningLight.10",
+          _dark: "system.warningDark.10",
+        },
+        "system.warning.20": {
+          default: "system.warningLight.20",
+          _dark: "system.warningDark.20",
+        },
+        "system.warning.40": {
+          default: "system.warningLight.40",
+          _dark: "system.warningDark.40",
+        },
+        "system.warning.60": {
+          default: "system.warningLight.60",
+          _dark: "system.warningDark.60",
+        },
+        "system.warning.80": {
+          default: "system.warningLight.80",
+          _dark: "system.warningDark.80",
+        },
+        "system.warning.100": {
+          default: "system.warningLight.100",
+          _dark: "system.warningDark.100",
+        },
         bg: {
           default: "bgLight",
           _dark: "bgDark",
