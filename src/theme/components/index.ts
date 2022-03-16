@@ -9,6 +9,8 @@ import Select from "./Select";
 import Switch from "./Switch";
 import Tabs from "./Tabs";
 import Text from "./Text";
+import Textarea from "./Textarea";
+import Tooltip from "./Tooltip";
 
 export default {
   Button,
@@ -22,4 +24,6 @@ export default {
   Switch,
   Tabs,
   Text,
+  Textarea,
+  Tooltip,
 };

@@ -82,9 +82,9 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
   return {
     field: {
       border: "1px solid",
-      borderColor: "inherit",
+      borderColor: "ui.20",
       _hover: {
-        borderColor: mode("gray.300", "whiteAlpha.400")(props),
+        borderColor: "ui.40",
       },
       _readOnly: {
         boxShadow: "none !important",
@@ -99,12 +99,12 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
       },
       _focus: {
         zIndex: 1,
-        borderColor: "ui.40",
+        borderColor: "ui.80",
       },
     },
     addon: {
       border: "1px solid",
-      borderColor: mode("inherit", "whiteAlpha.50")(props),
+      borderColor: "ui.20",
     },
   };
 };
