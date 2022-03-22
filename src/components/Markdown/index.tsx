@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/layout";
+import { useTheme } from "@chakra-ui/react";
 import { css } from "@emotion/react";
 import React from "react";
 
@@ -7,6 +8,9 @@ export type MarkdownProps = {
 };
 
 export const Markdown = ({ content }: MarkdownProps) => {
+  const theme = useTheme();
+  console.log({ theme });
+
   const markdownCss = css`
     table {
       width: 100%;
@@ -17,12 +21,13 @@ export const Markdown = ({ content }: MarkdownProps) => {
     tr,
     td,
     th {
+      text-align: left;
       padding: 0.25em;
-      border: 1px solid var(--miki-colors-ui-20);
+      border: 1px solid var(--${theme.config.cssVarPrefix}-colors-ui-20);
     }
 
     img {
-      border-radius: var(--miki-radii-md);
+      border-radius: var(--${theme.config.cssVarPrefix}-radii-md);
     }
 
     li {
@@ -50,7 +55,7 @@ export const Markdown = ({ content }: MarkdownProps) => {
 
     a {
       text-decoration: underline;
-      color: var(--miki-colors-accent);
+      color: var(--${theme.config.cssVarPrefix}-colors-accent);
     }
 
     p {
@@ -59,10 +64,10 @@ export const Markdown = ({ content }: MarkdownProps) => {
 
     pre {
       margin: 0.5em 0;
-      background-color: var(--miki-colors-ui-5);
+      background-color: var(--${theme.config.cssVarPrefix}-colors-ui-5);
       padding: 0.25em 0.5em;
-      border-radius: var(--miki-radii-sm);
-      border: 1px solid var(--miki-colors-ui-10);
+      border-radius: var(--${theme.config.cssVarPrefix}-radii-sm);
+      border: 1px solid var(--${theme.config.cssVarPrefix}-colors-ui-10);
       white-space: pre-wrap;
       overflow-wrap: break-word;
       overflow-x: auto;
@@ -74,6 +79,6 @@ export const Markdown = ({ content }: MarkdownProps) => {
   `;
 
   return (
-    <Box css={markdownCss} dangerouslySetInnerHTML={{ __html: content }} />
+    <Box css={markdownCss} wordBreak="break-word" dangerouslySetInnerHTML={{ __html: content }} />
   );
 };
