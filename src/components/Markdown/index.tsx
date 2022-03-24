@@ -9,7 +9,6 @@ export type MarkdownProps = {
 
 export const Markdown = ({ content }: MarkdownProps) => {
   const theme = useTheme();
-  console.log({ theme });
 
   const markdownCss = css`
     table {
