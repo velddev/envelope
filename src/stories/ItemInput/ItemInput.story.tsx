@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createMeta, MetaType } from "../../utils/storybook";
 import { ItemInput } from "../../components";
 import { Item } from "../../components/ItemInput";
@@ -11,7 +11,16 @@ export default createMeta({
 });
 
 export const _ItemInput = () => {
+  const [query, setQuery] = useState("");
   const [items, setItems] = React.useState<Item[]>([]);
 
-  return <ItemInput items={items} onChangeItems={setItems} onItemCreate={(v) => ({ value: v })} />;
+  return (
+    <ItemInput
+      items={items}
+      onChangeItems={setItems}
+      onItemCreate={(v) => ({ value: v })}
+      textValue={query}
+      onChangeText={setQuery}
+    />
+  );
 };
