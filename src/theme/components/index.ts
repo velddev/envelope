@@ -6,6 +6,7 @@ import Kbd from "./Kbd";
 import Menu from "./Menu";
 import Modal from "./Modal";
 import Select from "./Select";
+import Skeleton from "./Skeleton";
 import Switch from "./Switch";
 import Tabs from "./Tabs";
 import Text from "./Text";
@@ -21,6 +22,7 @@ export default {
   Menu,
   Modal,
   Select,
+  Skeleton,
   Switch,
   Tabs,
   Text,

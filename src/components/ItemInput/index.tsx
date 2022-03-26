@@ -1,48 +1,54 @@
 import { Input, Wrap, Tag, InputProps, useStyleConfig } from "@chakra-ui/react";
 import uniqueId from "lodash/uniqueId";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export interface BaseItem {
+export type Item<T = unknown> = T & BaseItem;
+
+export type BaseItem = {
   key: string;
   value: string;
-  data?: Record<string, string>;
-}
-
-export type ItemInputProps = InputProps & {
-  onItemCreate?: (value: string) => BaseItem;
-  onChangeItems?: (items: BaseItem[]) => void;
 };
 
-export function ItemInput({ onItemCreate, onChangeItems, ...props }: ItemInputProps) {
-  const [input, setInput] = useState("");
+export type ItemInputProps<T> = InputProps & {
+  onItemCreate: (value: string) => Omit<Item<T>, "key">;
+
+  renderItem?: (item: Item<T>) => React.ReactNode;
+  onChangeItems?: (items: Item<T>[]) => void;
+  items?: Item<T>[];
+  onChangeText: (value: string) => void;
+  textValue: string;
+};
+
+function defaultTag<T>(item: Item<T>) {
+  return <Tag key={item.key}>{item.value}</Tag>;
+}
+
+export function ItemInput<T>({
+  renderItem = defaultTag,
+  onItemCreate,
+  onChangeItems,
+  onChangeText,
+  items,
+  textValue,
+  ...props
+}: ItemInputProps<T>) {
+  const inputRef = useRef<HTMLInputElement>(null);
   const styles = useStyleConfig("Input", undefined, {
     isMultiPart: true,
   });
 
-  const [items, setItems] = React.useState<BaseItem[]>([]);
-  const inputRef = React.useRef<HTMLInputElement>(null);
-
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      setItems([
-        ...items,
-        onItemCreate
-          ? onItemCreate(e.currentTarget.value)
-          : { key: uniqueId(), value: e.currentTarget.value },
-      ]);
-
-      setInput("");
+      const newItem = { key: uniqueId(), ...onItemCreate(textValue) } as Item<T>;
+      onChangeItems?.([...(items ?? []), newItem]);
+      onChangeText("");
       return;
     }
 
-    if (e.key === "Backspace" && !input) {
-      setItems(items.slice(0, items.length - 1));
+    if (e.key === "Backspace" && !textValue) {
+      onChangeItems(items.slice(0, items.length - 1));
     }
   };
-
-  useEffect(() => {
-    onChangeItems?.(items);
-  }, [items]);
 
   return (
     <Wrap
@@ -54,17 +60,15 @@ export function ItemInput({ onItemCreate, onChangeItems, ...props }: ItemInputPr
       py="2"
       px="4"
     >
-      {items.map((item) => (
-        <Tag key={item.key}>{item.value}</Tag>
-      ))}
+      {items?.map(renderItem)}
       <Input
-        {...props}
         flex={1}
-        ref={inputRef}
-        value={input}
         variant="unstyled"
-        onChange={(e) => setInput(e.target.value)}
-        onKeyUp={handleInput}
+        onKeyDown={handleInput}
+        {...props}
+        ref={inputRef}
+        value={textValue}
+        onChange={(e) => onChangeText?.(e.target.value)}
       />
     </Wrap>
   );
