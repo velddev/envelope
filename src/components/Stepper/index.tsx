@@ -1,4 +1,5 @@
-import { Box, HStack, IconButton } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/layout";
+import { IconButton } from "@chakra-ui/button";
 import React, { useMemo } from "react";
 import { CaretLeftIcon, CaretRightIcon } from "../../icons";
 
@@ -21,10 +22,7 @@ export const Stepper = ({
   pageCount,
   hideControls,
 }: Props) => {
-  const pageArray = useMemo(
-    () => Array.from("0".repeat(pageCount)),
-    [pageCount]
-  );
+  const pageArray = useMemo(() => Array.from("0".repeat(pageCount)), [pageCount]);
 
   const handleIndexChange = (newIndex: number) => {
     onIndexChange?.(newIndex);
@@ -58,7 +56,7 @@ export const Stepper = ({
               transform={`scale(${i === index ? 1.25 : 1.0})`}
               bg={index == i ? "ui.40" : "ui.10"}
             />
-          )
+          ),
         )}
       </HStack>
       {!hideControls && (

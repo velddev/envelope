@@ -1,4 +1,4 @@
-import type { ColorMode } from "@chakra-ui/react";
+import type { ColorMode } from "@chakra-ui/color-mode";
 
 const transparentize = (color: string, opacity: number) => {
   if (opacity >= 1) {

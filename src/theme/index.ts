@@ -5,6 +5,8 @@ import breakpoints from "./breakpoints";
 import components from "./components";
 import { colors } from "./colors";
 
+export { extendTheme } from "./utils";
+
 export const getTheme = (): Dict => {
   return {
     breakpoints,

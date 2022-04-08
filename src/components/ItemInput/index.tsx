@@ -1,4 +1,7 @@
-import { Input, Wrap, Tag, InputProps, useStyleConfig } from "@chakra-ui/react";
+import { Wrap } from "@chakra-ui/layout";
+import { useStyleConfig } from "@chakra-ui/system";
+import { Input, InputProps } from "@chakra-ui/input";
+import { Tag } from "@chakra-ui/tag";
 import uniqueId from "lodash/uniqueId";
 import React, { useEffect, useRef, useState } from "react";
 

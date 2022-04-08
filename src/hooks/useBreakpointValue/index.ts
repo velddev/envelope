@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useBreakpointValue as useChakraBreakpointValue } from "@chakra-ui/react";
+import { useBreakpointValue as useChakraBreakpointValue } from "@chakra-ui/media-query";
 
 type Values<T> = (Record<string, T> | T[]) & {
   base: any;

@@ -1,5 +1,6 @@
 import React, { ForwardedRef, forwardRef } from "react";
-import { StackProps, useColorModeValue, VStack } from "@chakra-ui/react";
+import { StackProps, VStack } from "@chakra-ui/layout";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 
 export const DiscordMessageFrame = forwardRef(
   (props: StackProps, ref: ForwardedRef<HTMLDivElement>) => {
@@ -21,3 +22,5 @@ export const DiscordMessageFrame = forwardRef(
     );
   },
 );
+
+DiscordMessageFrame.displayName = "DiscordMessageFrame";
