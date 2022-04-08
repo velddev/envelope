@@ -1,17 +1,34 @@
+const dangerVariant = {
+  bg: "system.danger.100",
+  color: "black",
+  _hover: {
+    bg: "system.danger.80",
+    _disabled: {
+      bg: "system.danger.80",
+    },
+  },
+  _active: {
+    bg: "system.danger.60",
+  },
+  _disabled: {
+    bg: "system.danger.60",
+  },
+};
+
 const primaryVariant = {
   bg: "accent.100",
   color: "black",
   _hover: {
     bg: "accent.80",
     _disabled: {
-      bg: "accent.20",
+      bg: "accent.80",
     },
   },
   _active: {
     bg: "accent.60",
   },
   _disabled: {
-    bg: "accent.40",
+    bg: "accent.60",
   },
 };
 
@@ -40,5 +57,6 @@ export default {
     ghost: ghostVariant,
     solid: solidVariant,
     primary: primaryVariant,
+    danger: dangerVariant,
   },
 };
