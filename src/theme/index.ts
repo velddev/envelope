@@ -40,6 +40,34 @@ export const getTheme = (): Dict => {
           default: "uiLight.100",
           _dark: "uiDark.100",
         },
+        "uix.5": {
+          default: "uiDark.5",
+          _dark: "uiLight.5",
+        },
+        "uix.10": {
+          default: "uiDark.10",
+          _dark: "uiLight.10",
+        },
+        "uix.20": {
+          default: "uiDark.20",
+          _dark: "uiLight.20",
+        },
+        "uix.40": {
+          default: "uiDark.40",
+          _dark: "uiLight.40",
+        },
+        "uix.60": {
+          default: "uiDark.60",
+          _dark: "uiLight.60",
+        },
+        "uix.80": {
+          default: "uiDark.80",
+          _dark: "uiLight.80",
+        },
+        "uix.100": {
+          default: "uiDark.100",
+          _dark: "uiLight.100",
+        },
         "system.warning.5": {
           default: "system.warningLight.5",
           _dark: "system.warningDark.5",
