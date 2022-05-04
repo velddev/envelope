@@ -97,8 +97,36 @@ export const getTheme = (): Dict => {
           _dark: "system.warningDark.100",
         },
         bg: {
-          default: "bgLight",
-          _dark: "bgDark",
+          default: "bgLight.100",
+          _dark: "bgDark.100",
+        },
+        "bg.5": {
+          default: "bgLight.5",
+          _dark: "bgDark.5",
+        },
+        "bg.10": {
+          default: "bgLight.10",
+          _dark: "bgDark.10",
+        },
+        "bg.20": {
+          default: "bgLight.20",
+          _dark: "bgDark.20",
+        },
+        "bg.40": {
+          default: "bgLight.40",
+          _dark: "bgDark.40",
+        },
+        "bg.60": {
+          default: "bgLight.60",
+          _dark: "bgDark.60",
+        },
+        "bg.80": {
+          default: "bgLight.80",
+          _dark: "bgDark.80",
+        },
+        "bg.100": {
+          default: "bgLight.100",
+          _dark: "bgDark.100",
         },
         bg2: {
           default: "bgLight2",
