@@ -15,7 +15,7 @@ export type BaseItem = {
 export type ItemInputProps<T> = InputProps & {
   onItemCreate: (value: string) => Omit<Item<T>, "key">;
 
-  renderItem?: (item: Item<T>) => React.ReactNode;
+  renderItem?: (item: Item<T>, index: number) => React.ReactNode;
   onChangeItems?: (items: Item<T>[]) => void;
   items?: Item<T>[];
   onChangeText: (value: string) => void;
