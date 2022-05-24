@@ -1,16 +1,9 @@
-import type { ColorMode } from "@chakra-ui/color-mode";
-
 const transparentize = (color: string, opacity: number) => {
   if (opacity >= 1) {
     return `rgb(${color})`;
   }
 
   return `rgba(${color}, ${opacity})`;
-};
-
-const getGrayColor = (colorMode: ColorMode, opacity: number) => {
-  const color = colorMode === "dark" ? "255,255,255" : "0,0,0";
-  return transparentize(color, opacity);
 };
 
 export const colors = {
@@ -22,22 +15,22 @@ export const colors = {
     100: "rgba(46, 167, 230, 1.0)",
   },
   uiLight: {
-    5: getGrayColor("light", 0.1),
-    10: getGrayColor("light", 0.2),
-    20: getGrayColor("light", 0.4),
-    40: getGrayColor("light", 0.6),
-    60: getGrayColor("light", 0.8),
-    80: getGrayColor("light", 0.9),
-    100: getGrayColor("light", 1.0),
+    5: transparentize("0,0,0", 0.1),
+    10: transparentize("0,0,0", 0.2),
+    20: transparentize("0,0,0", 0.4),
+    40: transparentize("0,0,0", 0.6),
+    60: transparentize("0,0,0", 0.8),
+    80: transparentize("0,0,0", 0.9),
+    100: transparentize("0,0,0", 1.0),
   },
   uiDark: {
-    5: getGrayColor("dark", 0.05),
-    10: getGrayColor("dark", 0.1),
-    20: getGrayColor("dark", 0.2),
-    40: getGrayColor("dark", 0.4),
-    60: getGrayColor("dark", 0.6),
-    80: getGrayColor("dark", 0.8),
-    100: getGrayColor("dark", 1.0),
+    5: transparentize("255,255,255", 0.05),
+    10: transparentize("255,255,255", 0.1),
+    20: transparentize("255,255,255", 0.2),
+    40: transparentize("255,255,255", 0.4),
+    60: transparentize("255,255,255", 0.6),
+    80: transparentize("255,255,255", 0.8),
+    100: transparentize("255,255,255", 1.0),
   },
   system: {
     danger: {
