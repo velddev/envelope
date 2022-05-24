@@ -1,9 +1,10 @@
 import { Wrap } from "@chakra-ui/layout";
-import { useStyleConfig } from "@chakra-ui/system";
+import { useMultiStyleConfig } from "@chakra-ui/system";
 import { Input, InputProps } from "@chakra-ui/input";
 import { Tag } from "@chakra-ui/tag";
 import uniqueId from "lodash/uniqueId";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
+import { CSSObject } from "@emotion/react";
 
 export type Item<T = unknown> = T & BaseItem;
 
@@ -36,9 +37,7 @@ export function ItemInput<T>({
   ...props
 }: ItemInputProps<T>) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const styles = useStyleConfig("Input", undefined, {
-    isMultiPart: true,
-  });
+  const styles = useMultiStyleConfig("Input") as Record<string, CSSObject>;
 
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {

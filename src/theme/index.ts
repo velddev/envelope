@@ -4,6 +4,8 @@ import { Dict } from "@chakra-ui/utils";
 import breakpoints from "./breakpoints";
 import components from "./components";
 import { colors } from "./colors";
+import sizes from "./foundations/sizes";
+import { spacing } from "./foundations/spacing";
 
 export { extendTheme } from "./utils";
 
@@ -139,6 +141,8 @@ export const getTheme = (): Dict => {
     config: {
       cssVarPrefix: "miki",
     },
+    sizes,
+    space: spacing,
     styles: {
       global: (props) => ({
         body: {

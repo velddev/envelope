@@ -19,7 +19,7 @@ type Values<T> = (Record<string, T> | T[]) & {
  *
  * @param values Values as accepted in `useBreakpointValue`.
  */
-export const useBreakpointValue = <T = any>(values: Values<T>): T | undefined => {
+const customUseBreakpointValue = <T = any>(values: Values<T>): T | undefined => {
   const firstRender = useRef(true);
   const [, setTick] = useState(0);
 
@@ -43,3 +43,5 @@ export const useBreakpointValue = <T = any>(values: Values<T>): T | undefined =>
 
   return result;
 };
+
+export const useBreakpointValue = useChakraBreakpointValue;

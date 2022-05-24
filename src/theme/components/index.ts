@@ -1,3 +1,4 @@
+import Avatar from "./Avatar";
 import Button from "./Button";
 import Container from "./Container";
 import Heading from "./Heading";
@@ -14,6 +15,7 @@ import Textarea from "./Textarea";
 import Tooltip from "./Tooltip";
 
 export default {
+  Avatar,
   Button,
   Container,
   Heading,
