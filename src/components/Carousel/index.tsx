@@ -53,8 +53,6 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
   const { refs, index, setIndex, offset } = useCarousel();
   const colCount = useBreakpointValue(Array.isArray(columns) ? columns : [columns]);
 
-  console.log({ index, offset, colCount });
-
   return (
     <VStack spacing="0" w="full" overflow="hidden">
       <Box position="relative" w="full">
