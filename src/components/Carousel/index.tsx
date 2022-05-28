@@ -7,7 +7,7 @@ import { Transition } from "../MotionBox/transitions";
 import { useCarousel } from "./hooks/useCarousel";
 
 export type CarouselProps = {
-  columns: number | number[];
+  columns: number | (number | null)[];
   children: React.ReactNode[];
 };
 

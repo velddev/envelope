@@ -148,9 +148,6 @@ export const getTheme = (): Dict => {
         body: {
           bg: "bg",
         },
-        "&::-webkit-calendar-picker-indicator": {
-          filter: mode(undefined, "invert(1)")(props),
-        },
         "::-webkit-scrollbar": {
           w: "3",
           h: "3",
