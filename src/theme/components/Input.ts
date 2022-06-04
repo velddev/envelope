@@ -83,23 +83,26 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
     field: {
       border: "1px solid",
       borderColor: "ui.20",
-      _hover: {
-        borderColor: "ui.40",
-      },
-      _readOnly: {
-        boxShadow: "none !important",
-        userSelect: "all",
-      },
       _disabled: {
         opacity: 0.4,
         cursor: "not-allowed",
       },
-      _invalid: {
-        borderColor: "system.danger.100",
-      },
       _focus: {
         zIndex: 1,
         borderColor: "ui.80",
+      },
+      _hover: {
+        borderColor: "ui.40",
+      },
+      _invalid: {
+        borderColor: "system.danger.100",
+      },
+      _placeholder: {
+        color: "ui.40",
+      },
+      _readOnly: {
+        boxShadow: "none !important",
+        userSelect: "all",
       },
     },
     addon: {

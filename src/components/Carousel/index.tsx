@@ -73,6 +73,9 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
             _hover: {
               bg: "bg2",
             },
+            _disabled: {
+              opacity: 0,
+            },
           }}
         />
         <Box overflowX="hidden" w="full">

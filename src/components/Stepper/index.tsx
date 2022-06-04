@@ -42,7 +42,9 @@ export const StepperControls = ({
             onPrevious?.();
           }
         }}
+        isDisabled={index === 0}
         pointerEvents="auto"
+        transition="all 0.2s"
         {...(props.buttonProps ?? {})}
       />
       {children}
@@ -56,7 +58,9 @@ export const StepperControls = ({
             onNext?.();
           }
         }}
+        isDisabled={index >= pageCount - 1}
         pointerEvents="auto"
+        transition="all 0.2s"
         {...(props.buttonProps ?? {})}
       />
     </Flex>
