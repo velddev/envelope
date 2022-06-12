@@ -7,6 +7,7 @@ import { ItemInput } from "./ItemInput";
 import { Fab } from "./Fab";
 import { Markdown } from "./Markdown";
 import { MotionBox } from "./MotionBox";
+import { RatingInput } from "./RatingInput";
 import { Stepper } from "./Stepper";
 
 export {
@@ -19,5 +20,6 @@ export {
   ItemInput,
   Markdown,
   MotionBox,
+  RatingInput,
   Stepper,
 };

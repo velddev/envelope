@@ -1,5 +1,5 @@
 import { avatarAnatomy as parts } from "@chakra-ui/anatomy";
-import { isDark, mode, randomColor } from "@chakra-ui/theme-tools";
+import { isDark, mode, randomColor, SystemStyleObject } from "@chakra-ui/theme-tools";
 import type {
   PartsStyleFunction,
   PartsStyleObject,
@@ -12,7 +12,7 @@ const baseStyleBadge: SystemStyleFunction = (props) => {
     transform: "translate(25%, 25%)",
     borderRadius: "full",
     border: "0.2em solid",
-    borderColor: mode("white", "gray.800")(props),
+    borderColor: "bg.100",
   };
 };
 
@@ -22,19 +22,17 @@ const baseStyleExcessLabel: SystemStyleFunction = (props) => {
   };
 };
 
-const baseStyleContainer: SystemStyleFunction = (props) => {
-  return {
-    bg: "ui.5",
-    color: "ui.100",
-    borderColor: "ui.100",
-    verticalAlign: "top",
-  };
+const baseStyleContainer: SystemStyleObject = {
+  bg: "ui.5",
+  color: "ui.100",
+  borderColor: "bg.100",
+  verticalAlign: "top",
 };
 
 const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
   badge: baseStyleBadge(props),
   excessLabel: baseStyleExcessLabel(props),
-  container: baseStyleContainer(props),
+  container: baseStyleContainer,
 });
 
 function getSize(size: keyof typeof themeSizes | "100%"): PartsStyleObject<typeof parts> {
