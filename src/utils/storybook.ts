@@ -1,17 +1,23 @@
-import {Meta} from "@storybook/react";
+import { Meta } from "@storybook/react";
 
 export enum MetaType {
-  Component = "Components"
+  Component = "Components",
 }
 
-export interface CreateMetaProps extends Omit<Meta, 'title'> {
-  type: MetaType
-  name: string
-  description?: string
-  hideGuidelines?: boolean
+export interface CreateMetaProps extends Omit<Meta, "title"> {
+  type: MetaType;
+  name: string;
+  description?: string;
+  hideGuidelines?: boolean;
 }
 
-export const createMeta = ({ name, type, description, hideGuidelines, ...meta }: CreateMetaProps): Meta => ({
+export const createMeta = ({
+  name,
+  type,
+  description,
+  hideGuidelines,
+  ...meta
+}: CreateMetaProps): Meta => ({
   title: `${type}/${name}`,
   loaders: [
     ...(meta.loaders || []),
@@ -19,8 +25,8 @@ export const createMeta = ({ name, type, description, hideGuidelines, ...meta }:
       // Custom loader to append a description for stories.
       context.description = description;
       context.hideGuidelines = hideGuidelines;
-      return context
-    }
+      return context;
+    },
   ],
   ...meta,
-})
+});

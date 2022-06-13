@@ -5,7 +5,7 @@ const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
   stories: [
-    "../src/stories/**/*.@(stories|story).@(ts|tsx)"
+    "../src/**/*.@(stories|story).@(ts|tsx)"
   ],
   addons: [
     "@storybook/addon-links",
@@ -30,6 +30,12 @@ module.exports = {
       "emotion-theming": toPath("node_modules/@emotion/react"),
       "@": path.resolve(__dirname, "../"),
     };
+
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: "javascript/auto",
+    })
 
     return config
   }

@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, VStack } from "@chakra-ui/layout";
+import { Box, Center, SimpleGrid, VStack } from "@chakra-ui/layout";
 import { useBreakpointValue } from "@chakra-ui/media-query";
 import React, { useMemo, useRef, useState } from "react";
 import { MotionBox } from "../MotionBox";
@@ -16,36 +16,40 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
   const colCount = useBreakpointValue(Array.isArray(columns) ? columns : [columns]);
 
   return (
-    <VStack spacing="0" w="full" overflow="hidden">
-      <Box position="relative" w="full">
-        <Box overflowX="hidden" pb="12" w="full">
-          <MotionBox
-            animate={{
-              x: -offset,
-            }}
-            transition={Transition.Default}
-            w="100%"
-          >
-            <SimpleGrid
-              templateColumns={`repeat(${children.length}, ${90 / colCount}%)`}
-              spacing="8"
-              maxW="95vw"
+    <>
+      <VStack spacing="0" w="full" overflow="hidden">
+        <Box position="relative" w="full">
+          <Box overflowX="hidden" pb="12" w="full">
+            <MotionBox
+              animate={{
+                x: -offset,
+              }}
+              transition={Transition.Default}
+              w="100%"
             >
-              {children.map((x, i) => (
-                <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
-                  {x}
-                </Box>
-              ))}
-            </SimpleGrid>
-          </MotionBox>
+              <SimpleGrid
+                templateColumns={`repeat(${children.length}, ${90 / colCount}%)`}
+                spacing="8"
+                maxW="95vw"
+              >
+                {children.map((x, i) => (
+                  <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
+                    {x}
+                  </Box>
+                ))}
+              </SimpleGrid>
+            </MotionBox>
+          </Box>
         </Box>
-      </Box>
-      <Stepper
-        index={index}
-        onIndexChange={setIndex}
-        pageCount={1 + Math.max(0, children.length - colCount)}
-      />
-    </VStack>
+      </VStack>
+      <Center w="full">
+        <Stepper
+          index={index}
+          onIndexChange={setIndex}
+          pageCount={1 + Math.max(0, children.length - colCount)}
+        />
+      </Center>
+    </>
   );
 };
 
@@ -75,6 +79,7 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
             },
             _disabled: {
               opacity: 0,
+              pointerEvents: "none",
             },
           }}
         />

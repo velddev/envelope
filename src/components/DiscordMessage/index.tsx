@@ -10,12 +10,7 @@ type Props = {
   isBot?: boolean;
 };
 
-export const DiscordMessage = ({
-  avatarUrl,
-  author,
-  content,
-  isBot,
-}: Props) => {
+export const DiscordMessage = ({ avatarUrl, author, content, isBot }: Props) => {
   return (
     <HStack spacing="4" align="start">
       <Avatar w="40px" h="40px" src={avatarUrl} />

@@ -2,7 +2,7 @@ import { CardBox } from "./CardBox";
 import { Carousel } from "./Carousel";
 import { ColorSwitch } from "./ColorSwitch";
 import { DiscordMessage } from "./DiscordMessage";
-import { DiscordMessageFrame } from "./DiscordMessageFrame";
+import { DiscordMessageFrame } from "./DiscordMessage/DiscordMessageFrame";
 import { ItemInput } from "./ItemInput";
 import { Fab } from "./Fab";
 import { Markdown } from "./Markdown";

@@ -13,6 +13,7 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": true,
+    "baseUrl": ".",
     "rootDir": "src",
     "outDir": "build",
     "lib": [

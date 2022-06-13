@@ -3,11 +3,6 @@ import { ButtonProps, IconButton } from "@chakra-ui/button";
 import React, { PropsWithChildren, useMemo } from "react";
 import { CaretLeftIcon, CaretRightIcon } from "../../icons";
 
-type Props = StepperControlsProps & {
-  step?: (index: number) => React.ReactNode;
-  hideControls?: boolean;
-};
-
 type StepperControlsProps = FlexProps & {
   index: number;
   pageCount: number;
@@ -25,16 +20,16 @@ export const StepperControls = ({
   pageCount,
   children,
   ...props
-}: PropsWithChildren<Props>) => {
+}: PropsWithChildren<StepperProps>) => {
   const handleIndexChange = (newIndex: number) => {
     onIndexChange?.(newIndex);
   };
 
   return (
-    <Flex gap="8" pointerEvents="none" {...props}>
+    <Flex gap="8" {...props}>
       <IconButton
         aria-label="Previous"
-        icon={<CaretLeftIcon color="ui.100" boxSize="4" />}
+        icon={<CaretLeftIcon fill="ui.100" boxSize="4" />}
         borderRadius="full"
         onClick={() => {
           if (index > 0) {
@@ -50,7 +45,7 @@ export const StepperControls = ({
       {children}
       <IconButton
         aria-label="Next"
-        icon={<CaretRightIcon color="ui.100" boxSize="4" />}
+        icon={<CaretRightIcon fill="ui.100" boxSize="4" />}
         borderRadius="full"
         onClick={() => {
           if (index < pageCount - 1) {
@@ -67,6 +62,16 @@ export const StepperControls = ({
   );
 };
 
+type StepContext = {
+  onClick: () => void;
+  isActive: boolean;
+};
+
+export type StepperProps = StepperControlsProps & {
+  step?: (index: number, ctx: StepContext) => React.ReactNode;
+  hideControls?: boolean;
+};
+
 export const Stepper = ({
   index,
   onPrevious,
@@ -75,14 +80,17 @@ export const Stepper = ({
   step,
   pageCount,
   hideControls,
-}: Props) => {
+}: StepperProps) => {
   const pageArray = useMemo(() => Array.from("0".repeat(pageCount)), [pageCount]);
 
   const stepper = (
     <HStack spacing="4">
       {pageArray.map((_, i) =>
         step ? (
-          step(i)
+          step(i, {
+            onClick: () => onIndexChange?.(i),
+            isActive: i === index,
+          })
         ) : (
           <Box
             key={i}
