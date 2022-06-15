@@ -167,7 +167,8 @@ export const getTheme = (): Dict => {
       }),
     },
     fonts: {
-      heading: "Poppins",
+      heading: "Poppins, Arial, Helvetica, sans-serif",
+      body: "Arial, Helvetica, sans-serif",
     },
     textStyles: {
       paragraph: {
