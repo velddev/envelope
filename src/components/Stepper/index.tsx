@@ -1,4 +1,4 @@
-import { Box, Flex, FlexProps, HStack } from "@chakra-ui/layout";
+import { Box, BoxProps, Flex, FlexProps, HStack } from "@chakra-ui/layout";
 import { ButtonProps, IconButton } from "@chakra-ui/button";
 import React, { PropsWithChildren, useMemo } from "react";
 import { CaretLeftIcon, CaretRightIcon } from "../../icons";
@@ -19,6 +19,7 @@ export const StepperControls = ({
   onIndexChange,
   pageCount,
   children,
+  buttonProps,
   ...props
 }: PropsWithChildren<StepperProps>) => {
   const handleIndexChange = (newIndex: number) => {
@@ -40,7 +41,7 @@ export const StepperControls = ({
         isDisabled={index === 0}
         pointerEvents="auto"
         transition="all 0.2s"
-        {...(props.buttonProps ?? {})}
+        {...(buttonProps ?? {})}
       />
       {children}
       <IconButton
@@ -56,7 +57,7 @@ export const StepperControls = ({
         isDisabled={index >= pageCount - 1}
         pointerEvents="auto"
         transition="all 0.2s"
-        {...(props.buttonProps ?? {})}
+        {...(buttonProps ?? {})}
       />
     </Flex>
   );
@@ -70,6 +71,7 @@ type StepContext = {
 export type StepperProps = StepperControlsProps & {
   step?: (index: number, ctx: StepContext) => React.ReactNode;
   hideControls?: boolean;
+  stepperOverrides?: BoxProps;
 };
 
 export const Stepper = ({
@@ -80,6 +82,7 @@ export const Stepper = ({
   step,
   pageCount,
   hideControls,
+  stepperOverrides,
 }: StepperProps) => {
   const pageArray = useMemo(() => Array.from("0".repeat(pageCount)), [pageCount]);
 
@@ -99,6 +102,7 @@ export const Stepper = ({
             transition="all 0.2s"
             transform={`scale(${i === index ? 1.25 : 1.0})`}
             bg={index == i ? "ui.40" : "ui.10"}
+            {...stepperOverrides}
           />
         ),
       )}
