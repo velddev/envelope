@@ -72,14 +72,15 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
           position="absolute"
           zIndex="10"
           px={["1", null, null, "4"]}
+          pointerEvents="none"
           buttonProps={{
             bg: "bg",
+            pointerEvents: "all",
             _hover: {
               bg: "bg2",
             },
             _disabled: {
               opacity: 0,
-              pointerEvents: "none",
             },
           }}
         />
