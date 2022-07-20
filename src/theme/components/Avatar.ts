@@ -1,5 +1,5 @@
 import { avatarAnatomy as parts } from "@chakra-ui/anatomy";
-import { isDark, mode, randomColor, SystemStyleObject } from "@chakra-ui/theme-tools";
+import { mode, SystemStyleObject } from "@chakra-ui/theme-tools";
 import type {
   PartsStyleFunction,
   PartsStyleObject,

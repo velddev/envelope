@@ -26,6 +26,7 @@
         "import/prefer-default-export": "off",
         "import/no-cycle": "off",
         "no-multi-assign": "off",
+        "explicit-module-boundary-types": "off",
         "import/imports-first": [
             "error",
             "absolute-first"

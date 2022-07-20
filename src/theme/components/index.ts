@@ -6,6 +6,7 @@ import Input from "./Input";
 import Kbd from "./Kbd";
 import Menu from "./Menu";
 import Modal from "./Modal";
+import Progress from "./Progress";
 import Select from "./Select";
 import Skeleton from "./Skeleton";
 import Switch from "./Switch";
@@ -23,6 +24,7 @@ export default {
   Kbd,
   Menu,
   Modal,
+  Progress,
   Select,
   Skeleton,
   Switch,

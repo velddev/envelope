@@ -1,6 +1,6 @@
+import React from "react";
 import { Box, Center, SimpleGrid, VStack } from "@chakra-ui/layout";
 import { useBreakpointValue } from "@chakra-ui/media-query";
-import React, { useMemo, useRef, useState } from "react";
 import { MotionBox } from "../MotionBox";
 import { Stepper, StepperControls } from "../Stepper";
 import { Transition } from "../MotionBox/transitions";
