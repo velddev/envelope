@@ -52,11 +52,35 @@ const ghostVariant = {
   },
 };
 
+const invertedVariant = {
+  color: "uix.100",
+  _hover: {
+    bg: "uix.5",
+  },
+  _active: {
+    bg: "uix.10",
+  },
+};
+
+const outlineVariant = {
+  ...ghostVariant,
+  border: "1px solid",
+  borderColor: "ui.100",
+};
+
+const outlineInvertedVariant = {
+  ...outlineVariant,
+  ...invertedVariant,
+  borderColor: "uix.100",
+};
+
 export default {
   variants: {
     ghost: ghostVariant,
     solid: solidVariant,
     primary: primaryVariant,
     danger: dangerVariant,
+    outline: outlineVariant,
+    outlineInverted: outlineInvertedVariant,
   },
 };
