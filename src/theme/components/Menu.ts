@@ -1,5 +1,5 @@
 import { menuAnatomy as parts } from "@chakra-ui/anatomy";
-import type { PartsStyleObject, SystemStyleObject } from "@chakra-ui/theme-tools";
+import type { PartsStyleObject, SystemStyleObject } from "@chakra-ui/styled-system";
 
 const baseStyleList: SystemStyleObject = {
   bg: "bg",

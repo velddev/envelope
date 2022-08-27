@@ -1,8 +1,5 @@
 import { switchAnatomy as parts } from "@chakra-ui/anatomy";
-import type {
-  PartsStyleFunction,
-  SystemStyleFunction,
-} from "@chakra-ui/theme-tools";
+import type { PartsStyleFunction, SystemStyleFunction } from "@chakra-ui/styled-system";
 
 const baseStyleTrack: SystemStyleFunction = (props) => {
   return {

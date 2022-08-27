@@ -1,10 +1,11 @@
 import { avatarAnatomy as parts } from "@chakra-ui/anatomy";
-import { mode, SystemStyleObject } from "@chakra-ui/theme-tools";
+import { mode } from "@chakra-ui/theme-tools";
 import type {
+  SystemStyleObject,
   PartsStyleFunction,
   PartsStyleObject,
   SystemStyleFunction,
-} from "@chakra-ui/theme-tools";
+} from "@chakra-ui/styled-system";
 import themeSizes from "../foundations/sizes";
 
 const baseStyleBadge: SystemStyleFunction = (props) => {

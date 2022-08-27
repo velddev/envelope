@@ -1,4 +1,4 @@
-import type { SystemStyleInterpolation, SystemStyleObject } from "@chakra-ui/theme-tools";
+import type { SystemStyleInterpolation, SystemStyleObject } from "@chakra-ui/styled-system";
 import Input from "./Input";
 
 const baseStyle: SystemStyleObject = {

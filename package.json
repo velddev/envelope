@@ -15,7 +15,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.2.4",
+    "@chakra-ui/react": "^2.2.9",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "framer-motion": "^6.5.1",
@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@chakra-ui/theme-tools": "^2.0.0",
-    "@chakra-ui/utils": "^2.0.0",
+    "@chakra-ui/theme-tools": "^2.0.10",
+    "@chakra-ui/utils": "^2.0.9",
     "@storybook/addon-actions": "^6.4.8",
     "@storybook/addon-essentials": "^6.4.8",
     "@storybook/addon-links": "^6.4.8",

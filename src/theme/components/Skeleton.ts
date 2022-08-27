@@ -1,5 +1,5 @@
 import { keyframes } from "@chakra-ui/system";
-import { cssVar, SystemStyleFunction } from "@chakra-ui/theme-tools";
+import { SystemStyleFunction } from "@chakra-ui/styled-system";
 import { getColor } from "@chakra-ui/theme-tools";
 
 const baseStyle: SystemStyleFunction = (props) => {

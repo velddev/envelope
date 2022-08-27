@@ -4,7 +4,7 @@ import type {
   PartsStyleObject,
   SystemStyleFunction,
   SystemStyleObject,
-} from "@chakra-ui/theme-tools";
+} from "@chakra-ui/styled-system";
 import { mergeWith } from "@chakra-ui/utils";
 import Input from "./Input";
 
@@ -16,7 +16,7 @@ const baseStyleField: SystemStyleFunction = (props) => {
     paddingBottom: "1px",
     lineHeight: "normal",
     "> option, > optgroup": {
-      bg: "bg"
+      bg: "bg",
     },
   };
 };
