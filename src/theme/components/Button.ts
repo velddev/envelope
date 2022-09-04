@@ -63,15 +63,27 @@ const invertedVariant = {
 };
 
 const outlineVariant = {
-  ...ghostVariant,
   border: "1px solid",
-  borderColor: "ui.100",
+  borderColor: "ui.20",
+  _hover: {
+    borderColor: "ui.40",
+  },
+  _active: {
+    borderColor: "ui.60",
+  },
+  fontWeight: "normal",
 };
 
 const outlineInvertedVariant = {
   ...outlineVariant,
   ...invertedVariant,
-  borderColor: "uix.100",
+  borderColor: "uix.20",
+  _hover: {
+    borderColor: "uix.40",
+  },
+  _active: {
+    borderColor: "uix.60",
+  },
 };
 
 export default {
