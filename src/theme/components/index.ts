@@ -1,5 +1,6 @@
 import Avatar from "./Avatar";
 import Button from "./Button";
+import Checkbox from "./Checkbox";
 import Container from "./Container";
 import Heading from "./Heading";
 import Input from "./Input";
@@ -18,6 +19,7 @@ import Tooltip from "./Tooltip";
 export default {
   Avatar,
   Button,
+  Checkbox,
   Container,
   Heading,
   Input,
