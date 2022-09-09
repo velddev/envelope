@@ -67,12 +67,12 @@ const baseStyleIcon = {
   transitionDuration: "normal",
 } as SystemStyleInterpolation;
 
-const baseStyle = (props): PartsStyleInterpolation<{ keys: Keys }> => ({
+const baseStyle = {
   icon: baseStyleIcon,
   container: baseStyleContainer,
   control: baseStyleControl,
   label: baseStyleLabel,
-});
+} as PartsStyleInterpolation;
 
 const sizes = {
   sm: {
