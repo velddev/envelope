@@ -4,8 +4,6 @@ import React from "react";
 
 export const ColorSwitch = () => {
   const { colorMode, setColorMode } = useColorMode();
-
-  console.log(colorMode);
   return (
     <Switch
       isChecked={colorMode === "dark"}
