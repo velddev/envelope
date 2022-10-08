@@ -9,6 +9,7 @@ import { Markdown } from "./Markdown";
 import { MotionBox } from "./MotionBox";
 import { RatingInput } from "./RatingInput";
 import { Stepper } from "./Stepper";
+import { WithResultsDropdown } from "./WithResultsDropdown";
 
 export {
   CardBox,
@@ -22,4 +23,5 @@ export {
   MotionBox,
   RatingInput,
   Stepper,
+  WithResultsDropdown,
 };
