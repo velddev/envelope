@@ -12,6 +12,7 @@ export type RatingInputProps = {
 };
 
 type ItemProps = {
+  key?: string | number;
   icon: ComponentWithAs<"svg", IconProps>;
   isActive: boolean;
   isReadOnly: boolean;
