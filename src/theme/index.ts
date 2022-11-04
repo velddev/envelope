@@ -4,7 +4,8 @@ import breakpoints from "./breakpoints";
 import components from "./components";
 import { colors } from "./colors";
 import sizes from "./foundations/sizes";
-import { spacing } from "./foundations/spacing";
+import { space } from "./foundations/space";
+import textStyles from "./foundations/textStyles";
 
 export { extendTheme } from "./utils";
 
@@ -141,7 +142,7 @@ export const getTheme = (): Dict => {
       cssVarPrefix: "miki",
     },
     sizes,
-    space: spacing,
+    space,
     styles: {
       global: (props) => ({
         body: {
@@ -169,58 +170,8 @@ export const getTheme = (): Dict => {
     fonts: {
       heading: "Poppins, Arial, Helvetica, sans-serif",
       body: "Arial, Helvetica, sans-serif",
+      mono: "'JetBrains Mono', Consolas, monospace",
     },
-    textStyles: {
-      paragraph: {
-        sm: {
-          fontSize: "14px",
-        },
-        md: {
-          fontSize: "16px",
-        },
-        lg: {
-          fontSize: "18px",
-        },
-      },
-      label: {
-        sm: {
-          fontSize: "16px",
-          fontWeight: "semibold",
-        },
-        md: {
-          fontSize: "20px",
-          fontWeight: "semibold",
-        },
-        lg: {
-          fontSize: "24px",
-          fontWeight: "semibold",
-        },
-      },
-      heading: {
-        sm: {
-          fontFamily: "heading",
-          fontSize: "24px",
-          fontWeight: "semibold",
-        },
-        md: {
-          fontFamily: "heading",
-          fontSize: "36px",
-          fontWeight: "semibold",
-        },
-        lg: {
-          fontFamily: "heading",
-          fontSize: "48px",
-          fontWeight: "semibold",
-        },
-      },
-      display: {
-        md: {
-          fontFamily: "heading",
-          fontSize: "58px",
-          fontWeight: "black",
-          lineHeight: "48px",
-        },
-      },
-    },
+    textStyles,
   };
 };

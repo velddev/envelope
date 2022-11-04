@@ -1,4 +1,4 @@
-import { spacing } from "./spacing";
+import { space } from "./space";
 
 const largeSizes = {
   max: "max-content",
@@ -28,7 +28,7 @@ const container = {
 };
 
 const sizes = {
-  ...spacing,
+  ...space,
   ...largeSizes,
   container,
 };
