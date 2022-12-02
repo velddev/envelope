@@ -6,6 +6,7 @@ const baseStyleList: SystemStyleObject = {
 };
 
 const baseStyleItem: SystemStyleObject = {
+  bg: "bg",
   _hover: {
     bg: "ui.5",
   },

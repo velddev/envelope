@@ -1,6 +1,5 @@
 import { CardBox } from "./CardBox";
 import { Carousel } from "./Carousel";
-import { ColorSwitch } from "./ColorSwitch";
 import { DiscordMessage } from "./DiscordMessage";
 import { DiscordMessageFrame } from "./DiscordMessage/DiscordMessageFrame";
 import { ItemInput } from "./ItemInput";
@@ -14,7 +13,6 @@ import { WithResultsDropdown } from "./WithResultsDropdown";
 export {
   CardBox,
   Carousel,
-  ColorSwitch,
   DiscordMessage,
   DiscordMessageFrame,
   Fab,
