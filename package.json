@@ -14,8 +14,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "dependencies": {
-    "@chakra-ui/react": "^2.3.7",
+  "peerDependencies": {
+    "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
     "framer-motion": "7.2.1",
