@@ -130,9 +130,33 @@ export const getTheme = (): Dict => {
           default: "bgLight.100",
           _dark: "bgDark.100",
         },
-        bg2: {
-          default: "bg2Light",
-          _dark: "bg2Dark",
+        "bg2.100": {
+          default: "bg2Light.100",
+          _dark: "bg2Dark.100",
+        },
+        "bg2.80": {
+          default: "bg2Light.80",
+          _dark: "bg2Dark.80",
+        },
+        "bg2.60": {
+          default: "bg2Light.60",
+          _dark: "bg2Dark.60",
+        },
+        "bg2.40": {
+          default: "bg2Light.40",
+          _dark: "bg2Dark.40",
+        },
+        "bg2.20": {
+          default: "bg2Light.20",
+          _dark: "bg2Dark.20",
+        },
+        "bg2.10": {
+          default: "bg2Light.10",
+          _dark: "bg2Dark.10",
+        },
+        "bg2.5": {
+          default: "bg2Light.5",
+          _dark: "bg2Dark.5",
         },
       },
     },

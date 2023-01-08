@@ -77,7 +77,7 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
             bg: "bg",
             pointerEvents: "all",
             _hover: {
-              bg: "bg2",
+              bg: "bg2.100",
             },
             _disabled: {
               opacity: 0,
