@@ -11,6 +11,7 @@ import Progress from "./Progress";
 import Select from "./Select";
 import Skeleton from "./Skeleton";
 import Switch from "./Switch";
+import Table from "./Table";
 import Tabs from "./Tabs";
 import Text from "./Text";
 import Textarea from "./Textarea";
@@ -30,6 +31,7 @@ export default {
   Select,
   Skeleton,
   Switch,
+  Table,
   Tabs,
   Text,
   Textarea,
