@@ -1,5 +1,5 @@
 import { Wrap } from "@chakra-ui/layout";
-import { useMultiStyleConfig } from "@chakra-ui/system";
+import { useMultiStyleConfig } from "@chakra-ui/react";
 import { Input, InputProps } from "@chakra-ui/input";
 import { Tag } from "@chakra-ui/tag";
 import uniqueId from "lodash/uniqueId";

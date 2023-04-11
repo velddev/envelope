@@ -1,4 +1,4 @@
-import { keyframes } from "@chakra-ui/system";
+import { keyframes } from "@chakra-ui/react";
 import type { SystemStyleFunction } from "@chakra-ui/styled-system";
 import { getColor } from "@chakra-ui/theme-tools";
 
