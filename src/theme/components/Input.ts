@@ -136,7 +136,7 @@ const variantFilled: PartsStyleFunction<typeof parts> = (props) => {
         borderColor: "system.danger.100",
       },
       _focus: {
-        bg: "transparent",
+        bg: "ui.10",
         borderColor: getColor(theme, fc),
       },
     },
