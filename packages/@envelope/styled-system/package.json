@@ -1,0 +1,17 @@
+{
+  "name": "@envelope/styled-system",
+  "version": "0.0.1",
+  "description": "Styled System for Envelope using PandaCSS",
+  "dependencies": {
+    "@pandacss/dev": "^0.3.1"
+  },
+  "scripts": {
+    "prepare": "panda codegen",
+    "build": "tsc",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
+}
