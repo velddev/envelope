@@ -101,26 +101,31 @@ export default defineConfig({
         paragraph: {
           xs: {
             value: {
+              fontFamily: "body",
               fontSize: "12px",
             },
           },
           sm: {
             value: {
+              fontFamily: "body",
               fontSize: "14px",
             },
           },
           md: {
             value: {
+              fontFamily: "body",
               fontSize: "16px",
             },
           },
           lg: {
             value: {
+              fontFamily: "body",
               fontSize: "18px",
             },
           },
           xl: {
             value: {
+              fontFamily: "body",
               fontSize: "20px",
             },
           },
@@ -128,30 +133,35 @@ export default defineConfig({
         label: {
           xs: {
             value: {
+              fontFamily: "body",
               fontSize: "12px",
               fontWeight: "semibold",
             },
           },
           sm: {
             value: {
+              fontFamily: "body",
               fontSize: "14px",
               fontWeight: "semibold",
             },
           },
           md: {
             value: {
+              fontFamily: "body",
               fontSize: "16px",
               fontWeight: "semibold",
             },
           },
           lg: {
             value: {
+              fontFamily: "body",
               fontSize: "18px",
               fontWeight: "semibold",
             },
           },
           xl: {
             value: {
+              fontFamily: "body",
               fontSize: "20px",
               fontWeight: "semibold",
             },
@@ -236,6 +246,11 @@ export default defineConfig({
         },
       },
       tokens: {
+        fonts: {
+          mono: { value: "Roboto Mono, sans-serif" },
+          body: { value: "Inter, sans-serif" },
+          heading: { value: "Inter, sans-serif" },
+        },
         colors: {
           pink: {
             100: { value: "rgb(255, 98, 145)" },

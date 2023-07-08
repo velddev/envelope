@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { CssProperty, SystemStyleObject } from './system-types'
 import type { TokenCategory } from '../tokens'
 
@@ -14,7 +15,7 @@ export type PatternHelpers = {
   map: (value: any, fn: (value: string) => string | undefined) => any
 }
 
-type PatternProperties = Record<string, PatternProperty>
+export type PatternProperties = Record<string, PatternProperty>
 
 type Props<T> = Record<LiteralUnion<keyof T>, any>
 
@@ -31,7 +32,7 @@ export type PatternConfig<T extends PatternProperties = PatternProperties> = {
   /**
    * The properties of the pattern.
    */
-  properties: T
+  properties?: T
   /**
    * The css object this pattern will generate.
    */

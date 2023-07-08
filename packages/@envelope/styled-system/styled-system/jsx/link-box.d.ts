@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { FunctionComponent } from 'react'
 import type { LinkBoxProperties } from '../patterns/link-box'
 import type { HTMLStyledProps } from '../types/jsx'

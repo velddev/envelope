@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Styled System for Envelope using PandaCSS",
   "dependencies": {
-    "@pandacss/dev": "^0.3.1"
+    "@pandacss/dev": "^0.6.0"
   },
   "scripts": {
     "prepare": "panda codegen",

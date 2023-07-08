@@ -1,3 +1,4 @@
+import { Button } from "./Button";
 import { CardBox } from "./CardBox";
 import { Carousel } from "./Carousel";
 import { DiscordMessage } from "./DiscordMessage";
@@ -16,6 +17,7 @@ export {
   Anchor,
   B,
   Blockquote,
+  Button,
   CardBox,
   Carousel,
   Code,

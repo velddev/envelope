@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { FunctionComponent } from 'react'
 import type { HstackProperties } from '../patterns/hstack'
 import type { HTMLStyledProps } from '../types/jsx'
