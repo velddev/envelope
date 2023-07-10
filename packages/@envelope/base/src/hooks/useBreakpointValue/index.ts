@@ -1,6 +1,6 @@
-import { BreakpointToken } from "@envelope/styled-system/styled-system/tokens";
 import { useBreakpoint } from "use-breakpoint";
-import config from "@envelope/styled-system/panda.config";
+import { BreakpointToken } from "../../../styled-system/tokens";
+//import config from "../../../panda.config";
 
 type BreakpointTokenType = BreakpointToken | "base";
 

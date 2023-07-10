@@ -1,3 +1,3 @@
-import { styled } from "@envelope/styled-system";
+import { styled } from "../../../styled-system/jsx";
 
 export const Image = styled("img");

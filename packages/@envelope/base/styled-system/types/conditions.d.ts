@@ -2,8 +2,6 @@
 import type { AnySelector, Selectors } from './selectors'
 
 export type Conditions = {
-	"_light": string
-	"_dark": string
 	"_hover": string
 	"_focus": string
 	"_focusWithin": string
@@ -77,6 +75,8 @@ export type Conditions = {
 	"_print": string
 	"_landscape": string
 	"_portrait": string
+	"_dark": string
+	"_light": string
 	"_osDark": string
 	"_osLight": string
 	"_highConstrast": string

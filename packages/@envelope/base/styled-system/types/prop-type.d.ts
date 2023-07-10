@@ -197,8 +197,10 @@ type PropertyValueTypes  = {
 	stroke: Tokens["colors"];
 	srOnly: boolean;
 	debug: boolean;
-	colorPalette: "rose" | "fuchsia" | "violet" | "indigo" | "blue" | "sky" | "cyan" | "teal" | "emerald" | "green" | "lime" | "amber" | "orange" | "red" | "neutral" | "stone" | "zinc" | "gray" | "slate" | "pink" | "purple" | "yellow" | "uiLight" | "uiDark";
-	textStyle: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl" | "mono.xs" | "mono.sm" | "mono.md" | "mono.lg" | "mono.xl" | "paragraph.xs" | "paragraph.sm" | "paragraph.md" | "paragraph.lg" | "paragraph.xl" | "label.xs" | "label.sm" | "label.md" | "label.lg" | "label.xl" | "heading.xs" | "heading.sm" | "heading.md" | "heading.lg" | "heading.xl" | "display.xs" | "display.sm" | "display.md" | "display.lg" | "display.xl";
+	boxSize: Tokens["spacings"];
+	rounded: Tokens["radii"];
+	colorPalette: "pink" | "purple" | "yellow" | "uiLight" | "uiDark";
+	textStyle: "mono.xs" | "mono.sm" | "mono.md" | "mono.lg" | "mono.xl" | "paragraph.xs" | "paragraph.sm" | "paragraph.md" | "paragraph.lg" | "paragraph.xl" | "label.xs" | "label.sm" | "label.md" | "label.lg" | "label.xl" | "heading.xs" | "heading.sm" | "heading.md" | "heading.lg" | "heading.xl" | "display.xs" | "display.sm" | "display.md" | "display.lg" | "display.xl";
 }
 
 

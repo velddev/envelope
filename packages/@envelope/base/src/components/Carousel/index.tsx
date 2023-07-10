@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Center, Grid, VStack } from "@envelope/styled-system";
+import { Box, Center, Grid, VStack } from "../../../styled-system/jsx";
 import { MotionBox } from "../MotionBox";
 import { Stepper, StepperControls } from "../Stepper";
 import { Transition } from "../MotionBox/transitions";

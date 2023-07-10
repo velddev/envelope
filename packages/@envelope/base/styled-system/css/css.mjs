@@ -273,6 +273,8 @@ const classNameMap = {
   "maskImage": "mask-image",
   "maskSize": "mask-size",
   "textSizeAdjust": "text-size-adjust",
+  "boxSize": "boxsize",
+  "rounded": "rounded",
   "textStyle": "textStyle"
 }
 

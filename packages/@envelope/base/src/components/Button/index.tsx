@@ -1,4 +1,4 @@
-import { styled } from "@envelope/styled-system";
+import { styled } from "../../../styled-system/jsx";
 
 export const Button = styled("button", {
   base: {
@@ -46,12 +46,12 @@ export const Button = styled("button", {
       md: {
         h: "10",
         textStyle: "label.md",
-        px: "3",
+        px: "4",
       },
       lg: {
         h: "12",
         textStyle: "label.lg",
-        px: "4",
+        px: "6",
       },
     },
   },

@@ -689,6 +689,7 @@ export type SystemProperties = {
 	stroke?: PropertyValue<'stroke'>
 	srOnly?: PropertyValue<'srOnly'>
 	debug?: PropertyValue<'debug'>
+	boxSize?: PropertyValue<'boxSize'>
 	colorPalette?: PropertyValue<'colorPalette'>
 	textStyle?: PropertyValue<'textStyle'>
 }
