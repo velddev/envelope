@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@chakra-ui/react": "^2.5.5",
+    "@chakra-ui/react": "^2.7.1",
     "@emotion/react": "11.10.0",
     "@emotion/styled": "11.10.0",
     "@storybook/addon-actions": "^6.4.8",
