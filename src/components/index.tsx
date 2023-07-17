@@ -1,4 +1,3 @@
-import { CardBox } from "./CardBox";
 import { Carousel } from "./Carousel";
 import { DiscordMessage } from "./DiscordMessage";
 import { DiscordMessageFrame } from "./DiscordMessage/DiscordMessageFrame";
@@ -11,7 +10,6 @@ import { Stepper } from "./Stepper";
 import { WithResultsDropdown } from "./WithResultsDropdown";
 
 export {
-  CardBox,
   Carousel,
   DiscordMessage,
   DiscordMessageFrame,

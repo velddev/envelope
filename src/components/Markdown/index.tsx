@@ -1,5 +1,4 @@
-import { Box } from "@chakra-ui/layout";
-import { useTheme } from "@chakra-ui/react";
+import { Box, useTheme } from "@chakra-ui/react";
 import { css } from "@emotion/react";
 import React from "react";
 
