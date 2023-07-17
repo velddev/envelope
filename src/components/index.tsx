@@ -1,4 +1,4 @@
-import { Carousel } from "./Carousel";
+import { Carousel, CarouselInsideControls } from "./Carousel";
 import { DiscordMessage } from "./DiscordMessage";
 import { DiscordMessageFrame } from "./DiscordMessage/DiscordMessageFrame";
 import { ItemInput } from "./ItemInput";
@@ -11,6 +11,7 @@ import { WithResultsDropdown } from "./WithResultsDropdown";
 
 export {
   Carousel,
+  CarouselInsideControls,
   DiscordMessage,
   DiscordMessageFrame,
   Fab,
