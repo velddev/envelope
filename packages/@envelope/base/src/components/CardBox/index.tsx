@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "../../../styled-system/jsx";
+import { Box, BoxProps } from "@envelope/styled/jsx";
 import React from "react";
 
 export const CardBox = (props: BoxProps) => (

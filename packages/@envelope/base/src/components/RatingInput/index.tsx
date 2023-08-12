@@ -1,7 +1,6 @@
 import { Wrap } from "@chakra-ui/layout";
 import { ComponentWithAs, IconProps } from "@chakra-ui/react";
 import React from "react";
-import { StarIcon } from "../../icons";
 
 export type RatingInputProps = {
   numberOfItems: number;
@@ -42,7 +41,7 @@ const RatingItem = ({ isActive, isReadOnly, onSelect, icon, ...rest }: ItemProps
 };
 
 export const RatingInput = ({ numberOfItems, value, icon, ...props }: RatingInputProps) => {
-  icon ??= StarIcon;
+  icon ??= () => <>⭐</>;
 
   return (
     <Wrap spacing="2">

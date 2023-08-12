@@ -1,10 +1,8 @@
-import { Wrap } from "@chakra-ui/layout";
-import { useMultiStyleConfig } from "@chakra-ui/react";
-import { Input, InputProps } from "@chakra-ui/input";
-import { Tag } from "@chakra-ui/tag";
+import { Box, Wrap, HTMLStyledProps, styled } from "@envelope/styled/jsx";
 import uniqueId from "lodash/uniqueId";
 import React, { useRef } from "react";
-import { CSSObject } from "@emotion/react";
+
+const Input = styled("input");
 
 export type Item<T = unknown> = T & BaseItem;
 
@@ -13,7 +11,7 @@ export type BaseItem = {
   value: string;
 };
 
-export type ItemInputProps<T> = InputProps & {
+export type ItemInputProps<T> = HTMLStyledProps<"input"> & {
   onItemCreate: (value: string) => Omit<Item<T>, "key">;
 
   renderItem?: (item: Item<T>, index: number) => React.ReactNode;
@@ -24,7 +22,7 @@ export type ItemInputProps<T> = InputProps & {
 };
 
 function defaultTag<T>(item: Item<T>) {
-  return <Tag key={item.key}>{item.value}</Tag>;
+  return <Box key={item.key}>{item.value}</Box>;
 }
 
 export function ItemInput<T>({
@@ -37,7 +35,6 @@ export function ItemInput<T>({
   ...props
 }: ItemInputProps<T>) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const styles = useMultiStyleConfig("Input") as Record<string, CSSObject>;
 
   const handleInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -53,19 +50,10 @@ export function ItemInput<T>({
   };
 
   return (
-    <Wrap
-      __css={styles.field}
-      height="unset"
-      transition="0.2s all"
-      w="full"
-      borderRadius="md"
-      py="2"
-      px="4"
-    >
+    <Wrap height="unset" transition="0.2s all" w="full" borderRadius="md" py="2" px="4">
       {items?.map(renderItem)}
       <Input
         flex={1}
-        variant="unstyled"
         onKeyDown={handleInput}
         {...props}
         ref={inputRef}

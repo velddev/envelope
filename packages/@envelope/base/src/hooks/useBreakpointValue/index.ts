@@ -1,16 +1,16 @@
 import { useBreakpoint } from "use-breakpoint";
-import { BreakpointToken } from "../../../styled-system/tokens";
-//import config from "../../../panda.config";
+import { BreakpointToken } from "@envelope/styled/tokens";
 
 type BreakpointTokenType = BreakpointToken | "base";
 
 const breakpointsRaw = {
-  "2xl": "1536px",
-  xl: "1280px",
-  lg: "1024px",
-  md: "768px",
-  sm: "640px",
+  base: "0px",
   xs: "480px",
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px",
 } as Record<BreakpointToken, string>;
 
 const breakpoints: Record<BreakpointToken, number> = Object.keys(breakpointsRaw).reduce(
@@ -36,26 +36,23 @@ function toObject<T>(values: T[]): Breakpoints<T> {
   );
 }
 
-function getClosestBreakpoint<T>(
-  breakpoint: BreakpointTokenType,
-  existingValues: Partial<Breakpoints<T>>,
-): BreakpointTokenType {
-  const breakpointKeys = Object.keys(breakpoints) as BreakpointTokenType[];
-  const breakpointIndex = breakpointKeys.indexOf(breakpoint);
-  const existingValuesKeys = Object.keys(existingValues) as BreakpointTokenType[];
-  const existingValuesIndex = existingValuesKeys.indexOf(breakpoint);
-  if (existingValuesIndex > -1) {
-    return existingValuesKeys[existingValuesIndex];
-  }
-  if (breakpointIndex === 0) {
-    return "base";
-  }
-  return breakpointKeys[breakpointIndex - 1];
-}
-
 export function useBreakpointValue<T>(values: Partial<Values<T>>): T | undefined {
   const valueObj: Partial<Breakpoints<T>> = Array.isArray(values) ? toObject(values) : values;
-  const result = useBreakpoint<typeof breakpoints, BreakpointToken>(breakpoints, "sm", false);
-  const closestMatch = getClosestBreakpoint(result.breakpoint as BreakpointTokenType, valueObj);
-  return valueObj[closestMatch];
+  const result = useBreakpoint<typeof breakpoints, BreakpointToken>(breakpoints, "sm", true);
+
+  // get the value for the current breakpoint, if the value is not defined, find the lower defined value.
+
+  const breakpointsInOrder = Object.keys(valueObj).sort((a, b) => breakpoints[b] - breakpoints[a]);
+  for (let v of breakpointsInOrder) {
+    if (breakpoints[v] > breakpoints[result.breakpoint]) {
+      // ignore larger values
+      continue;
+    }
+
+    if (valueObj[v]) {
+      return valueObj[v];
+    }
+  }
+
+  return valueObj.base;
 }

@@ -1,9 +1,9 @@
-import { styled } from "../../../styled-system/jsx";
+import { styled } from "@envelope/styled/jsx";
 
 export const Button = styled("button", {
   base: {
     borderRadius: "md",
-    transition: "background-color 0.2s ease-in-out",
+    transition: "all 0.2s ease-in-out",
     cursor: "pointer",
     alignItems: "center",
     justifyContent: "center",
@@ -23,15 +23,32 @@ export const Button = styled("button", {
         },
       },
       primary: {
-        bg: "accent.100",
+        bg: "pink.100",
         color: "uiLight.100",
         _hover: {
-          bg: "accent.60",
+          bg: "pink.60",
+        },
+      },
+      tertiary: {
+        bg: "uiLight.100",
+        color: "uiDark.100",
+        _hover: {
+          bg: "uiLight.60",
         },
       },
       ghost: {
         bg: "transparent",
         color: "ui.100",
+        _hover: {
+          bg: "ui.5",
+        },
+      },
+      outline: {
+        bg: "transparent",
+        color: "ui.100",
+        border: "1px solid",
+        borderColor: "ui.20",
+        borderRadius: "md",
         _hover: {
           bg: "ui.5",
         },
@@ -42,16 +59,25 @@ export const Button = styled("button", {
         h: "8",
         textStyle: "label.sm",
         px: "2",
+        py: "1",
       },
       md: {
         h: "10",
         textStyle: "label.md",
         px: "4",
+        py: "1",
       },
       lg: {
         h: "12",
         textStyle: "label.lg",
         px: "6",
+        py: "2",
+      },
+      xl: {
+        h: "14",
+        textStyle: "label.lg",
+        px: "8",
+        py: "3",
       },
     },
   },

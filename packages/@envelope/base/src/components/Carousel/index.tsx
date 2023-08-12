@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Center, Grid, VStack } from "../../../styled-system/jsx";
+import { Box, Center, Grid, VStack } from "@envelope/styled/jsx";
 import { MotionBox } from "../MotionBox";
 import { Stepper, StepperControls } from "../Stepper";
 import { Transition } from "../MotionBox/transitions";
@@ -28,9 +28,11 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
               w="100%"
             >
               <Grid
-                gridTemplateColumns={`repeat(${children.length}, ${90 / colCount}%)`}
                 gap="8"
                 maxW="95vw"
+                style={{
+                  gridTemplateColumns: `repeat(${children.length}, ${90 / colCount}%)`,
+                }}
               >
                 {children.map((x, i) => (
                   <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
@@ -93,7 +95,9 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
             w="100%"
           >
             <Grid
-              gridTemplateColumns={`repeat(${children.length}, ${90 / colCount}%)`}
+              style={{
+                gridTemplateColumns: `repeat(${children.length}, ${90 / colCount}%)`,
+              }}
               gap="8"
               maxW="95vw"
             >

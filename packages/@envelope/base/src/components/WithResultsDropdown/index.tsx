@@ -1,9 +1,8 @@
 import React, { ReactNode, useRef } from "react";
-import { StackProps, VStack } from "@chakra-ui/layout";
-import { SlideFade } from "@chakra-ui/transition";
-import { useOutsideClick } from "@chakra-ui/hooks";
+import { VstackProps, VStack } from "@envelope/styled/jsx";
+import { useOnClickOutside } from "src/hooks/useOutsideClick";
 
-type Props<T> = StackProps & {
+type Props<T> = VstackProps & {
   isOpen?: boolean;
   items?: T[];
   renderCard: (item: T, index: number) => ReactNode;
@@ -26,42 +25,33 @@ export function WithResultsDropdown<T>({
 }: Props<T>) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useOutsideClick({
-    ref: containerRef,
-    handler: onFocusOutside,
-  });
+  useOnClickOutside(containerRef, onFocusOutside);
 
   return (
-    <VStack align="start" w="full" spacing="0" position="relative" ref={containerRef}>
+    <VStack alignItems="start" w="full" gap="0" position="relative" ref={containerRef}>
       {children}
-      <SlideFade
-        in={isOpen}
-        unmountOnExit
-        style={{
-          width: "100%",
-          zIndex: 100,
-        }}
+      <VStack
+        mt="4"
+        w="full"
+        alignItems="start"
+        justify="start"
+        bg="bg"
+        position="absolute"
+        borderRadius="md"
+        border="1px solid"
+        borderColor="ui.10"
+        shadow="md"
+        gap="0"
+        maxH="240px"
+        overflowY="auto"
+        pointerEvents={isOpen ? "auto" : "none"}
+        opacity={isOpen ? 1 : 0}
+        transition="0.2s all"
+        {...props}
+        ref={innerRef}
       >
-        <VStack
-          mt="4"
-          w="full"
-          align="start"
-          justify="start"
-          bg="bg"
-          position="absolute"
-          borderRadius="md"
-          border="1px solid"
-          borderColor="ui.10"
-          shadow="md"
-          spacing="0"
-          maxH="240px"
-          overflowY="auto"
-          {...props}
-          ref={innerRef}
-        >
-          {items?.map(renderCard)}
-        </VStack>
-      </SlideFade>
+        {items?.map(renderCard)}
+      </VStack>
     </VStack>
   );
 }

@@ -1,12 +1,12 @@
-import { IconButton, IconButtonProps } from "@chakra-ui/button";
-import React from "react";
-import { ForwardedRef, forwardRef } from "react";
+import React, { ForwardedRef, forwardRef } from "react";
+import { HTMLStyledProps } from "@envelope/styled/jsx";
+import { Button } from "../Button";
 
-type FabProps = IconButtonProps & {};
+type FabProps = HTMLStyledProps<"button"> & {};
 
 export const Fab = forwardRef(function Fab(props: FabProps, ref: ForwardedRef<HTMLButtonElement>) {
   return (
-    <IconButton
+    <Button
       {...props}
       variant="primary"
       boxShadow="lg"

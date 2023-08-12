@@ -1,7 +1,6 @@
-import { Box, BoxProps, Flex, FlexProps, HStack } from "@chakra-ui/layout";
-import { ButtonProps, IconButton } from "@chakra-ui/button";
+import { Box, BoxProps, Flex, FlexProps, HStack, HTMLStyledProps } from "@envelope/styled/jsx";
 import React, { PropsWithChildren, useMemo } from "react";
-import { CaretLeftIcon, CaretRightIcon } from "../../icons";
+import { Button } from "../Button";
 
 type StepperControlsProps = FlexProps & {
   index: number;
@@ -9,7 +8,7 @@ type StepperControlsProps = FlexProps & {
   onIndexChange?: (index: number) => void;
   onPrevious?: () => void;
   onNext?: () => void;
-  buttonProps?: ButtonProps;
+  buttonProps?: HTMLStyledProps<"button">;
 };
 
 export const StepperControls = ({
@@ -28,9 +27,8 @@ export const StepperControls = ({
 
   return (
     <Flex gap="8" {...props}>
-      <IconButton
+      <Button
         aria-label="Previous"
-        icon={<CaretLeftIcon fill="ui.100" boxSize="4" />}
         borderRadius="full"
         onClick={() => {
           if (index > 0) {
@@ -38,15 +36,15 @@ export const StepperControls = ({
             onPrevious?.();
           }
         }}
-        isDisabled={index === 0}
         pointerEvents="auto"
         transition="all 0.2s"
         {...(buttonProps ?? {})}
-      />
+      >
+        {"<"}
+      </Button>
       {children}
-      <IconButton
+      <Button
         aria-label="Next"
-        icon={<CaretRightIcon fill="ui.100" boxSize="4" />}
         borderRadius="full"
         onClick={() => {
           if (index < pageCount - 1) {
@@ -54,11 +52,12 @@ export const StepperControls = ({
             onNext?.();
           }
         }}
-        isDisabled={index >= pageCount - 1}
         pointerEvents="auto"
         transition="all 0.2s"
         {...(buttonProps ?? {})}
-      />
+      >
+        {">"}
+      </Button>
     </Flex>
   );
 };
@@ -87,7 +86,7 @@ export const Stepper = ({
   const pageArray = useMemo(() => Array.from("0".repeat(pageCount)), [pageCount]);
 
   const stepper = (
-    <HStack spacing="4">
+    <HStack gap="4">
       {pageArray.map((_, i) =>
         step ? (
           step(i, {
