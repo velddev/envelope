@@ -32,6 +32,23 @@ const primaryVariant = {
   },
 };
 
+const secondaryVariant = {
+  bg: "yellow.100",
+  color: "black",
+  _hover: {
+    bg: "yellow.80",
+    _disabled: {
+      bg: "yellow.80",
+    },
+  },
+  _active: {
+    bg: "yellow.60",
+  },
+  _disabled: {
+    bg: "yellow.60",
+  },
+};
+
 const solidVariant = {
   bg: "ui.5",
   _hover: {
@@ -91,6 +108,7 @@ export default {
     ghost: ghostVariant,
     solid: solidVariant,
     primary: primaryVariant,
+    secondary: secondaryVariant,
     danger: dangerVariant,
     outline: outlineVariant,
     outlineInverted: outlineInvertedVariant,

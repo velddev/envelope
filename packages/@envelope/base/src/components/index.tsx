@@ -9,5 +9,6 @@ export * from "./Modal";
 export { MotionBox } from "./MotionBox";
 export { RatingInput } from "./RatingInput";
 export { Stepper } from "./Stepper";
+export { Switch } from "./Switch";
 export { WithResultsDropdown } from "./WithResultsDropdown";
 export { Anchor, B, Blockquote, Code, H1, H2, H3, H4, H5, H6, I, P, Pre, Span, U } from "./Text";

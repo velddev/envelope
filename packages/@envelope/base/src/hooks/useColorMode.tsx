@@ -22,6 +22,12 @@ export const useColorMode = (): UseColorModeResult => {
 };
 
 export const ColorModeScript = () => {
+  const { colorMode } = useColorMode();
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-color-mode", colorMode);
+  }, [colorMode]);
+
   return (
     <script
       type="text/javascript"

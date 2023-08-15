@@ -10,7 +10,8 @@ export const Fab = forwardRef(function Fab(props: FabProps, ref: ForwardedRef<HT
       {...props}
       variant="primary"
       boxShadow="lg"
-      boxSize="16"
+      width="16"
+      height="16"
       borderRadius="full"
       ref={ref}
       position="fixed"

@@ -96,8 +96,9 @@ export const Stepper = ({
         ) : (
           <Box
             key={i}
-            boxSize="2"
-            rounded="full"
+            width="2"
+            height="2"
+            borderRadius="full"
             transition="all 0.2s"
             transform={`scale(${i === index ? 1.25 : 1.0})`}
             bg={index == i ? "ui.40" : "ui.10"}
