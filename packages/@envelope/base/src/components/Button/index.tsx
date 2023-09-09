@@ -29,6 +29,13 @@ export const Button = styled("button", {
           bg: "pink.60",
         },
       },
+      secondary: {
+        bg: "yellow.100",
+        color: "uiLight.100",
+        _hover: {
+          bg: "yellow.60",
+        },
+      },
       tertiary: {
         bg: "uiLight.100",
         color: "uiDark.100",
@@ -46,7 +53,7 @@ export const Button = styled("button", {
       outline: {
         bg: "transparent",
         color: "ui.100",
-        border: "1px solid",
+        borderWidth: "1px",
         borderColor: "ui.20",
         borderRadius: "md",
         _hover: {

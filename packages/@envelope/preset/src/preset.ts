@@ -352,6 +352,19 @@ export const envelopePreset = definePreset({
         },
       },
       tokens: {
+        borders: {
+          "5": { value: "1px solid {colors.ui.5}" },
+          "10": { value: "1px solid {colors.ui.10}" },
+          "20": { value: "1px solid {colors.ui.20}" },
+          "30": { value: "1px solid {colors.ui.30}" },
+          "40": { value: "1px solid {colors.ui.40}" },
+          "50": { value: "1px solid {colors.ui.50}" },
+          "60": { value: "1px solid {colors.ui.60}" },
+          "70": { value: "1px solid {colors.ui.70}" },
+          "80": { value: "1px solid {colors.ui.80}" },
+          "90": { value: "1px solid {colors.ui.90}" },
+          "100": { value: "1px solid {colors.ui.100}" },
+        },
         colors: {
           pink: {
             100: { value: "rgb(255, 98, 145)" },
@@ -370,12 +383,12 @@ export const envelopePreset = definePreset({
             10: { value: "rgba(155, 101, 223, 0.1)" },
           },
           yellow: {
-            100: { value: "rgb(255, 194, 76)" },
-            80: { value: "rgba(255, 194, 76, 0.8)" },
-            60: { value: "rgba(255, 194, 76, 0.6)" },
-            40: { value: "rgba(255, 194, 76, 0.4)" },
-            20: { value: "rgba(255, 194, 76, 0.2)" },
-            10: { value: "rgba(255, 194, 76, 0.1)" },
+            100: { value: "rgb(255, 227, 164)" },
+            80: { value: "rgba(255, 227, 164, 0.8)" },
+            60: { value: "rgba(255, 227, 164, 0.6)" },
+            40: { value: "rgba(255, 227, 164, 0.4)" },
+            20: { value: "rgba(255, 227, 164, 0.2)" },
+            10: { value: "rgba(255, 227, 164, 0.1)" },
           },
           uiLight: {
             5: { value: "rgba(0,0,0,0.05)" },

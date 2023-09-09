@@ -89,3 +89,9 @@ export const Blockquote = styled("blockquote", {
     color: "ui.100",
   },
 });
+
+export const Legend = styled("legend", {
+  base: {
+    color: "ui.100",
+  },
+});

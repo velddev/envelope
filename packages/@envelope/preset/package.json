@@ -7,11 +7,12 @@
   "scripts": {
     "prepare": "panda codegen --clean",
     "build": "tsup",
+    "build:declaration": "tsc --emitDeclarationOnly --declaration",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.9.0",
+    "@pandacss/dev": "^0.14.0",
     "tsup": "^7.1.0",
     "typescript": "^5.1.3"
   }
