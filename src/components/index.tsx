@@ -1,7 +1,7 @@
 import { Carousel, CarouselInsideControls } from "./Carousel";
 import { DiscordMessage } from "./DiscordMessage";
 import { DiscordMessageFrame } from "./DiscordMessage/DiscordMessageFrame";
-import { ItemInput, Item } from "./ItemInput";
+import { ItemInput, BaseItem, Item } from "./ItemInput";
 import { Fab } from "./Fab";
 import { Markdown } from "./Markdown";
 import { MotionBox } from "./MotionBox";
@@ -10,6 +10,7 @@ import { Stepper } from "./Stepper";
 import { WithResultsDropdown } from "./WithResultsDropdown";
 
 export {
+  BaseItem,
   Carousel,
   CarouselInsideControls,
   DiscordMessage,
