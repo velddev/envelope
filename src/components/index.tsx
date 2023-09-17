@@ -1,7 +1,7 @@
 import { Carousel, CarouselInsideControls } from "./Carousel";
 import { DiscordMessage } from "./DiscordMessage";
 import { DiscordMessageFrame } from "./DiscordMessage/DiscordMessageFrame";
-import { ItemInput } from "./ItemInput";
+import { ItemInput, Item } from "./ItemInput";
 import { Fab } from "./Fab";
 import { Markdown } from "./Markdown";
 import { MotionBox } from "./MotionBox";
@@ -16,6 +16,7 @@ export {
   DiscordMessageFrame,
   Fab,
   ItemInput,
+  Item,
   Markdown,
   MotionBox,
   RatingInput,
