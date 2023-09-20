@@ -1,43 +1,41 @@
 import { styled } from "@envelope/styled/jsx";
-import { RecipeDefinition } from "@envelope/styled/types/recipe";
+import { cva } from "@envelope/styled/css";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
-const contentRecipe: RecipeDefinition<{}> = {
+const contentRecipe = cva({
   base: {
     py: "2",
     bg: "bg.100",
     transition: "all 0.2s",
-    animationDuration: "0.2s",
     borderWidth: "1px",
     borderColor: "ui.20",
     rounded: "md",
-    ['& [data-side="top"]']: {
-      animationName: "slideDown",
+    "&[data-side='top']": {
+      animation: "slideDown 0.2s ease-in-out",
     },
-    ['& [data-side="right"]']: {
-      animationName: "slideLeft",
+    "&[data-side='bottom']": {
+      animation: "slideUp 0.2s ease-in-out",
     },
-    ['& [data-side="bottom"]']: {
-      animationName: "slideUp",
+    "&[data-side='left']": {
+      animation: "slideRight 0.2s ease-in-out",
     },
-    ['& [data-side="left"]']: {
-      animationName: "slideRight",
+    "&[data-side='right']": {
+      animation: "slideLeft 0.2s ease-in-out",
     },
   },
-};
+});
 
-const itemRecipe: RecipeDefinition<{}> = {
+const itemRecipe = cva({
   base: {
     display: "flex",
     px: "2",
     py: "1",
+    cursor: "pointer",
     _hover: {
       bg: "ui.5",
-      border: "none",
-      outline: "none",
     },
   },
-};
+});
 
 export const Menu = styled(DropdownMenu.Root);
 export const MenuTrigger = styled(DropdownMenu.Trigger);

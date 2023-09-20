@@ -4,7 +4,7 @@ import { Root, Thumb } from "@radix-ui/react-switch";
 
 const SwitchRoot = styled(Root, {
   base: {
-    bg: "ui.5",
+    bg: "ui.10",
     px: "1",
     flexShrink: 0,
     borderRadius: "full",
@@ -37,7 +37,7 @@ const SwitchThumb = styled(Thumb, {
   base: {
     display: "block",
     borderRadius: "full",
-    bg: "ui.100",
+    bg: "uiDark.100",
     transition: "transform 0.2s ease",
   },
   variants: {
@@ -77,7 +77,7 @@ type Props = {
 
 export const Switch = ({ isChecked, onChange, ...props }: Props) => {
   return (
-    <SwitchRoot onClick={() => onChange(!isChecked)} {...props}>
+    <SwitchRoot checked={isChecked} onClick={() => onChange(!isChecked)} {...props}>
       <SwitchThumb />
     </SwitchRoot>
   );

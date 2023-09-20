@@ -1,17 +1,25 @@
-import { styled } from "@envelope/styled/jsx";
+import { styled, HTMLStyledProps, Box, Flex } from "@envelope/styled/jsx";
+import { cva, RecipeVariantProps } from "@envelope/styled/css";
+import React, { forwardRef } from "react";
+import { Spinner } from "../Spinner";
 
-export const Button = styled("button", {
+export const buttonRecipe = cva({
   base: {
     borderRadius: "md",
     transition: "all 0.2s ease-in-out",
-    cursor: "pointer",
     alignItems: "center",
     justifyContent: "center",
     display: "flex",
+    userSelect: "none",
+    gap: "2",
+    _disabled: {
+      cursor: "not-allowed",
+    },
   },
   defaultVariants: {
     size: "md",
     variant: "solid",
+    isLoading: false,
   },
   variants: {
     variant: {
@@ -87,5 +95,43 @@ export const Button = styled("button", {
         py: "3",
       },
     },
+    isLoading: {
+      true: {
+        opacity: "0.5",
+        cursor: "wait",
+      },
+      false: {
+        opacity: "1",
+        cursor: "pointer",
+      },
+    },
   },
+});
+
+export const ButtonPrimitive = styled("button", buttonRecipe);
+
+type ButtonProps = HTMLStyledProps<"button"> & RecipeVariantProps<typeof buttonRecipe>;
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { isLoading, children, size, ...rest },
+  ref,
+) {
+  return (
+    <ButtonPrimitive ref={ref} position="relative" size={size} {...rest}>
+      <Flex gap={rest.gap} opacity={isLoading ? "0" : "1"} alignItems="center">
+        {children}
+      </Flex>
+      {isLoading && (
+        <Box
+          position="absolute"
+          inset="0"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Spinner size={size} />
+        </Box>
+      )}
+    </ButtonPrimitive>
+  );
 });

@@ -1,33 +1,51 @@
-import React from "react";
+import React, { PropsWithChildren, useContext } from "react";
 import { useEffect, useState } from "react";
 
 type ColorMode = "light" | "dark";
+
 type UseColorModeResult = {
   colorMode: ColorMode;
   setColorMode: (mode: ColorMode) => void;
 };
 
-export const useColorMode = (): UseColorModeResult => {
-  const [colorMode, setColorMode] = useState<ColorMode>("light");
+const ColorModeContext = React.createContext<UseColorModeResult>({
+  colorMode: "light",
+  setColorMode: () => {},
+});
+
+export const ColorModeProvider = ({ children }: PropsWithChildren<{}>) => {
+  const [colorMode, setColorMode] = useState<ColorMode | null>(null);
 
   useEffect(() => {
-    setColorMode((localStorage.getItem("color-mode") || colorMode) as ColorMode);
+    let mode = localStorage.getItem("color-mode");
+    if (!mode) {
+      mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    setColorMode(mode as ColorMode);
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("color-mode", colorMode);
-  }, [colorMode]);
+  return (
+    <ColorModeContext.Provider
+      value={{
+        colorMode: (colorMode || "light") as ColorMode,
+        setColorMode: (mode: ColorMode) => {
+          setColorMode(mode);
+          saveColorMode(mode);
+          localStorage.setItem("color-mode", mode);
+        },
+      }}
+    >
+      {children}
+    </ColorModeContext.Provider>
+  );
+};
 
-  return { colorMode, setColorMode };
+export const useColorMode = (): UseColorModeResult => {
+  return useContext(ColorModeContext);
 };
 
 export const ColorModeScript = () => {
-  const { colorMode } = useColorMode();
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-color-mode", colorMode);
-  }, [colorMode]);
-
   return (
     <script
       type="text/javascript"
@@ -35,7 +53,10 @@ export const ColorModeScript = () => {
         __html: `
           (function() {
             try {
-              var mode = localStorage.getItem("color-mode") || "light";
+              let mode = localStorage.getItem("color-mode");
+              if (!mode) {
+                mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+              }
               document.documentElement.setAttribute("data-color-mode", mode);
             } catch (e) {}
           })();
@@ -43,4 +64,8 @@ export const ColorModeScript = () => {
       }}
     />
   );
+};
+
+const saveColorMode = (mode: ColorMode) => {
+  document.documentElement.setAttribute("data-color-mode", mode);
 };

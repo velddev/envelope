@@ -38,6 +38,22 @@ export const envelopePreset = definePreset({
         "2xl": "1536px",
       },
       keyframes: {
+        accordionExpand: {
+          from: {
+            height: 0,
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        accordionCollapse: {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: 0,
+          },
+        },
         slideUp: {
           "0%": {
             transform: "translateY(2px)",
@@ -71,6 +87,46 @@ export const envelopePreset = definePreset({
         slideRight: {
           "0%": {
             transform: "translateX(-2px)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: 1,
+          },
+        },
+        slideUpFull: {
+          "0%": {
+            transform: "translateY(100%)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: 1,
+          },
+        },
+        slideDownFull: {
+          "0%": {
+            transform: "translateY(-100%)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: 1,
+          },
+        },
+        slideLeftFull: {
+          "0%": {
+            transform: "translateX(100%)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: 1,
+          },
+        },
+        slideRightFull: {
+          "0%": {
+            transform: "translateX(-100%)",
             opacity: 0,
           },
           "100%": {
@@ -366,6 +422,14 @@ export const envelopePreset = definePreset({
           "100": { value: "1px solid {colors.ui.100}" },
         },
         colors: {
+          red: {
+            100: { value: "rgb(238, 93, 93)" },
+            80: { value: "rgba(238, 93, 93, 0.8)" },
+            60: { value: "rgba(238, 93, 93, 0.6)" },
+            40: { value: "rgba(238, 93, 93, 0.4)" },
+            20: { value: "rgba(238, 93, 93, 0.2)" },
+            10: { value: "rgba(238, 93, 93, 0.1)" },
+          },
           pink: {
             100: { value: "rgb(255, 98, 145)" },
             80: { value: "rgba(255, 98, 145, 0.8)" },

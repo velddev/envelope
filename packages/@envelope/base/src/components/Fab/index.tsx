@@ -17,6 +17,8 @@ export const Fab = forwardRef(function Fab(props: FabProps, ref: ForwardedRef<HT
       position="fixed"
       right="4"
       bottom="4"
-    />
+    >
+      {props.children}
+    </Button>
   );
 });
