@@ -11,7 +11,6 @@ export * from "./NavigationMenu";
 export * from "./Menu";
 export * from "./Modal";
 export { MotionBox } from "./MotionBox";
-export { RatingInput } from "./RatingInput";
 export * from "./Select";
 export { Spinner } from "./Spinner";
 export { Stepper } from "./Stepper";
