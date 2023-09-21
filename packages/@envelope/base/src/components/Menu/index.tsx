@@ -1,6 +1,14 @@
-import { styled } from "@envelope/styled/jsx";
+import { styled, HTMLStyledProps } from "@envelope/styled/jsx";
 import { cva } from "@envelope/styled/css";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import React from "react";
+import { useDisclosure } from "src/hooks";
+
+const MenuContext = React.createContext({
+  isOpen: false,
+  onClose: () => {},
+  onOpen: () => {},
+});
 
 const contentRecipe = cva({
   base: {
@@ -37,7 +45,20 @@ const itemRecipe = cva({
   },
 });
 
-export const Menu = styled(DropdownMenu.Root);
+type MenuProps = DropdownMenu.DropdownMenuProps;
+export const Menu = ({ children, ...props }: MenuProps) => {
+  const menu = useDisclosure();
+  return (
+    <DropdownMenu.Root
+      open={menu.isOpen}
+      onOpenChange={(v) => (v ? menu.onOpen() : menu.onClose())}
+      {...props}
+    >
+      {children}
+    </DropdownMenu.Root>
+  );
+};
+
 export const MenuTrigger = styled(DropdownMenu.Trigger);
 export const MenuContent = styled(DropdownMenu.Content, contentRecipe);
 export const MenuGroup = styled(DropdownMenu.Group);

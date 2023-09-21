@@ -65,7 +65,7 @@ export const buttonRecipe = cva({
         borderColor: "ui.20",
         borderRadius: "md",
         _hover: {
-          bg: "ui.5",
+          bg: "ui.10",
         },
       },
     },
