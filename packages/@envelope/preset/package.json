@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepare": "panda codegen --clean",
     "build": "tsup",
     "build:declaration": "tsc --emitDeclarationOnly --declaration",
     "storybook": "start-storybook -p 6006",
