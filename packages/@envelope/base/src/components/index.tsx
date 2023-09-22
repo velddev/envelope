@@ -18,5 +18,6 @@ export { Switch } from "./Switch";
 export * from "./Table";
 export * from "./Tag";
 export * from "./Text";
+export * from "./Toast";
 export * from "./Tooltip";
 export { WithResultsDropdown } from "./WithResultsDropdown";
