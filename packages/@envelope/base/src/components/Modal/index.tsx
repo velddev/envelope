@@ -29,7 +29,14 @@ export const ModalContent = React.forwardRef<HTMLDivElement, PrimitiveContentPro
     return (
       <ModalPortal>
         <ModalOverlay />
-        <Box position="fixed" inset="0" display="flex" alignItems="center" justifyContent="center">
+        <Box
+          zIndex="40"
+          position="fixed"
+          inset="0"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
           <PrimitiveContent {...props} ref={forwardedRef}>
             {children}
           </PrimitiveContent>
