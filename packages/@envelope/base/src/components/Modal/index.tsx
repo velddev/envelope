@@ -27,10 +27,10 @@ export const ModalOverlay = styled(Dialog.Overlay, {
 export const ModalContent = React.forwardRef<HTMLDivElement, PrimitiveContentProps>(
   function InnerContent({ children, ...props }: PrimitiveContentProps, forwardedRef) {
     return (
-      <ModalPortal>
-        <ModalOverlay />
+      <ModalPortal zIndex={props.zIndex}>
+        <ModalOverlay zIndex={props.zIndex} />
         <Box
-          zIndex="40"
+          zIndex={props.zIndex}
           position="fixed"
           inset="0"
           display="flex"
