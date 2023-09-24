@@ -1,8 +1,7 @@
-import { Box, Wrap, HTMLStyledProps, styled } from "@envelope/styled/jsx";
+import { Box, Wrap, HTMLStyledProps } from "@envelope/styled/jsx";
 import uniqueId from "lodash/uniqueId";
 import React, { useRef } from "react";
-
-const Input = styled("input");
+import { Input } from "../Input";
 
 export type Item<T = unknown> = T & BaseItem;
 
@@ -50,7 +49,7 @@ export function ItemInput<T>({
   };
 
   return (
-    <Wrap height="unset" transition="0.2s all" w="full" borderRadius="md" py="2" px="4">
+    <Wrap height="unset" transition="0.2s all" w="full" borderRadius="md">
       {items?.map(renderItem)}
       <Input
         flex={1}
