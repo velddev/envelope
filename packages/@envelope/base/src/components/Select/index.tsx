@@ -10,6 +10,7 @@ const ViewportPrimitive = styled(RadixSelect.Viewport, {
     borderWidth: "1px",
     borderColor: "ui.20",
     rounded: "md",
+    maxH: "var(--radix-select-content-available-height)",
     bg: "bg.100",
     "&[data-side=top]": {
       animation: "slideDown .2s ease-out",

@@ -35,7 +35,7 @@ export function WithResultsDropdown<T>({
         w="full"
         alignItems="start"
         justify="start"
-        bg="bg"
+        bg="bg.100"
         position="absolute"
         borderRadius="md"
         border="1px solid"
