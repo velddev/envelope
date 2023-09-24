@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.14.0",
+    "@pandacss/dev": "^0.15.1",
     "tsup": "^7.1.0",
     "typescript": "^5.1.3"
   }
