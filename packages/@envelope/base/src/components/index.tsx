@@ -6,6 +6,7 @@ export * from "./Drawer";
 export { Image } from "./Image";
 export * from "./Input";
 export { ItemInput } from "./ItemInput";
+export * from "./List";
 export { Fab } from "./Fab";
 export * from "./NavigationMenu";
 export * from "./Menu";
