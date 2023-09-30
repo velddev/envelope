@@ -25,6 +25,8 @@ export const StepperControls = ({
     onIndexChange?.(newIndex);
   };
 
+  if (pageCount <= 1) return <></>;
+
   return (
     <Flex gap="8" {...props}>
       <Button

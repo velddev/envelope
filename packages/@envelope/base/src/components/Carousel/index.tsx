@@ -77,15 +77,12 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
           pointerEvents="none"
           buttonProps={{
             bg: "bg",
-            pointerEvents: "all",
-            _hover: {
-              bg: "bg2.100",
-            },
             _disabled: {
               opacity: 0,
             },
           }}
         />
+
         <Box overflowX="hidden" w="full">
           <MotionBox
             animate={{
