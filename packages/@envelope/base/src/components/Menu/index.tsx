@@ -4,12 +4,6 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import React from "react";
 import { useDisclosure } from "src/hooks";
 
-const MenuContext = React.createContext({
-  isOpen: false,
-  onClose: () => {},
-  onOpen: () => {},
-});
-
 const contentRecipe = cva({
   base: {
     py: "2",
