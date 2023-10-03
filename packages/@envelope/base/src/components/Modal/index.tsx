@@ -24,24 +24,20 @@ export const ModalOverlay = styled(Dialog.Overlay, {
     animation: "fadeIn 0.2s ease-in-out",
   },
 });
-export const ModalContent = React.forwardRef<HTMLDivElement, PrimitiveContentProps>(
-  function InnerContent({ children, ...props }: PrimitiveContentProps, forwardedRef) {
-    return (
-      <ModalPortal zIndex={props.zIndex}>
-        <ModalOverlay zIndex={props.zIndex} />
-        <Box
-          zIndex={props.zIndex}
-          position="fixed"
-          inset="0"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <PrimitiveContent {...props} ref={forwardedRef}>
-            {children}
-          </PrimitiveContent>
-        </Box>
-      </ModalPortal>
-    );
-  },
-);
+export const ModalContent = ({ children, ...props }: PrimitiveContentProps) => {
+  return (
+    <ModalPortal zIndex={props.zIndex}>
+      <ModalOverlay zIndex={props.zIndex} />
+      <Box
+        zIndex={props.zIndex}
+        position="fixed"
+        inset="0"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <PrimitiveContent {...props}>{children}</PrimitiveContent>
+      </Box>
+    </ModalPortal>
+  );
+};

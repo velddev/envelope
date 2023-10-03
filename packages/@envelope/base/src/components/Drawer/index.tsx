@@ -100,17 +100,15 @@ export const DrawerOverlay = styled(Dialog.Overlay, {
     zIndex: "10",
   },
 });
-export const DrawerContent = React.forwardRef<HTMLDivElement, PrimitiveContentProps>(
-  function InnerContent({ children, style, ...props }: PrimitiveContentProps, forwardedRef) {
-    const ctx = React.useContext(DrawerContext);
+export const DrawerContent = ({ children, style, ...props }: PrimitiveContentProps) => {
+  const ctx = React.useContext(DrawerContext);
 
-    return (
-      <DrawerPortal>
-        <DrawerOverlay onClick={() => ctx?.onClose()} />
-        <PrimitiveContent zIndex="20" {...props} ref={forwardedRef}>
-          {children}
-        </PrimitiveContent>
-      </DrawerPortal>
-    );
-  },
-);
+  return (
+    <DrawerPortal>
+      <DrawerOverlay onClick={() => ctx?.onClose()} />
+      <PrimitiveContent zIndex="20" {...props}>
+        {children}
+      </PrimitiveContent>
+    </DrawerPortal>
+  );
+};

@@ -112,12 +112,9 @@ export const ButtonPrimitive = styled("button", buttonRecipe);
 
 type ButtonProps = HTMLStyledProps<"button"> & RecipeVariantProps<typeof buttonRecipe>;
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { isLoading, children, size, ...rest },
-  ref,
-) {
+export const Button = ({ isLoading, children, size, ...rest }: ButtonProps) => {
   return (
-    <ButtonPrimitive ref={ref} position="relative" size={size} {...rest}>
+    <ButtonPrimitive position="relative" size={size} {...rest}>
       <Flex gap={rest.gap} opacity={isLoading ? "0" : "1"} alignItems="center">
         {children}
       </Flex>
@@ -134,4 +131,4 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       )}
     </ButtonPrimitive>
   );
-});
+};

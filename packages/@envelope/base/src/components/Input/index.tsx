@@ -80,10 +80,7 @@ export const InputGroup = ({ children, ...rest }: InputGroupProps) => {
   );
 };
 
-export const Input = forwardRef<HTMLInputElement, HTMLStyledProps<"input">>(function InputBase(
-  { ...props },
-  ref,
-) {
+export const Input = ({ ...props }) => {
   const context = useContext(InputContext);
-  return <InputPrimitive ref={ref} variant={context ? "unstyled" : "default"} {...props} />;
-});
+  return <InputPrimitive variant={context ? "unstyled" : "default"} {...props} />;
+};

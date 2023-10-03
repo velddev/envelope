@@ -71,13 +71,15 @@ const SwitchThumb = styled(Thumb, {
 });
 
 type Props = {
-  isChecked: boolean;
+  isChecked?: boolean;
   onChange: (checked: boolean) => void;
 } & HTMLStyledProps<"button">;
 
-export const Switch = ({ isChecked, onChange, ...props }: Props) => {
+export const Switch = ({ isChecked, value, onChange, ...props }: Props) => {
+  const checkValue = isChecked || Boolean(value);
+
   return (
-    <SwitchRoot checked={isChecked} onClick={() => onChange(!isChecked)} {...props}>
+    <SwitchRoot checked={checkValue} onClick={() => onChange(!checkValue)} {...props}>
       <SwitchThumb />
     </SwitchRoot>
   );

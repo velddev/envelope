@@ -89,16 +89,13 @@ const OptionPrimitive = styled(RadixSelect.Item, {
 
 type OptionProps = HTMLStyledProps<"div"> & RadixSelect.SelectItemProps;
 
-export const Option = forwardRef<HTMLDivElement, OptionProps>(function Option(
-  { children, ...rest }: OptionProps,
-  ref,
-) {
+export const Option = ({ children, ...rest }: OptionProps) => {
   return (
-    <OptionPrimitive ref={ref} {...rest}>
+    <OptionPrimitive {...rest}>
       <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
     </OptionPrimitive>
   );
-});
+};
 
 export const OptionGroup = styled(RadixSelect.Group);
 export const OptionDivider = styled(RadixSelect.Separator);
