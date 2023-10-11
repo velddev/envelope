@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "declaration": true,
+    "declarationDir": "./dist/",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "NodeNext",
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "build",
+    "lib": ["es2019", "dom"]
+  },
+  "include": ["styled-system/**/*", "**/**.ts*", "**/**.js*"],
+  "exclude": ["build/", "node_modules/", "**/*.test.ts*"]
+}
