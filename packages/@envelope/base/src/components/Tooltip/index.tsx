@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
-import { styled, HTMLStyledProps } from "@envelope/styled/jsx";
+import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
 
 const TooltipContent = styled(RadixTooltip.Content, {
   base: {

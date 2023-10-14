@@ -1,6 +1,6 @@
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { styled, HTMLStyledProps, Box } from "@envelope/styled/jsx";
+import { styled, HTMLStyledProps, Box } from "@envelope-ui/styled/jsx";
 
 type PrimitiveContentProps = Dialog.DialogContentProps & HTMLStyledProps<"div">;
 

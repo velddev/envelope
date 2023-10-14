@@ -1,5 +1,5 @@
 {
-  "name": "@envelope/preset",
+  "name": "@envelope-ui/preset",
   "version": "0.0.1",
   "description": "Preset for Envelope using PandaCSS",
   "main": "dist/index.js",

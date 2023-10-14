@@ -1,21 +1,27 @@
-import { styled, HTMLStyledProps } from "@envelope/styled/jsx";
+import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
+import { cva } from "@envelope-ui/styled/css";
 import React, { forwardRef } from "react";
 import * as RadixSelect from "@radix-ui/react-select";
 import { Svg } from "../Svg";
 
-const ViewportPrimitive = styled(RadixSelect.Viewport, {
+const content = cva({
   base: {
-    w: "full",
+    position: "relative",
     borderStyle: "solid",
     borderWidth: "1px",
     borderColor: "ui.20",
     rounded: "md",
     maxH: "var(--radix-select-content-available-height)",
+    w: "var(--radix-select-trigger-width)",
     bg: "bg.100",
     "&[data-side=top]": {
       animation: "slideDown .2s ease-out",
     },
   },
+});
+
+const ViewportPrimitive = styled(RadixSelect.Viewport, {
+  base: {},
 });
 
 const TriggerPrimitive = styled(RadixSelect.Trigger, {
@@ -30,10 +36,44 @@ const TriggerPrimitive = styled(RadixSelect.Trigger, {
     borderRadius: "md",
     color: "ui.100",
     WebkitAppearance: "none",
-    px: "2",
-    py: "1",
+    userSelect: "none",
+    p: "2",
     gap: "2",
     flexShrink: 0,
+  },
+});
+
+const ScrollUpButtonPrimitive = styled(RadixSelect.ScrollUpButton, {
+  base: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    right: "0",
+    bg: "bg.100",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "25px",
+    color: "ui.100",
+    cursor: "default",
+    animation: "fadeIn .2s ease-out",
+  },
+});
+
+const ScrollDownButtonPrimitive = styled(RadixSelect.ScrollDownButton, {
+  base: {
+    position: "absolute",
+    bottom: "0",
+    left: "0",
+    right: "0",
+    bg: "bg.100",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "25px",
+    color: "ui.100",
+    cursor: "default",
+    animation: "fadeIn .2s ease-out",
   },
 });
 
@@ -61,14 +101,24 @@ export function Select<T extends string>({
         </RadixSelect.Icon>
       </TriggerPrimitive>
       <RadixSelect.Portal>
-        <RadixSelect.Content style={{ minWidth: "100%" }} position="popper" sideOffset={6}>
-          <RadixSelect.ScrollUpButton>
-            <AngleUpIcon />
-          </RadixSelect.ScrollUpButton>
+        <RadixSelect.Content
+          className={content({
+            w: "var(--radix-select-trigger-width)",
+            maxH: "400px",
+            ...rest,
+          })}
+          position="popper"
+          side="bottom"
+          avoidCollisions={false}
+          sideOffset={6}
+        >
           <ViewportPrimitive>{children}</ViewportPrimitive>
-          <RadixSelect.ScrollDownButton>
+          <ScrollUpButtonPrimitive>
+            <AngleUpIcon />
+          </ScrollUpButtonPrimitive>
+          <ScrollDownButtonPrimitive>
             <AngleDownIcon />
-          </RadixSelect.ScrollDownButton>
+          </ScrollDownButtonPrimitive>
         </RadixSelect.Content>
       </RadixSelect.Portal>
     </RadixSelect.Root>

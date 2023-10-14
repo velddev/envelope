@@ -1,5 +1,5 @@
-import { HTMLStyledProps, styled, Flex, FlexProps } from "@envelope/styled/jsx";
-import { cva } from "@envelope/styled/css";
+import { HTMLStyledProps, styled, Flex, FlexProps } from "@envelope-ui/styled/jsx";
+import { cva } from "@envelope-ui/styled/css";
 import React, { createContext, forwardRef, useContext } from "react";
 
 const InputContext = createContext(null);

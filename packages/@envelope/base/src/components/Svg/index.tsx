@@ -1,3 +1,3 @@
-import { styled } from "@envelope/styled/jsx";
+import { styled } from "@envelope-ui/styled/jsx";
 
 export const Svg = styled("svg");

@@ -1,5 +1,5 @@
-import { styled, HTMLStyledProps, Box, Flex } from "@envelope/styled/jsx";
-import { cva, RecipeVariantProps } from "@envelope/styled/css";
+import { styled, HTMLStyledProps, Box, Flex } from "@envelope-ui/styled/jsx";
+import { cva, RecipeVariantProps } from "@envelope-ui/styled/css";
 import React, { forwardRef } from "react";
 import { Spinner } from "../Spinner";
 

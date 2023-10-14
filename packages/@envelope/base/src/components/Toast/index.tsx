@@ -1,4 +1,4 @@
-import { cva } from "@envelope/styled/css";
+import { cva } from "@envelope-ui/styled/css";
 import React from "react";
 import { toast as sonnerToast, Toaster as SonnerToaster } from "sonner";
 

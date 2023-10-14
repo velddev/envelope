@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, HTMLStyledProps } from "@envelope/styled/jsx";
+import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
 import { Root, Thumb } from "@radix-ui/react-switch";
 
 const SwitchRoot = styled(Root, {

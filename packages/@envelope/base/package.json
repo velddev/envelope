@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@envelope/preset": "workspace:^",
+    "@envelope-ui/preset": "workspace:^",
     "@pandacss/dev": "^0.15.1",
     "@storybook/addon-actions": "^6.4.8",
     "@storybook/addon-essentials": "^6.4.8",

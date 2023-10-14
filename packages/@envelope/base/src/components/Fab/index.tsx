@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef } from "react";
-import { HTMLStyledProps } from "@envelope/styled/jsx";
+import { HTMLStyledProps } from "@envelope-ui/styled/jsx";
 import { Button } from "../Button";
 
 type FabProps = HTMLStyledProps<"button"> & {};

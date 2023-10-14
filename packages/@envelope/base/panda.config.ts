@@ -1,9 +1,9 @@
 import { defineConfig } from "@pandacss/dev";
-import { envelopePreset } from "@envelope/preset";
+import { envelopePreset } from "@envelope-ui/preset";
 
 export default defineConfig({
   presets: [envelopePreset],
   jsxFramework: "react",
   emitPackage: true,
-  outdir: "@envelope/styled",
+  outdir: "@envelope-ui/styled",
 });
