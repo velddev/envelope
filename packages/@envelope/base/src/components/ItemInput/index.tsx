@@ -49,15 +49,29 @@ export function ItemInput<T>({
   };
 
   return (
-    <Wrap height="unset" transition="0.2s all" w="full" borderRadius="md">
+    <Wrap
+      height="unset"
+      transition="0.2s all"
+      w="full"
+      borderRadius="md"
+      borderColor="ui.20"
+      borderWidth="1px"
+      p="2"
+      gap="1"
+      _focusWithin={{
+        borderColor: "ui.100",
+      }}
+    >
       {items?.map(renderItem)}
       <Input
+        variant="unstyled"
         flex={1}
+        p="0"
         onKeyDown={handleInput}
-        {...props}
         ref={inputRef}
         value={textValue}
         onChange={(e) => onChangeText?.(e.target.value)}
+        {...props}
       />
     </Wrap>
   );

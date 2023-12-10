@@ -18,6 +18,6 @@
     "outDir": "dist",
     "lib": ["es2019", "dom"]
   },
-  "include": ["src/**/**.ts*", "node_modules/@envelope/**/*.[tj]sx?"],
+  "include": ["src/**/**.ts*", "node_modules/@envelope-ui/*"],
   "exclude": ["build/", "node_modules/", "**/*.test.ts*"]
 }

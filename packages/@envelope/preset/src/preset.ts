@@ -409,17 +409,20 @@ export const envelopePreset = definePreset({
       },
       tokens: {
         borders: {
-          "5": { value: "1px solid {colors.ui.5}" },
-          "10": { value: "1px solid {colors.ui.10}" },
-          "20": { value: "1px solid {colors.ui.20}" },
-          "30": { value: "1px solid {colors.ui.30}" },
-          "40": { value: "1px solid {colors.ui.40}" },
-          "50": { value: "1px solid {colors.ui.50}" },
-          "60": { value: "1px solid {colors.ui.60}" },
-          "70": { value: "1px solid {colors.ui.70}" },
-          "80": { value: "1px solid {colors.ui.80}" },
-          "90": { value: "1px solid {colors.ui.90}" },
-          "100": { value: "1px solid {colors.ui.100}" },
+          subtle: {
+            value: {
+              color: "{colors.ui.20}",
+              style: "solid",
+              width: "1px",
+            },
+          },
+          solid: {
+            value: {
+              color: "{colors.ui.100}",
+              style: "solid",
+              width: "1px",
+            },
+          },
         },
         colors: {
           red: {

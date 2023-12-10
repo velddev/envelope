@@ -24,7 +24,6 @@ const inputRecipe = cva({
     variant: {
       unstyled: {},
       default: {
-        p: "2",
         borderRadius: "md",
         borderWidth: "1px",
         borderColor: "ui.20",
@@ -35,16 +34,20 @@ const inputRecipe = cva({
       },
     },
     controlSize: {
+      none: {},
       sm: {
-        p: "1",
+        px: "2",
+        py: "1",
         textStyle: "paragraph.sm",
       },
       md: {
-        p: "2",
+        px: "4",
+        py: "2",
         textStyle: "paragraph.md",
       },
       lg: {
-        p: "3",
+        px: "5",
+        py: "3",
         textStyle: "paragraph.lg",
       },
     },
@@ -58,12 +61,45 @@ const InputGroupPrimitive = styled("div", {
     display: "flex",
     alignItems: "center",
     px: "4",
+    py: "2",
     borderRadius: "md",
     borderWidth: "1px",
     borderColor: "ui.20",
     borderStyle: "solid",
     _focusWithin: {
       borderColor: "ui.100",
+    },
+  },
+  variants: {
+    variant: {
+      unstyled: {},
+      default: {
+        borderRadius: "md",
+        borderWidth: "1px",
+        borderColor: "ui.20",
+        borderStyle: "solid",
+        _focusVisible: {
+          borderColor: "ui.100",
+        },
+      },
+    },
+    controlSize: {
+      none: {},
+      sm: {
+        px: "2",
+        py: "1",
+        textStyle: "paragraph.sm",
+      },
+      md: {
+        px: "4",
+        py: "2",
+        textStyle: "paragraph.md",
+      },
+      lg: {
+        px: "5",
+        py: "3",
+        textStyle: "paragraph.lg",
+      },
     },
   },
 });
@@ -82,5 +118,11 @@ export const InputGroup = ({ children, ...rest }: InputGroupProps) => {
 
 export const Input = ({ ...props }) => {
   const context = useContext(InputContext);
-  return <InputPrimitive variant={context ? "unstyled" : "default"} {...props} />;
+  return (
+    <InputPrimitive
+      controlSize={context ? "none" : props.size}
+      variant={context ? "unstyled" : "default"}
+      {...props}
+    />
+  );
 };

@@ -29,19 +29,19 @@ const TooltipContent = styled(RadixTooltip.Content, {
 
 type TooltipProps = HTMLStyledProps<"div"> &
   RadixTooltip.TooltipContentProps & {
-    content: ReactNode;
+    value: ReactNode;
     showArrow?: boolean;
     delay?: number;
   };
 
-export const Tooltip = ({ children, content, showArrow, delay, ...rest }: TooltipProps) => {
+export const Tooltip = ({ children, value, showArrow, delay, ...rest }: TooltipProps) => {
   return (
     <RadixTooltip.Provider delayDuration={delay || 500}>
       <RadixTooltip.Root>
         <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <TooltipContent sideOffset={8} {...rest}>
-            {content}
+            {value}
           </TooltipContent>
         </RadixTooltip.Portal>
       </RadixTooltip.Root>
