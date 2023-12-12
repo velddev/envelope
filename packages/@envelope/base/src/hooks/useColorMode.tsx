@@ -1,3 +1,4 @@
+"use client";
 import React, { PropsWithChildren, useContext } from "react";
 import { useEffect, useState } from "react";
 
@@ -13,17 +14,16 @@ const ColorModeContext = React.createContext<UseColorModeResult>({
   setColorMode: () => {},
 });
 
+const w = typeof window !== "undefined" ? window : null;
+
 export const ColorModeProvider = ({ children }: PropsWithChildren<{}>) => {
-  const [colorMode, setColorMode] = useState<ColorMode | null>(null);
-
-  useEffect(() => {
-    let mode = localStorage.getItem("color-mode");
-    if (!mode) {
-      mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-
-    setColorMode(mode as ColorMode);
-  }, []);
+  const [colorMode, setColorMode] = useState<ColorMode | null>(
+    w
+      ? w.localStorage.getItem("color-mode") || w.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+      : null,
+  );
 
   return (
     <ColorModeContext.Provider
