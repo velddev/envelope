@@ -1,6 +1,6 @@
-import { HTMLStyledProps, styled, Flex, FlexProps } from "@envelope-ui/styled/jsx";
+import { HTMLStyledProps, styled } from "@envelope-ui/styled/jsx";
 import { cva } from "@envelope-ui/styled/css";
-import React, { createContext, forwardRef, useContext } from "react";
+import React, { createContext, useContext } from "react";
 
 const InputContext = createContext(null);
 
@@ -56,6 +56,10 @@ const inputRecipe = cva({
 
 const InputPrimitive = styled("input", inputRecipe);
 const InputGroupPrimitive = styled("div", {
+  defaultVariants: {
+    variant: "default",
+    controlSize: "md",
+  },
   base: {
     ...base,
     display: "flex",
