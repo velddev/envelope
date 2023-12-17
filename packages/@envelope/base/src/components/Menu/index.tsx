@@ -1,4 +1,4 @@
-import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
+import { styled } from "@envelope-ui/styled/jsx";
 import { cva } from "@envelope-ui/styled/css";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import React from "react";
@@ -53,6 +53,7 @@ export const Menu = ({ children, ...props }: MenuProps) => {
   );
 };
 
+export const MenuPortal = styled(DropdownMenu.Portal);
 export const MenuTrigger = styled(DropdownMenu.Trigger);
 export const MenuContent = styled(DropdownMenu.Content, contentRecipe);
 export const MenuGroup = styled(DropdownMenu.Group);
