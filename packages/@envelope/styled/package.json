@@ -1,0 +1,7 @@
+{
+  "name": "@envelope-ui/styled",
+  "files": [
+    "src",
+    "dist"
+  ]
+}

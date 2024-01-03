@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "panda codegen && tsup",
     "build:declaration": "tsc --emitDeclarationOnly --declaration",
@@ -53,6 +54,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@envelope-ui/styled": "workspace:^",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.5",

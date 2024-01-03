@@ -5,7 +5,10 @@ export default defineConfig({
   splitting: true,
   sourcemap: true,
   dts: true,
-  minify: true,
+  format: ["cjs", "esm"],
+  minify: false,
   clean: false,
   treeshake: true,
+  external: ["@envelope-ui/styled"],
+  shims: true,
 });
