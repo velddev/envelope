@@ -44,9 +44,14 @@ export const Markdown = ({ content }: MarkdownProps) => {
       margin-bottom: 0.5em;
     }
 
-    h3,
-    h4 {
+    h3 {
       font-size: 1.5em;
+      margin-bottom: 0.5em;
+      margin-top: 1em;
+    }
+
+    h4 {
+      font-size: 1.25em;
       margin-bottom: 0.5em;
       margin-top: 1em;
     }
