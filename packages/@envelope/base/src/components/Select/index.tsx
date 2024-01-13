@@ -82,6 +82,7 @@ type SelectProps<T extends string> = Omit<
   "value"
 > & {
   value: T;
+  placeholder?: string;
   onValueChange: (value: T) => void;
 };
 
