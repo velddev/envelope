@@ -189,6 +189,42 @@ export const envelopePreset = definePreset({
               _dark: "{colors.uiDark.100}",
             },
           },
+          "uix.5": {
+            value: { base: "{colors.uiDark.5}", _dark: "{colors.uiLight.5}" },
+          },
+          "uix.10": {
+            value: { base: "{colors.uiDark.10}", _dark: "{colors.uiLight.10}" },
+          },
+          "uix.20": {
+            value: { base: "{colors.uiDark.20}", _dark: "{colors.uiLight.20}" },
+          },
+          "uix.30": {
+            value: { base: "{colors.uiDark.30}", _dark: "{colors.uiLight.30}" },
+          },
+          "uix.40": {
+            value: { base: "{colors.uiDark.40}", _dark: "{colors.uiLight.40}" },
+          },
+          "uix.50": {
+            value: { base: "{colors.uiDark.50}", _dark: "{colors.uiLight.50}" },
+          },
+          "uix.60": {
+            value: { base: "{colors.uiDark.60}", _dark: "{colors.uiLight.60}" },
+          },
+          "uix.70": {
+            value: { base: "{colors.uiDark.70}", _dark: "{colors.uiLight.70}" },
+          },
+          "uix.80": {
+            value: { base: "{colors.uiDark.80}", _dark: "{colors.uiLight.80}" },
+          },
+          "uix.90": {
+            value: { base: "{colors.uiDark.90}", _dark: "{colors.uiLight.90}" },
+          },
+          "uix.100": {
+            value: {
+              base: "{colors.uiDark.100}",
+              _dark: "{colors.uiLight.100}",
+            },
+          },
           "bg.5": {
             value: { base: "{colors.bgLight.5}", _dark: "{colors.bgDark.5}" },
           },
@@ -410,11 +446,7 @@ export const envelopePreset = definePreset({
       tokens: {
         borders: {
           subtle: {
-            value: {
-              color: "{colors.ui.20}",
-              style: "solid",
-              width: "1px",
-            },
+            value: "1px solid {colors.ui.20}",
           },
           solid: {
             value: {

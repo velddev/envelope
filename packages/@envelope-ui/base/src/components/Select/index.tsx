@@ -17,6 +17,7 @@ const content = cva({
     "&[data-side=top]": {
       animation: "slideDown .2s ease-out",
     },
+    zIndex: "1000",
   },
 });
 
@@ -37,7 +38,8 @@ const TriggerPrimitive = styled(RadixSelect.Trigger, {
     color: "ui.100",
     WebkitAppearance: "none",
     userSelect: "none",
-    p: "2",
+    px: "3",
+    py: "1",
     gap: "2",
     flexShrink: 0,
   },

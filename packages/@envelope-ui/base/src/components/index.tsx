@@ -5,7 +5,7 @@ export { Carousel, CarouselInsideControls } from "./Carousel";
 export * from "./Drawer";
 export { Image } from "./Image";
 export * from "./Input";
-export { ItemInput } from "./ItemInput";
+export { ItemInput, Item, BaseItem, ItemInputProps } from "./ItemInput";
 export { Fab } from "./Fab";
 export * from "./NavigationMenu";
 export * from "./Menu";
