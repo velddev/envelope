@@ -6,6 +6,7 @@ import { HTMLStyledProps } from "@envelope-ui/styled/types";
 
 export const buttonRecipe = cva({
   base: {
+    whiteSpace: "nowrap",
     borderRadius: "md",
     transition: "all 0.2s ease-in-out",
     alignItems: "center",
