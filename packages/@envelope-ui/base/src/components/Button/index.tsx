@@ -115,7 +115,7 @@ export const buttonRecipe = cva({
 
 export const ButtonPrimitive = styled("button", buttonRecipe);
 
-type ButtonProps = HTMLStyledProps<"button"> & RecipeVariantProps<typeof buttonRecipe>;
+export type ButtonProps = HTMLStyledProps<"button"> & RecipeVariantProps<typeof buttonRecipe>;
 
 export const Button = ({ isLoading, children, size, ...rest }: ButtonProps) => {
   return (
