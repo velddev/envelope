@@ -1,6 +1,6 @@
-import { Box, BoxProps, Flex, FlexProps, HStack, HTMLStyledProps } from "@envelope-ui/styled/jsx";
+import { Box, BoxProps, Flex, FlexProps, HStack } from "@envelope-ui/styled/jsx";
 import React, { PropsWithChildren, useMemo } from "react";
-import { Button } from "../Button";
+import { Button, ButtonProps } from "../Button/button";
 
 type StepperControlsProps = FlexProps & {
   index: number;
@@ -8,7 +8,7 @@ type StepperControlsProps = FlexProps & {
   onIndexChange?: (index: number) => void;
   onPrevious?: () => void;
   onNext?: () => void;
-  buttonProps?: HTMLStyledProps<"button">;
+  buttonProps?: ButtonProps;
 };
 
 export const StepperControls = ({

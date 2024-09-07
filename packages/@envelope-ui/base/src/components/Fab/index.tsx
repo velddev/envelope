@@ -1,8 +1,8 @@
 import React, { ForwardedRef, forwardRef } from "react";
 import { HTMLStyledProps } from "@envelope-ui/styled/jsx";
-import { Button } from "../Button";
+import { Button, ButtonProps } from "../Button/button";
 
-type FabProps = HTMLStyledProps<"button"> & {};
+type FabProps = ButtonProps;
 
 export const Fab = forwardRef(function Fab(props: FabProps, ref: ForwardedRef<HTMLButtonElement>) {
   return (

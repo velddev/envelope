@@ -1,5 +1,5 @@
 export * from "./Accordion";
-export * from "./Button";
+export * from "./Button/button";
 export { CardBox } from "./CardBox";
 export { Carousel, CarouselInsideControls } from "./Carousel";
 export * from "./Drawer";

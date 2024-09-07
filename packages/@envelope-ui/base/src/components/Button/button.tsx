@@ -1,8 +1,9 @@
 import { cva, RecipeVariantProps } from "@envelope-ui/styled/css";
-import React from "react";
-import { Spinner } from "../Spinner";
 import { styled, Flex, Box } from "@envelope-ui/styled/jsx";
 import { HTMLStyledProps } from "@envelope-ui/styled/types";
+import React from "react";
+import { Button as AriaButton, ButtonProps as AriaButtonProps } from "react-aria-components";
+import { Spinner } from "../Spinner";
 
 export const buttonRecipe = cva({
   base: {
@@ -113,9 +114,11 @@ export const buttonRecipe = cva({
   },
 });
 
-export const ButtonPrimitive = styled("button", buttonRecipe);
+export const ButtonPrimitive = styled(AriaButton, buttonRecipe);
 
-export type ButtonProps = HTMLStyledProps<"button"> & RecipeVariantProps<typeof buttonRecipe>;
+export type ButtonProps = HTMLStyledProps<"button"> &
+  AriaButtonProps &
+  RecipeVariantProps<typeof buttonRecipe>;
 
 export const Button = ({ isLoading, children, size, ...rest }: ButtonProps) => {
   return (
@@ -137,5 +140,3 @@ export const Button = ({ isLoading, children, size, ...rest }: ButtonProps) => {
     </ButtonPrimitive>
   );
 };
-
-export * from "./group";
