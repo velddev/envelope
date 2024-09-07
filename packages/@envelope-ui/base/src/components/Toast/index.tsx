@@ -1,5 +1,5 @@
 import { cva } from "@/_generated/styled/css";
-import React from "react";
+import React, { ReactNode } from "react";
 import { toast as sonnerToast, Toaster as SonnerToaster } from "sonner";
 
 const toastBody = cva({
@@ -18,4 +18,5 @@ type ToasterProps = Parameters<typeof SonnerToaster>[0];
 export const Toaster = ({ ...rest }: ToasterProps) => {
   return <SonnerToaster className={toastBody()} {...rest} />;
 };
-export const toast = sonnerToast;
+
+export const toast: (label: string | ReactNode) => void = sonnerToast;
