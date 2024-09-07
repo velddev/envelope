@@ -1,4 +1,4 @@
-import { styled } from "@envelope-ui/styled/jsx";
+import { styled } from "@/_generated/styled/jsx";
 
 export const Tag = styled("span", {
   base: {

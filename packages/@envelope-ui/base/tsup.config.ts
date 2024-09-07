@@ -9,6 +9,6 @@ export default defineConfig({
   minify: false,
   clean: false,
   treeshake: true,
-  external: ["@envelope-ui/styled"],
+  external: ["@/_generated/styled"],
   shims: true,
 });

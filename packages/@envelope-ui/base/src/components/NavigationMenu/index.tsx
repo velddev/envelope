@@ -1,5 +1,5 @@
 import * as RadixNavigationMenu from "@radix-ui/react-navigation-menu";
-import { styled } from "@envelope-ui/styled/jsx";
+import { styled } from "@/_generated/styled/jsx";
 
 export const NavigationMenu = styled(RadixNavigationMenu.Root);
 export const NavigationMenuList = styled(RadixNavigationMenu.List);

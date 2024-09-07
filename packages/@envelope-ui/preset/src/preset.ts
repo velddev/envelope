@@ -1,6 +1,7 @@
 import { definePreset } from "@pandacss/dev";
 
 export const envelopePreset = definePreset({
+  name: "envelope",
   conditions: {
     light: "[data-color-mode=light] &",
     dark: "[data-color-mode=dark] &",

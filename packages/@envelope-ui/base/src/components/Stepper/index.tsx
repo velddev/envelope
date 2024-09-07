@@ -1,4 +1,4 @@
-import { Box, BoxProps, Flex, FlexProps, HStack } from "@envelope-ui/styled/jsx";
+import { Box, BoxProps, Flex, FlexProps, HStack } from "@/_generated/styled/jsx";
 import React, { PropsWithChildren, useMemo } from "react";
 import { Button, ButtonProps } from "../Button/button";
 

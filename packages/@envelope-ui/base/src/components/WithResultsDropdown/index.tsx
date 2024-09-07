@@ -1,5 +1,5 @@
 import React, { ReactNode, useRef } from "react";
-import { VstackProps, VStack } from "@envelope-ui/styled/jsx";
+import { VstackProps, VStack } from "@/_generated/styled/jsx";
 import { useOnClickOutside } from "src/hooks/useOutsideClick";
 
 type Props<T> = VstackProps & {

@@ -4,6 +4,5 @@ import { envelopePreset } from "@envelope-ui/preset";
 export default defineConfig({
   presets: [envelopePreset],
   jsxFramework: "react",
-  emitPackage: true,
-  outdir: "@envelope-ui/styled",
+  outdir: "./src/_generated/styled",
 });
