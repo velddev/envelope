@@ -8,7 +8,6 @@ const PrimitiveContent = styled(Dialog.Content, {
   base: {
     rounded: "md",
     bg: "bg.100",
-    maxW: "xl",
     animation: "slideUp 0.2s ease-in-out",
   },
 });
