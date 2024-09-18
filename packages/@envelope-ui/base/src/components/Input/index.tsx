@@ -2,7 +2,7 @@ import { HTMLStyledProps, styled } from "@/_generated/styled/jsx";
 import { cva } from "@/_generated/styled/css";
 import React, { createContext, useContext } from "react";
 
-const InputContext = createContext(null);
+const InputContext = createContext<boolean | null>(null);
 
 const base = {
   bg: "transparent",
@@ -108,7 +108,11 @@ const InputGroupPrimitive = styled("div", {
   },
 });
 
-type InputGroupProps = HTMLStyledProps<"div">;
+export type InputProps = Omit<HTMLStyledProps<"input">, "size"> & {
+  size?: "sm" | "md" | "lg";
+  variant?: "unstyled" | "default";
+};
+export type InputGroupProps = InputProps;
 
 export const InputGroup = ({ children, ...rest }: InputGroupProps) => {
   return (
@@ -120,11 +124,11 @@ export const InputGroup = ({ children, ...rest }: InputGroupProps) => {
   );
 };
 
-export const Input = ({ ...props }) => {
+export const Input = ({ size, ...props }: InputProps) => {
   const context = useContext(InputContext);
   return (
     <InputPrimitive
-      controlSize={context ? "none" : props.size}
+      controlSize={context ? "none" : size}
       variant={context ? "unstyled" : "default"}
       {...props}
     />

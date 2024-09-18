@@ -2,7 +2,7 @@ import { styled } from "@/_generated/styled/jsx";
 import { cva } from "@/_generated/styled/css";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import React from "react";
-import { useDisclosure } from "src/hooks";
+import { useDisclosure } from "../../hooks/useDisclosure";
 
 const contentRecipe = cva({
   base: {

@@ -13,13 +13,12 @@ const breakpointsRaw = {
   "2xl": "1536px",
 } as Record<BreakpointToken, string>;
 
-const breakpoints: Record<BreakpointToken, number> = Object.keys(breakpointsRaw).reduce(
-  (acc, key) => {
-    acc[key] = parseInt(breakpointsRaw[key].replace("px", ""));
-    return acc;
-  },
-  {} as Record<BreakpointToken, number>,
-);
+const breakpointKeys: BreakpointToken[] = Object.keys(breakpointsRaw) as BreakpointToken[];
+
+const breakpoints: Record<BreakpointToken, number> = breakpointKeys.reduce((acc, key) => {
+  acc[key] = parseInt(breakpointsRaw[key].replace("px", ""));
+  return acc;
+}, {} as Record<BreakpointToken, number>);
 
 type Breakpoints<T> = Record<BreakpointTokenType, T>;
 type Values<T> = Breakpoints<T> | T[];
@@ -27,7 +26,12 @@ type Values<T> = Breakpoints<T> | T[];
 function toObject<T>(values: T[]): Breakpoints<T> {
   return values.reduce(
     (acc, value, index) => {
-      acc[Object.keys(breakpoints)[index]] = value;
+      const v = breakpointKeys[index];
+      if (!v) {
+        return acc;
+      }
+
+      acc[v] = value;
       return acc;
     },
     {
@@ -42,7 +46,9 @@ export function useBreakpointValue<T>(values: Partial<Values<T>>): T | undefined
 
   // get the value for the current breakpoint, if the value is not defined, find the lower defined value.
 
-  const breakpointsInOrder = Object.keys(valueObj).sort((a, b) => breakpoints[b] - breakpoints[a]);
+  const valueObjKeys = Object.keys(valueObj) as BreakpointToken[];
+
+  const breakpointsInOrder = valueObjKeys.sort((a, b) => breakpoints[b] - breakpoints[a]);
   for (let v of breakpointsInOrder) {
     if (breakpoints[v] > breakpoints[result.breakpoint]) {
       // ignore larger values

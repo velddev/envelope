@@ -1,6 +1,6 @@
 import React, { ReactNode, useRef } from "react";
 import { VstackProps, VStack } from "@/_generated/styled/jsx";
-import { useOnClickOutside } from "src/hooks/useOutsideClick";
+import { useOnClickOutside } from "../../hooks/useOutsideClick";
 
 type Props<T> = VstackProps & {
   isOpen?: boolean;
@@ -25,7 +25,7 @@ export function WithResultsDropdown<T>({
 }: Props<T>) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useOnClickOutside(containerRef, onFocusOutside);
+  useOnClickOutside(containerRef, onFocusOutside || (() => {}));
 
   return (
     <VStack alignItems="start" w="full" gap="0" position="relative" ref={containerRef}>

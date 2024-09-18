@@ -1,3 +1,4 @@
+"use client";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { styled, HTMLStyledProps } from "@/_generated/styled/jsx";
 import React from "react";

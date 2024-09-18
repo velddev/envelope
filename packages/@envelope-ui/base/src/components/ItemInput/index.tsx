@@ -1,7 +1,7 @@
 import { Box, Wrap, HTMLStyledProps } from "@/_generated/styled/jsx";
 import uniqueId from "lodash/uniqueId";
 import React, { useRef } from "react";
-import { Input } from "../Input";
+import { Input, InputProps } from "../Input";
 
 export type Item<T = unknown> = T & BaseItem;
 
@@ -10,7 +10,7 @@ export type BaseItem = {
   value: string;
 };
 
-export type ItemInputProps<T> = HTMLStyledProps<"input"> & {
+export type ItemInputProps<T> = InputProps & {
   onItemCreate: (value: string) => Omit<Item<T>, "key">;
 
   renderItem?: (item: Item<T>, index: number) => React.ReactNode;
@@ -43,8 +43,8 @@ export function ItemInput<T>({
       return;
     }
 
-    if (e.key === "Backspace" && !textValue) {
-      onChangeItems(items.slice(0, items.length - 1));
+    if (e.key === "Backspace" && !textValue && items != null) {
+      onChangeItems?.(items.slice(0, items.length - 1));
     }
   };
 

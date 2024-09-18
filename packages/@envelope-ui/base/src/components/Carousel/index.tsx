@@ -31,11 +31,11 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
                 gap="8"
                 maxW="95vw"
                 style={{
-                  gridTemplateColumns: `repeat(${children.length}, ${90 / colCount}%)`,
+                  gridTemplateColumns: `repeat(${children.length}, ${90 / (colCount ?? 1)}%)`,
                 }}
               >
                 {children.map((x, i) => (
-                  <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
+                  <Box ref={(el: HTMLDivElement) => (refs.current[i] = el)} key={i} w="full">
                     {x}
                   </Box>
                 ))}
@@ -48,7 +48,7 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
         <Stepper
           index={index}
           onIndexChange={setIndex}
-          pageCount={1 + Math.max(0, children.length - colCount)}
+          pageCount={1 + Math.max(0, children.length - (colCount ?? 1))}
         />
       </Center>
     </>
@@ -65,7 +65,7 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
         <StepperControls
           w="full"
           justify="space-between"
-          pageCount={1 + children.length - colCount}
+          pageCount={1 + children.length - (colCount ?? 1)}
           index={index}
           onIndexChange={setIndex}
           bottom="0"
@@ -96,13 +96,13 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
           >
             <Grid
               style={{
-                gridTemplateColumns: `repeat(${children.length}, ${90 / colCount}%)`,
+                gridTemplateColumns: `repeat(${children.length}, ${90 / (colCount ?? 1)}%)`,
               }}
               gap="8"
               maxW="95vw"
             >
               {children.map((x, i) => (
-                <Box ref={(el) => (refs.current[i] = el)} key={i} w="full">
+                <Box ref={(el: HTMLDivElement) => (refs.current[i] = el)} key={i} w="full">
                   {x}
                 </Box>
               ))}
