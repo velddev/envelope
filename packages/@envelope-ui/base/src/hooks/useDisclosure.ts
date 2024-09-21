@@ -1,6 +1,13 @@
 import { useCallback, useState } from "react";
 
-export const useDisclosure = () => {
+export type UseDisclosureResult = {
+  isOpen: boolean;
+  onClose: () => void;
+  onOpen: () => void;
+  onToggle: () => void;
+};
+
+export const useDisclosure = (): UseDisclosureResult => {
   const [isOpen, setIsOpen] = useState(false);
   const onClose = useCallback(() => setIsOpen(false), []);
   const onOpen = useCallback(() => setIsOpen(true), []);

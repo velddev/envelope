@@ -1,6 +1,8 @@
-import React from "react";
+import React, { createContext, PropsWithChildren, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { styled, HTMLStyledProps, Box } from "@/_generated/styled/jsx";
+import { AddModalResult, useModalStack } from "@/hooks/useModalStack";
+import { ModalProvider, useModal, useModalContext } from "./hooks";
 
 type PrimitiveContentProps = Dialog.DialogContentProps & HTMLStyledProps<"div">;
 
@@ -12,7 +14,6 @@ const PrimitiveContent = styled(Dialog.Content, {
   },
 });
 
-export const Modal = styled(Dialog.Root);
 export const ModalPortal = styled(Dialog.Portal);
 export const ModalTrigger = styled(Dialog.Trigger);
 export const ModalOverlay = styled(Dialog.Overlay, {
@@ -21,22 +22,56 @@ export const ModalOverlay = styled(Dialog.Overlay, {
     inset: 0,
     position: "fixed",
     animation: "fadeIn 0.2s ease-in-out",
+    backdropFilter: "blur(4px)",
   },
 });
-export const ModalContent = ({ children, ...props }: PrimitiveContentProps) => {
+
+export type ModalProps = Omit<Dialog.DialogProps, "open" | "onOpenChange"> & {
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+export const Modal = ({ isOpen, onClose, ...props }: ModalProps) => {
+  const modal = useModal({ isOpen });
+
   return (
-    <ModalPortal zIndex={props.zIndex}>
-      <ModalOverlay zIndex={props.zIndex} />
+    <ModalProvider value={modal}>
+      <Dialog.Root
+        open={modal.isOpen}
+        onOpenChange={(v) => {
+          if (v === false) {
+            onClose();
+          }
+        }}
+        {...props}
+      >
+        {props.children}
+      </Dialog.Root>
+    </ModalProvider>
+  );
+};
+
+export const ModalContent = ({ children, ...props }: PrimitiveContentProps) => {
+  const modal = useModalContext();
+  return (
+    <Dialog.Portal>
+      <ModalOverlay
+        style={{
+          zIndex: modal.isOpen ? modal.zIndex : undefined,
+        }}
+      />
       <Box
-        zIndex={props.zIndex}
         position="fixed"
         inset="0"
         display="flex"
         alignItems="center"
         justifyContent="center"
+        style={{
+          zIndex: modal.isOpen ? modal.zIndex : undefined,
+        }}
       >
         <PrimitiveContent {...props}>{children}</PrimitiveContent>
       </Box>
-    </ModalPortal>
+    </Dialog.Portal>
   );
 };

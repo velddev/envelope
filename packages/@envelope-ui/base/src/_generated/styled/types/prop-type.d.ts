@@ -115,7 +115,7 @@ export interface UtilityValues {
 	srOnly: boolean;
 	debug: boolean;
 	containerName: CssProperties["containerName"];
-	colorPalette: "red" | "pink" | "purple" | "yellow" | "uiLight" | "uiDark" | "bgLight" | "bgDark" | "bg2Light" | "bg2Dark" | "ui.5" | "ui.10" | "ui.20" | "ui.30" | "ui.40" | "ui.50" | "ui.60" | "ui.70" | "ui.80" | "ui.90" | "ui.100" | "uix.5" | "uix.10" | "uix.20" | "uix.30" | "uix.40" | "uix.50" | "uix.60" | "uix.70" | "uix.80" | "uix.90" | "uix.100" | "bg.5" | "bg.10" | "bg.20" | "bg.30" | "bg.40" | "bg.50" | "bg.60" | "bg.70" | "bg.80" | "bg.90" | "bg.100";
+	colorPalette: "red" | "pink" | "purple" | "yellow" | "uiLight" | "uiDark" | "bgLight" | "bgDark" | "bg2Light" | "bg2Dark" | "primary.50" | "primary.100" | "primary.200" | "primary.300" | "primary.400" | "primary.500" | "primary.600" | "primary.700" | "primary.800" | "primary.900" | "primary.950" | "ui" | "ui.5" | "ui.10" | "ui.20" | "ui.30" | "ui.40" | "ui.50" | "ui.60" | "ui.70" | "ui.80" | "ui.90" | "ui.100" | "uix" | "uix.5" | "uix.10" | "uix.20" | "uix.30" | "uix.40" | "uix.50" | "uix.60" | "uix.70" | "uix.80" | "uix.90" | "uix.100" | "bg" | "bg.5" | "bg.10" | "bg.20" | "bg.30" | "bg.40" | "bg.50" | "bg.60" | "bg.70" | "bg.80" | "bg.90" | "bg.100";
 	textStyle: "mono.xs" | "mono.sm" | "mono.md" | "mono.lg" | "mono.xl" | "paragraph.xs" | "paragraph.sm" | "paragraph.md" | "paragraph.lg" | "paragraph.xl" | "label.xs" | "label.sm" | "label.md" | "label.lg" | "label.xl" | "heading.xs" | "heading.sm" | "heading.md" | "heading.lg" | "heading.xl" | "display.xs" | "display.sm" | "display.md" | "display.lg" | "display.xl";
 }
 

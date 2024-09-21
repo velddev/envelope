@@ -231,17 +231,33 @@ const tokens = {
     "value": "rgba(22, 22, 24, 0.2)",
     "variable": "var(--colors-bg-dark-20)"
   },
+  "colors.bgDark.30": {
+    "value": "rgba(22, 22, 24, 0.3)",
+    "variable": "var(--colors-bg-dark-30)"
+  },
   "colors.bgDark.40": {
     "value": "rgba(22, 22, 24, 0.4)",
     "variable": "var(--colors-bg-dark-40)"
+  },
+  "colors.bgDark.50": {
+    "value": "rgba(22, 22, 24, 0.5)",
+    "variable": "var(--colors-bg-dark-50)"
   },
   "colors.bgDark.60": {
     "value": "rgba(22, 22, 24, 0.6)",
     "variable": "var(--colors-bg-dark-60)"
   },
+  "colors.bgDark.70": {
+    "value": "rgba(22, 22, 24, 0.7)",
+    "variable": "var(--colors-bg-dark-70)"
+  },
   "colors.bgDark.80": {
     "value": "rgba(22, 22, 24, 0.8)",
     "variable": "var(--colors-bg-dark-80)"
+  },
+  "colors.bgDark.90": {
+    "value": "rgba(22, 22, 24, 0.9)",
+    "variable": "var(--colors-bg-dark-90)"
   },
   "colors.bgDark.100": {
     "value": "rgb(22, 22, 24)",
@@ -259,17 +275,33 @@ const tokens = {
     "value": "rgba(242, 242, 242, 0.2)",
     "variable": "var(--colors-bg2-light-20)"
   },
+  "colors.bg2Light.30": {
+    "value": "rgba(242, 242, 242, 0.3)",
+    "variable": "var(--colors-bg2-light-30)"
+  },
   "colors.bg2Light.40": {
     "value": "rgba(242, 242, 242, 0.4)",
     "variable": "var(--colors-bg2-light-40)"
+  },
+  "colors.bg2Light.50": {
+    "value": "rgba(242, 242, 242, 0.5)",
+    "variable": "var(--colors-bg2-light-50)"
   },
   "colors.bg2Light.60": {
     "value": "rgba(242, 242, 242, 0.6)",
     "variable": "var(--colors-bg2-light-60)"
   },
+  "colors.bg2Light.70": {
+    "value": "rgba(242, 242, 242, 0.7)",
+    "variable": "var(--colors-bg2-light-70)"
+  },
   "colors.bg2Light.80": {
     "value": "rgba(242, 242, 242, 0.8)",
     "variable": "var(--colors-bg2-light-80)"
+  },
+  "colors.bg2Light.90": {
+    "value": "rgba(242, 242, 242, 0.9)",
+    "variable": "var(--colors-bg2-light-90)"
   },
   "colors.bg2Light.100": {
     "value": "rgb(242, 242, 242)",
@@ -355,6 +387,54 @@ const tokens = {
     "value": "1536px",
     "variable": "var(--sizes-breakpoint-2xl)"
   },
+  "colors.primary.50": {
+    "value": "var(--colors-primary\\.50)",
+    "variable": "var(--colors-primary\\.50)"
+  },
+  "colors.primary.100": {
+    "value": "var(--colors-primary\\.100)",
+    "variable": "var(--colors-primary\\.100)"
+  },
+  "colors.primary.200": {
+    "value": "var(--colors-primary\\.200)",
+    "variable": "var(--colors-primary\\.200)"
+  },
+  "colors.primary.300": {
+    "value": "var(--colors-primary\\.300)",
+    "variable": "var(--colors-primary\\.300)"
+  },
+  "colors.primary.400": {
+    "value": "var(--colors-primary\\.400)",
+    "variable": "var(--colors-primary\\.400)"
+  },
+  "colors.primary.500": {
+    "value": "var(--colors-primary\\.500)",
+    "variable": "var(--colors-primary\\.500)"
+  },
+  "colors.primary.600": {
+    "value": "var(--colors-primary\\.600)",
+    "variable": "var(--colors-primary\\.600)"
+  },
+  "colors.primary.700": {
+    "value": "var(--colors-primary\\.700)",
+    "variable": "var(--colors-primary\\.700)"
+  },
+  "colors.primary.800": {
+    "value": "var(--colors-primary\\.800)",
+    "variable": "var(--colors-primary\\.800)"
+  },
+  "colors.primary.900": {
+    "value": "var(--colors-primary\\.900)",
+    "variable": "var(--colors-primary\\.900)"
+  },
+  "colors.primary.950": {
+    "value": "var(--colors-primary\\.950)",
+    "variable": "var(--colors-primary\\.950)"
+  },
+  "colors.ui": {
+    "value": "var(--colors-ui)",
+    "variable": "var(--colors-ui)"
+  },
   "colors.ui.5": {
     "value": "var(--colors-ui\\.5)",
     "variable": "var(--colors-ui\\.5)"
@@ -399,6 +479,10 @@ const tokens = {
     "value": "var(--colors-ui\\.100)",
     "variable": "var(--colors-ui\\.100)"
   },
+  "colors.uix": {
+    "value": "var(--colors-uix)",
+    "variable": "var(--colors-uix)"
+  },
   "colors.uix.5": {
     "value": "var(--colors-uix\\.5)",
     "variable": "var(--colors-uix\\.5)"
@@ -442,6 +526,10 @@ const tokens = {
   "colors.uix.100": {
     "value": "var(--colors-uix\\.100)",
     "variable": "var(--colors-uix\\.100)"
+  },
+  "colors.bg": {
+    "value": "var(--colors-bg)",
+    "variable": "var(--colors-bg)"
   },
   "colors.bg.5": {
     "value": "var(--colors-bg\\.5)",

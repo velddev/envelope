@@ -1,19 +1,36 @@
 {
   "name": "@envelope-ui/base",
   "version": "1.0.0",
-  "description": "Envelope Design Language",
-  "license": "MIT",
+  "description": "Envelope base design package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/velddev/envelope.git"
+  },
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "private": true,
-  "type": "module",
+  "module": "dist/index.mjs",
+  "files": [
+    "/dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.mjs",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./client": {
+      "import": "./dist/client.mjs",
+      "module": "./dist/client.mjs",
+      "types": "./dist/client.d.ts",
+      "default": "./dist/client.js"
+    }
+  },
   "scripts": {
     "build": "panda codegen && tsup",
-    "build:declaration": "tsc --emitDeclarationOnly --declaration",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "prepare": "panda codegen"
   },
+  "license": "MIT",
+  "author": "Mike Veldsink",
   "peerDependencies": {
     "@envelope-ui/preset": "workspace:^",
     "framer-motion": "7.2.1",
@@ -50,7 +67,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.35.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
-    "tsup": "^7.1.0",
+    "tsup": "^8.3.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {

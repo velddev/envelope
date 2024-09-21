@@ -154,6 +154,78 @@ export const envelopePreset = definePreset({
       },
       semanticTokens: {
         colors: {
+          "primary.50": {
+            value: {
+              base: "{colors.blue.50}",
+              _dark: "{colors.blue.50}",
+            },
+          },
+          "primary.100": {
+            value: {
+              base: "{colors.blue.100}",
+              _dark: "{colors.blue.100}",
+            },
+          },
+          "primary.200": {
+            value: {
+              base: "{colors.blue.200}",
+              _dark: "{colors.blue.200}",
+            },
+          },
+          "primary.300": {
+            value: {
+              base: "{colors.blue.300}",
+              _dark: "{colors.blue.300}",
+            },
+          },
+          "primary.400": {
+            value: {
+              base: "{colors.blue.400}",
+              _dark: "{colors.blue.400}",
+            },
+          },
+          "primary.500": {
+            value: {
+              base: "{colors.blue.500}",
+              _dark: "{colors.blue.500}",
+            },
+          },
+          "primary.600": {
+            value: {
+              base: "{colors.blue.600}",
+              _dark: "{colors.blue.600}",
+            },
+          },
+          "primary.700": {
+            value: {
+              base: "{colors.blue.700}",
+              _dark: "{colors.blue.700}",
+            },
+          },
+          "primary.800": {
+            value: {
+              base: "{colors.blue.800}",
+              _dark: "{colors.blue.800}",
+            },
+          },
+          "primary.900": {
+            value: {
+              base: "{colors.blue.900}",
+              _dark: "{colors.blue.900}",
+            },
+          },
+          "primary.950": {
+            value: {
+              base: "{colors.blue.950}",
+              _dark: "{colors.blue.950}",
+            },
+          },
+          ui: {
+            value: {
+              base: "{colors.uiLight.100}",
+              _dark: "{colors.uiDark.100}",
+            },
+          },
           "ui.5": {
             value: { base: "{colors.uiLight.5}", _dark: "{colors.uiDark.5}" },
           },
@@ -190,6 +262,12 @@ export const envelopePreset = definePreset({
               _dark: "{colors.uiDark.100}",
             },
           },
+          uix: {
+            value: {
+              base: "{colors.uiDark.100}",
+              _dark: "{colors.uiLight.100}",
+            },
+          },
           "uix.5": {
             value: { base: "{colors.uiDark.5}", _dark: "{colors.uiLight.5}" },
           },
@@ -224,6 +302,12 @@ export const envelopePreset = definePreset({
             value: {
               base: "{colors.uiDark.100}",
               _dark: "{colors.uiLight.100}",
+            },
+          },
+          bg: {
+            value: {
+              base: "{colors.bgLight.100}",
+              _dark: "{colors.bgDark.100}",
             },
           },
           "bg.5": {
@@ -447,7 +531,11 @@ export const envelopePreset = definePreset({
       tokens: {
         borders: {
           subtle: {
-            value: "1px solid {colors.ui.20}",
+            value: {
+              color: "{colors.ui.20}",
+              style: "solid",
+              width: "1px",
+            },
           },
           solid: {
             value: {
@@ -527,18 +615,26 @@ export const envelopePreset = definePreset({
           },
           bgDark: {
             100: { value: "rgb(22, 22, 24)" },
+            90: { value: "rgba(22, 22, 24, 0.9)" },
             80: { value: "rgba(22, 22, 24, 0.8)" },
+            70: { value: "rgba(22, 22, 24, 0.7)" },
             60: { value: "rgba(22, 22, 24, 0.6)" },
+            50: { value: "rgba(22, 22, 24, 0.5)" },
             40: { value: "rgba(22, 22, 24, 0.4)" },
+            30: { value: "rgba(22, 22, 24, 0.3)" },
             20: { value: "rgba(22, 22, 24, 0.2)" },
             10: { value: "rgba(22, 22, 24, 0.1)" },
             5: { value: "rgba(22, 22, 24, 0.05)" },
           },
           bg2Light: {
             100: { value: "rgb(242, 242, 242)" },
+            90: { value: "rgba(242, 242, 242, 0.9)" },
             80: { value: "rgba(242, 242, 242, 0.8)" },
+            70: { value: "rgba(242, 242, 242, 0.7)" },
             60: { value: "rgba(242, 242, 242, 0.6)" },
+            50: { value: "rgba(242, 242, 242, 0.5)" },
             40: { value: "rgba(242, 242, 242, 0.4)" },
+            30: { value: "rgba(242, 242, 242, 0.3)" },
             20: { value: "rgba(242, 242, 242, 0.2)" },
             10: { value: "rgba(242, 242, 242, 0.1)" },
             5: { value: "rgba(242, 242, 242, 0.05)" },

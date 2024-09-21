@@ -34,10 +34,10 @@ export const buttonRecipe = cva({
         },
       },
       primary: {
-        bg: "pink.100",
+        bg: "primary.500/100",
         color: "uiLight.100",
         _hover: {
-          bg: "pink.60",
+          bg: "primary.500/60",
         },
       },
       secondary: {

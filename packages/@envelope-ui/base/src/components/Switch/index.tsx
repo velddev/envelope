@@ -5,11 +5,10 @@ import { Root, Thumb } from "@radix-ui/react-switch";
 const SwitchRoot = styled(Root, {
   base: {
     bg: "ui.10",
-    px: "1",
     flexShrink: 0,
     borderRadius: "full",
     "&[data-state='checked']": {
-      bg: "pink.100",
+      bg: "primary.500",
     },
   },
   variants: {
@@ -38,13 +37,14 @@ const SwitchThumb = styled(Thumb, {
     display: "block",
     borderRadius: "full",
     bg: "uiDark.100",
-    transition: "transform 0.2s ease",
+    transition: "all 0.33s ease",
   },
   variants: {
     size: {
       sm: {
         width: 4,
         height: 4,
+        transform: `translateX(1px)`,
         "&[data-state='checked']": {
           transform: `translateX(8px)`,
         },
@@ -52,13 +52,15 @@ const SwitchThumb = styled(Thumb, {
       md: {
         width: 5,
         height: 5,
+        transform: `translateX(2px)`,
         "&[data-state='checked']": {
-          transform: `translateX(12px)`,
+          transform: `translateX(18px)`,
         },
       },
       lg: {
         width: 6,
         height: 6,
+        transform: `translateX(2px)`,
         "&[data-state='checked']": {
           transform: `translateX(16px)`,
         },
@@ -71,6 +73,7 @@ const SwitchThumb = styled(Thumb, {
 });
 
 type Props = {
+  size?: "sm" | "md" | "lg";
   isChecked?: boolean;
   onChange: (checked: boolean) => void;
 } & HTMLStyledProps<"button">;
