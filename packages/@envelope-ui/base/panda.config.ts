@@ -3,6 +3,7 @@ import { envelopePreset } from "@envelope-ui/preset";
 
 export default defineConfig({
   presets: [envelopePreset],
+  include: ["./src/**/*.{ts,tsx,js,jsx}"],
   jsxFramework: "react",
-  outdir: "./src/_generated/styled",
+  importMap: "@envelope-ui/styled",
 });
