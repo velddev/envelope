@@ -1,6 +1,6 @@
-import { cva, RecipeVariantProps } from "@/_generated/styled/css";
-import { styled, Flex, Box } from "@/_generated/styled/jsx";
-import { HTMLStyledProps } from "@/_generated/styled/types";
+import { cva, RecipeVariantProps } from "@envelope-ui/styled/css";
+import { styled, Flex, Box } from "@envelope-ui/styled/jsx";
+import { HTMLStyledProps } from "@envelope-ui/styled/types";
 import React from "react";
 import { Button as AriaButton, ButtonProps as AriaButtonProps } from "react-aria-components";
 import { Spinner } from "../Spinner";

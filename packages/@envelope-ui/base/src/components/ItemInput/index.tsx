@@ -1,4 +1,4 @@
-import { Box, Wrap, HTMLStyledProps } from "@/_generated/styled/jsx";
+import { Box, Wrap, HTMLStyledProps } from "@envelope-ui/styled/jsx";
 import uniqueId from "lodash/uniqueId";
 import React, { useRef } from "react";
 import { Input, InputProps } from "../Input";

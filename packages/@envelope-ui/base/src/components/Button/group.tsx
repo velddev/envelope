@@ -1,5 +1,5 @@
-import { cva } from "@/_generated/styled/css";
-import { styled } from "@/_generated/styled/jsx";
+import { cva } from "@envelope-ui/styled/css";
+import { styled } from "@envelope-ui/styled/jsx";
 
 const buttonGroupRecipe = cva({
   base: {

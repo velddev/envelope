@@ -1,5 +1,5 @@
-import { HTMLStyledProps, styled } from "@/_generated/styled/jsx";
-import { cva } from "@/_generated/styled/css";
+import { HTMLStyledProps, styled } from "@envelope-ui/styled/jsx";
+import { cva } from "@envelope-ui/styled/css";
 import React, { createContext, useContext } from "react";
 
 const InputContext = createContext<boolean | null>(null);

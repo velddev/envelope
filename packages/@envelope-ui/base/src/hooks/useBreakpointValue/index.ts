@@ -1,5 +1,5 @@
 import { useBreakpoint } from "use-breakpoint";
-import { BreakpointToken } from "@/_generated/styled/tokens";
+import { BreakpointToken } from "@envelope-ui/styled/tokens";
 
 type BreakpointTokenType = BreakpointToken | "base";
 

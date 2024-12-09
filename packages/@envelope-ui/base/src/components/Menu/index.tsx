@@ -1,5 +1,5 @@
-import { styled } from "@/_generated/styled/jsx";
-import { cva } from "@/_generated/styled/css";
+import { styled } from "@envelope-ui/styled/jsx";
+import { cva } from "@envelope-ui/styled/css";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import React from "react";
 import { useDisclosure } from "../../hooks/useDisclosure";

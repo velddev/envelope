@@ -1,5 +1,5 @@
-import { styled, HTMLStyledProps } from "@/_generated/styled/jsx";
-import { cva } from "@/_generated/styled/css";
+import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
+import { cva } from "@envelope-ui/styled/css";
 import React, { forwardRef } from "react";
 import * as RadixSelect from "@radix-ui/react-select";
 import { Svg } from "../Svg";

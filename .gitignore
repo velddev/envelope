@@ -3,3 +3,6 @@ build/
 dist/
 .idea/
 **/*.zip
+## Panda
+styled-system
+styled-system-studio

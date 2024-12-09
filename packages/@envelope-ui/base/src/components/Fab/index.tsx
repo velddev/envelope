@@ -1,5 +1,4 @@
 import React, { ForwardedRef, forwardRef } from "react";
-import { HTMLStyledProps } from "@/_generated/styled/jsx";
 import { Button, ButtonProps } from "../Button/button";
 
 type FabProps = ButtonProps;

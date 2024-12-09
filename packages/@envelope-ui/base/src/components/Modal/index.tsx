@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { styled, HTMLStyledProps, Box } from "@/_generated/styled/jsx";
+import { styled, HTMLStyledProps, Box } from "@envelope-ui/styled/jsx";
 import { AddModalResult, useModalStack } from "@/hooks/useModalStack";
 import { ModalProvider, useModal, useModalContext } from "./hooks";
 

@@ -1,6 +1,6 @@
 "use client";
 import * as RadixAccordion from "@radix-ui/react-accordion";
-import { styled, HTMLStyledProps } from "@/_generated/styled/jsx";
+import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
 import React from "react";
 
 type AccordionHeaderProps = RadixAccordion.AccordionHeaderProps & HTMLStyledProps<"h3">;
