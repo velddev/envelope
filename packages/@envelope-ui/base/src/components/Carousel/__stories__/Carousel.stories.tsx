@@ -1,5 +1,4 @@
 import React from "react";
-import { Img } from "@chakra-ui/image";
 import { Carousel, CarouselProps } from "..";
 
 export default {
@@ -17,13 +16,7 @@ export default {
 const Template = (args: CarouselProps) => (
   <Carousel {...args}>
     {[...Array(10)].map((_, i) => (
-      <Img
-        key={i}
-        _loading={{
-          bg: "ui.5",
-        }}
-        src={"https://picsum.photos/600/300?random=" + i}
-      />
+      <img key={i} src={"https://picsum.photos/600/300?random=" + i} />
     ))}
   </Carousel>
 );
