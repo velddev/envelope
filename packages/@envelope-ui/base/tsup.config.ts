@@ -7,5 +7,5 @@ export default defineConfig({
   dts: true,
   clean: true,
   minify: true,
-  external: ["@envelope-ui/styled", "react", "react-dom"],
+  external: ["react", "react-dom"],
 });
