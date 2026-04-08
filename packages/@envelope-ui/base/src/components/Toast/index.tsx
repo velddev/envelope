@@ -1,21 +1,15 @@
-import { cva } from "@envelope-ui/styled/css";
 import React from "react";
 import { toast as sonnerToast, Toaster as SonnerToaster } from "sonner";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-const toastBody = cva({
-  base: {
-    bg: "bg.100",
-    borderRadius: "md",
-    boxShadow: "md",
-    borderWidth: "1px",
-    borderColor: "ui.20",
-    borderStyle: "solid",
-  },
-});
+type ToasterProps = Parameters<typeof SonnerToaster>[0] & Record<string, any>;
 
-type ToasterProps = Parameters<typeof SonnerToaster>[0];
-
-export const Toaster = ({ ...rest }: ToasterProps) => {
-  return <SonnerToaster className={toastBody()} {...rest} />;
+export const Toaster = ({ className, ...rest }: ToasterProps) => {
+  return (
+    <SonnerToaster
+      className="bg-bg-100 rounded-md shadow-md border border-solid border-ui-20"
+      {...filterDomProps(rest)}
+    />
+  );
 };
 export const toast = sonnerToast;

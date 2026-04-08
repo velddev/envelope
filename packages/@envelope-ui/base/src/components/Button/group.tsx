@@ -1,45 +1,34 @@
-import { cva } from "@envelope-ui/styled/css";
-import { styled } from "@envelope-ui/styled/jsx";
+import { cva, type VariantProps } from "class-variance-authority";
+import React, { forwardRef } from "react";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-const buttonGroupRecipe = cva({
-  base: {
-    display: "flex",
-  },
+const buttonGroupVariants = cva("flex", {
   defaultVariants: {
     buttonDirection: "horizontal",
   },
   variants: {
     buttonDirection: {
-      horizontal: {
-        flexDirection: "row",
-        "& > *:not(:first-child):not(:last-child)": {
-          rounded: "0",
-        },
-        "& > *:first-child": {
-          roundedRight: "0",
-          roundedLeft: "md",
-        },
-        "& > *:last-child": {
-          roundedLeft: "0",
-          roundedRight: "md",
-        },
-      },
-      vertical: {
-        flexDirection: "column",
-        "& > *:not(:first-child):not(:last-child)": {
-          rounded: "0",
-        },
-        "& > *:first-child": {
-          roundedBottom: "0",
-          roundedTop: "md",
-        },
-        "& > *:last-child": {
-          roundedTop: "0",
-          roundedBottom: "md",
-        },
-      },
+      horizontal:
+        "flex-row [&>*:not(:first-child):not(:last-child)]:rounded-none [&>*:first-child]:rounded-r-none [&>*:first-child]:rounded-l-md [&>*:last-child]:rounded-l-none [&>*:last-child]:rounded-r-md",
+      vertical:
+        "flex-col [&>*:not(:first-child):not(:last-child)]:rounded-none [&>*:first-child]:rounded-b-none [&>*:first-child]:rounded-t-md [&>*:last-child]:rounded-t-none [&>*:last-child]:rounded-b-md",
     },
   },
 });
 
-export const ButtonGroup = styled("div", buttonGroupRecipe);
+export type ButtonGroupProps = React.ComponentPropsWithRef<"div"> &
+  VariantProps<typeof buttonGroupVariants> & Record<string, any>;
+
+export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
+  ({ className, buttonDirection, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(buttonGroupVariants({ buttonDirection }), className)}
+        {...filterDomProps(props)}
+      />
+    );
+  }
+);
+ButtonGroup.displayName = "ButtonGroup";

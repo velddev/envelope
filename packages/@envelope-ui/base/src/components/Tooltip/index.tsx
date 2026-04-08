@@ -1,48 +1,33 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, forwardRef } from "react";
 import * as RadixTooltip from "@radix-ui/react-tooltip";
-import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-const TooltipContent = styled(RadixTooltip.Content, {
-  base: {
-    bg: "bg.100",
-    color: "ui.100",
-    borderRadius: "md",
-    borderWidth: "1px",
-    borderColor: "ui.10",
-    borderStyle: "solid",
-    p: "2",
-    boxShadow: "md",
-    "&[data-side='top']": {
-      animation: "slideDown 0.2s ease-in-out",
-    },
-    "&[data-side='bottom']": {
-      animation: "slideUp 0.2s ease-in-out",
-    },
-    "&[data-side='left']": {
-      animation: "slideRight 0.2s ease-in-out",
-    },
-    "&[data-side='right']": {
-      animation: "slideLeft 0.2s ease-in-out",
-    },
-  },
-});
-
-type TooltipProps = HTMLStyledProps<"div"> &
+type TooltipProps = React.ComponentPropsWithRef<"div"> &
   RadixTooltip.TooltipContentProps & {
     value: ReactNode;
     showArrow?: boolean;
     delay?: number;
-  };
+  } & Record<string, any>;
 
-export const Tooltip = ({ children, value, showArrow, delay, ...rest }: TooltipProps) => {
+export const Tooltip = ({ children, value, showArrow, delay, className, ...rest }: TooltipProps) => {
   return (
     <RadixTooltip.Provider delayDuration={delay || 500}>
       <RadixTooltip.Root>
         <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
         <RadixTooltip.Portal>
-          <TooltipContent sideOffset={8} {...rest}>
+          <RadixTooltip.Content
+            sideOffset={8}
+            className={cn(
+              "bg-bg-100 text-ui-100 rounded-md border border-solid border-ui-10 p-2 shadow-md",
+              "data-[side=top]:animate-slide-down data-[side=bottom]:animate-slide-up",
+              "data-[side=left]:animate-slide-right data-[side=right]:animate-slide-left",
+              className
+            )}
+            {...filterDomProps(rest)}
+          >
             {value}
-          </TooltipContent>
+          </RadixTooltip.Content>
         </RadixTooltip.Portal>
       </RadixTooltip.Root>
     </RadixTooltip.Provider>

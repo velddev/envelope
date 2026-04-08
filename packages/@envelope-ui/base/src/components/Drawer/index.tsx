@@ -1,71 +1,28 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { styled, HTMLStyledProps, Box } from "@envelope-ui/styled/jsx";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-const PrimitiveContent = styled(Dialog.Content, {
-  base: {
-    rounded: "md",
-    bg: "bg.100",
-    maxW: "xl",
-    transition: "0.33s all",
-    position: "fixed",
-    overflowY: "auto",
-  },
-  variants: {
-    side: {
-      left: {
-        w: "70vw",
-        h: "100vh",
-        top: "0",
-        left: "0",
-        _before: {
-          transform: "translateX(-100%)",
-        },
-        "&[data-state='open']": {
-          animation: "slideLeftFull 0.2s ease-in-out",
-        },
-      },
-      right: {
-        w: "70vw",
-        h: "100vh",
-        top: "0",
-        right: "0",
-        "&[data-state='open']": {
-          animation: "slideLeftFull 0.2s ease-in-out",
-        },
-      },
-      top: {
-        w: "100vw",
-        h: "70vh",
-        top: "0",
-        left: "0",
-        right: "0",
-        transform: "translateY(-100%)",
-      },
-      bottom: {
-        w: "100vw",
-        h: "70vh",
-        bottom: "0",
-        right: "0",
-        left: "0",
-        transform: "translateY(100%)",
+const drawerContentVariants = cva(
+  "rounded-md bg-bg-100 max-w-xl transition-all duration-300 fixed overflow-y-auto",
+  {
+    variants: {
+      side: {
+        left: "w-[70vw] h-screen top-0 left-0 data-[state=open]:animate-slide-right-full",
+        right: "w-[70vw] h-screen top-0 right-0 data-[state=open]:animate-slide-left-full",
+        top: "w-screen h-[70vh] top-0 left-0 right-0 -translate-y-full",
+        bottom: "w-screen h-[70vh] bottom-0 right-0 left-0 translate-y-full",
       },
     },
-  },
-  defaultVariants: {
-    side: "right",
-  },
-});
-
-type PrimitiveContentProps = Dialog.DialogContentProps &
-  HTMLStyledProps<"div"> & {
-    side?: "left" | "right" | "top" | "bottom";
-  };
-
-const PrimitiveRoot = styled(Dialog.Root);
+    defaultVariants: {
+      side: "right",
+    },
+  }
+);
 
 type DrawerPrimitiveProps = Omit<Dialog.DialogProps, "open"> &
-  Omit<HTMLStyledProps<"div">, "ref"> & {
+  React.ComponentPropsWithRef<"div"> & {
     isOpen: boolean;
     onClose: () => void;
   };
@@ -75,40 +32,54 @@ const DrawerContext = React.createContext({
   isOpen: false,
 });
 
-export const Drawer = ({ children, ...props }: DrawerPrimitiveProps) => {
+export const Drawer = ({ children, isOpen, onClose, ...props }: DrawerPrimitiveProps) => {
   return (
-    <DrawerContext.Provider
-      value={{
-        onClose: props.onClose,
-        isOpen: props.isOpen,
-      }}
-    >
-      <PrimitiveRoot {...props} open={props.isOpen}>
+    <DrawerContext.Provider value={{ onClose, isOpen }}>
+      <Dialog.Root {...props} open={isOpen}>
         {children}
-      </PrimitiveRoot>
+      </Dialog.Root>
     </DrawerContext.Provider>
   );
 };
-export const DrawerPortal = styled(Dialog.Portal);
-export const DrawerTrigger = styled(Dialog.Trigger);
-export const DrawerOverlay = styled(Dialog.Overlay, {
-  base: {
-    bg: "uiLight.60",
-    inset: 0,
-    position: "fixed",
-    animation: "fadeIn 0.2s ease-in-out",
-    zIndex: "10",
-  },
-});
-export const DrawerContent = ({ children, style, ...props }: PrimitiveContentProps) => {
-  const ctx = React.useContext(DrawerContext);
 
-  return (
-    <DrawerPortal>
-      <DrawerOverlay onClick={() => ctx?.onClose()} />
-      <PrimitiveContent zIndex="20" {...props}>
-        {children}
-      </PrimitiveContent>
-    </DrawerPortal>
-  );
-};
+export const DrawerPortal = Dialog.Portal;
+export const DrawerTrigger = Dialog.Trigger;
+
+export const DrawerOverlay = forwardRef<
+  HTMLDivElement,
+  Dialog.DialogOverlayProps & React.ComponentPropsWithRef<"div"> & Record<string, any>
+>(({ className, ...props }, ref) => (
+  <Dialog.Overlay
+    ref={ref}
+    className={cn(
+      "bg-ui-light-60 inset-0 fixed animate-fade-in z-10",
+      className
+    )}
+    {...filterDomProps(props)}
+  />
+));
+DrawerOverlay.displayName = "DrawerOverlay";
+
+type DrawerContentProps = Dialog.DialogContentProps &
+  React.ComponentPropsWithRef<"div"> &
+  VariantProps<typeof drawerContentVariants> & Record<string, any>;
+
+export const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
+  ({ children, side, className, ...props }, ref) => {
+    const ctx = React.useContext(DrawerContext);
+
+    return (
+      <DrawerPortal>
+        <DrawerOverlay onClick={() => ctx?.onClose()} />
+        <Dialog.Content
+          ref={ref}
+          className={cn(drawerContentVariants({ side }), "z-20", className)}
+          {...filterDomProps(props)}
+        >
+          {children}
+        </Dialog.Content>
+      </DrawerPortal>
+    );
+  }
+);
+DrawerContent.displayName = "DrawerContent";

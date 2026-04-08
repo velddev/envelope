@@ -1,86 +1,63 @@
-import React from "react";
-import { styled, HTMLStyledProps } from "@envelope-ui/styled/jsx";
+import React, { forwardRef } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { Root, Thumb } from "@radix-ui/react-switch";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-const SwitchRoot = styled(Root, {
-  base: {
-    bg: "ui.10",
-    px: "1",
-    flexShrink: 0,
-    borderRadius: "full",
-    "&[data-state='checked']": {
-      bg: "pink.100",
-    },
-  },
-  variants: {
-    size: {
-      sm: {
-        width: 8,
-        height: 5,
-      },
-      md: {
-        width: 10,
-        height: 6,
-      },
-      lg: {
-        width: 12,
-        height: 7,
+const switchRootVariants = cva(
+  "bg-ui-10 px-1 shrink-0 rounded-full data-[state=checked]:bg-pink-100",
+  {
+    variants: {
+      size: {
+        sm: "w-8 h-5",
+        md: "w-10 h-6",
+        lg: "w-12 h-7",
       },
     },
-  },
-  defaultVariants: {
-    size: "md",
-  },
-});
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
 
-const SwitchThumb = styled(Thumb, {
-  base: {
-    display: "block",
-    borderRadius: "full",
-    bg: "uiDark.100",
-    transition: "transform 0.2s ease",
-  },
-  variants: {
-    size: {
-      sm: {
-        width: 4,
-        height: 4,
-        "&[data-state='checked']": {
-          transform: `translateX(8px)`,
-        },
-      },
-      md: {
-        width: 5,
-        height: 5,
-        "&[data-state='checked']": {
-          transform: `translateX(12px)`,
-        },
-      },
-      lg: {
-        width: 6,
-        height: 6,
-        "&[data-state='checked']": {
-          transform: `translateX(16px)`,
-        },
+const switchThumbVariants = cva(
+  "block rounded-full bg-ui-dark-100 transition-transform duration-200",
+  {
+    variants: {
+      size: {
+        sm: "w-4 h-4 data-[state=checked]:translate-x-2",
+        md: "w-5 h-5 data-[state=checked]:translate-x-3",
+        lg: "w-6 h-6 data-[state=checked]:translate-x-4",
       },
     },
-  },
-  defaultVariants: {
-    size: "md",
-  },
-});
+    defaultVariants: {
+      size: "md",
+    },
+  }
+);
 
-type Props = {
+type SwitchProps = {
   isChecked?: boolean;
+  value?: string | boolean;
   onChange: (checked: boolean) => void;
-} & HTMLStyledProps<"button">;
+  size?: "sm" | "md" | "lg";
+} & Omit<React.ComponentPropsWithRef<"button">, "onChange"> & Record<string, any>;
 
-export const Switch = ({ isChecked, value, onChange, ...props }: Props) => {
-  const checkValue = isChecked || Boolean(value);
+export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
+  ({ isChecked, value, onChange, size, className, ...props }, ref) => {
+    const checkValue = isChecked || Boolean(value);
 
-  return (
-    <SwitchRoot checked={checkValue} onClick={() => onChange(!checkValue)} {...props}>
-      <SwitchThumb />
-    </SwitchRoot>
-  );
-};
+    return (
+      <Root
+        ref={ref}
+        checked={checkValue}
+        onClick={() => onChange(!checkValue)}
+        className={cn(switchRootVariants({ size }), className)}
+        {...filterDomProps(props)}
+      >
+        <Thumb className={switchThumbVariants({ size })} />
+      </Root>
+    );
+  }
+);
+Switch.displayName = "Switch";

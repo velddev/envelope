@@ -1,132 +1,96 @@
-import { HTMLStyledProps, styled } from "@envelope-ui/styled/jsx";
-import { cva } from "@envelope-ui/styled/css";
-import React, { createContext, useContext } from "react";
+import React, { createContext, forwardRef, useContext } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-const InputContext = createContext(null);
+const InputContext = createContext<boolean | null>(null);
 
-const base = {
-  bg: "transparent",
-  borderWidth: "0",
-  w: "full",
-  color: "ui.100",
-  _placeholder: {
-    color: "ui.60",
-  },
-};
-
-const inputRecipe = cva({
-  base,
-  defaultVariants: {
-    variant: "default",
-    controlSize: "md",
-  },
-  variants: {
-    variant: {
-      unstyled: {},
-      default: {
-        borderRadius: "md",
-        borderWidth: "1px",
-        borderColor: "ui.20",
-        borderStyle: "solid",
-        _focusVisible: {
-          borderColor: "ui.100",
-        },
+const inputVariants = cva(
+  "bg-transparent border-0 w-full text-ui-100 placeholder:text-ui-60 outline-none",
+  {
+    defaultVariants: {
+      variant: "default",
+      controlSize: "md",
+    },
+    variants: {
+      variant: {
+        unstyled: "",
+        default:
+          "rounded-md border border-solid border-ui-20 focus-visible:border-ui-100",
+      },
+      controlSize: {
+        none: "",
+        sm: "px-2 py-1 font-body text-sm",
+        md: "px-4 py-2 font-body text-base",
+        lg: "px-5 py-3 font-body text-lg",
       },
     },
-    controlSize: {
-      none: {},
-      sm: {
-        px: "2",
-        py: "1",
-        textStyle: "paragraph.sm",
+  }
+);
+
+const inputGroupVariants = cva(
+  "bg-transparent w-full text-ui-100 placeholder:text-ui-60 flex items-center px-4 py-2 rounded-md border border-solid border-ui-20 focus-within:border-ui-100 gap-2 outline-none",
+  {
+    defaultVariants: {
+      variant: "default",
+      controlSize: "md",
+    },
+    variants: {
+      variant: {
+        unstyled: "",
+        default:
+          "rounded-md border border-solid border-ui-20 focus-visible:border-ui-100",
       },
-      md: {
-        px: "4",
-        py: "2",
-        textStyle: "paragraph.md",
-      },
-      lg: {
-        px: "5",
-        py: "3",
-        textStyle: "paragraph.lg",
+      controlSize: {
+        none: "",
+        sm: "px-2 py-1 font-body text-sm",
+        md: "px-4 py-2 font-body text-base",
+        lg: "px-5 py-3 font-body text-lg",
       },
     },
-  },
-});
+  }
+);
 
-const InputPrimitive = styled("input", inputRecipe);
-const InputGroupPrimitive = styled("div", {
-  defaultVariants: {
-    variant: "default",
-    controlSize: "md",
-  },
-  base: {
-    ...base,
-    display: "flex",
-    alignItems: "center",
-    px: "4",
-    py: "2",
-    borderRadius: "md",
-    borderWidth: "1px",
-    borderColor: "ui.20",
-    borderStyle: "solid",
-    _focusWithin: {
-      borderColor: "ui.100",
-    },
-  },
-  variants: {
-    variant: {
-      unstyled: {},
-      default: {
-        borderRadius: "md",
-        borderWidth: "1px",
-        borderColor: "ui.20",
-        borderStyle: "solid",
-        _focusVisible: {
-          borderColor: "ui.100",
-        },
-      },
-    },
-    controlSize: {
-      none: {},
-      sm: {
-        px: "2",
-        py: "1",
-        textStyle: "paragraph.sm",
-      },
-      md: {
-        px: "4",
-        py: "2",
-        textStyle: "paragraph.md",
-      },
-      lg: {
-        px: "5",
-        py: "3",
-        textStyle: "paragraph.lg",
-      },
-    },
-  },
-});
+type InputGroupProps = React.ComponentPropsWithRef<"div"> & Record<string, any>;
 
-type InputGroupProps = HTMLStyledProps<"div">;
+export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
+  ({ children, className, ...rest }, ref) => {
+    return (
+      <InputContext.Provider value={true}>
+        <div
+          ref={ref}
+          className={cn(inputGroupVariants(), className)}
+          {...filterDomProps(rest)}
+        >
+          {children}
+        </div>
+      </InputContext.Provider>
+    );
+  }
+);
+InputGroup.displayName = "InputGroup";
 
-export const InputGroup = ({ children, ...rest }: InputGroupProps) => {
-  return (
-    <InputContext.Provider value={true}>
-      <InputGroupPrimitive gap="2" {...rest}>
-        {children}
-      </InputGroupPrimitive>
-    </InputContext.Provider>
-  );
-};
+export type InputProps = {
+  size?: "none" | "sm" | "md" | "lg";
+  variant?: "unstyled" | "default";
+} & Omit<React.ComponentPropsWithRef<"input">, "size"> & Record<string, any>;
 
-export const Input = ({ ...props }) => {
-  const context = useContext(InputContext);
-  return (
-    <InputPrimitive
-      controlSize={context ? "none" : props.size}
-      variant={context ? "unstyled" : "default"}
-      {...props}
-    />
-  );
-};
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ size, variant, className, ...props }, ref) => {
+    const context = useContext(InputContext);
+    return (
+      <input
+        ref={ref}
+        className={cn(
+          inputVariants({
+            controlSize: context ? "none" : (size as any) ?? "md",
+            variant: context ? "unstyled" : variant ?? "default",
+          }),
+          className
+        )}
+        {...filterDomProps(props)}
+      />
+    );
+  }
+);
+Input.displayName = "Input";

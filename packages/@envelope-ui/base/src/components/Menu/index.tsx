@@ -1,43 +1,13 @@
-import { styled } from "@envelope-ui/styled/jsx";
-import { cva } from "@envelope-ui/styled/css";
+import React, { forwardRef } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import React from "react";
-import { useDisclosure } from "src/hooks";
+import { useDisclosure } from "../../hooks/useDisclosure";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-const contentRecipe = cva({
-  base: {
-    py: "2",
-    bg: "bg.100",
-    transition: "all 0.2s",
-    borderWidth: "1px",
-    borderColor: "ui.20",
-    rounded: "md",
-    "&[data-side='top']": {
-      animation: "slideDown 0.2s ease-in-out",
-    },
-    "&[data-side='bottom']": {
-      animation: "slideUp 0.2s ease-in-out",
-    },
-    "&[data-side='left']": {
-      animation: "slideRight 0.2s ease-in-out",
-    },
-    "&[data-side='right']": {
-      animation: "slideLeft 0.2s ease-in-out",
-    },
-  },
-});
+const contentClasses =
+  "py-2 bg-bg-100 transition-all duration-200 border border-solid border-ui-20 rounded-md data-[side=top]:animate-slide-down data-[side=bottom]:animate-slide-up data-[side=left]:animate-slide-right data-[side=right]:animate-slide-left";
 
-const itemRecipe = cva({
-  base: {
-    display: "flex",
-    px: "2",
-    py: "1",
-    cursor: "pointer",
-    _hover: {
-      bg: "ui.5",
-    },
-  },
-});
+const itemClasses = "flex px-2 py-1 cursor-pointer hover:bg-ui-5 outline-none";
 
 type MenuProps = DropdownMenu.DropdownMenuProps;
 export const Menu = ({ children, ...props }: MenuProps) => {
@@ -53,22 +23,62 @@ export const Menu = ({ children, ...props }: MenuProps) => {
   );
 };
 
-export const MenuPortal = styled(DropdownMenu.Portal);
-export const MenuTrigger = styled(DropdownMenu.Trigger);
-export const MenuContent = styled(DropdownMenu.Content, contentRecipe);
-export const MenuGroup = styled(DropdownMenu.Group);
-export const MenuItem = styled(DropdownMenu.Item, itemRecipe);
-export const MenuLabel = styled(DropdownMenu.Label);
-export const MenuSeparator = styled(DropdownMenu.Separator, {
-  base: {
-    my: "1",
-    h: "1px",
-    bg: "ui.20",
-  },
-});
-export const MenuArrow = styled(DropdownMenu.Arrow);
+export const MenuPortal = DropdownMenu.Portal;
+export const MenuTrigger = DropdownMenu.Trigger;
 
-// submenu
-export const SubMenu = styled(DropdownMenu.Sub);
-export const SubMenuTrigger = styled(DropdownMenu.SubTrigger);
-export const SubMenuContent = styled(DropdownMenu.SubContent, contentRecipe);
+export const MenuContent = forwardRef<
+  HTMLDivElement,
+  DropdownMenu.DropdownMenuContentProps & Record<string, any>
+>(({ className, ...props }, ref) => (
+  <DropdownMenu.Content
+    ref={ref}
+    className={cn(contentClasses, className)}
+    {...filterDomProps(props)}
+  />
+));
+MenuContent.displayName = "MenuContent";
+
+export const MenuGroup = DropdownMenu.Group;
+
+export const MenuItem = forwardRef<
+  HTMLDivElement,
+  DropdownMenu.DropdownMenuItemProps & Record<string, any>
+>(({ className, ...props }, ref) => (
+  <DropdownMenu.Item
+    ref={ref}
+    className={cn(itemClasses, className)}
+    {...filterDomProps(props)}
+  />
+));
+MenuItem.displayName = "MenuItem";
+
+export const MenuLabel = DropdownMenu.Label;
+
+export const MenuSeparator = forwardRef<
+  HTMLDivElement,
+  DropdownMenu.DropdownMenuSeparatorProps & Record<string, any>
+>(({ className, ...props }, ref) => (
+  <DropdownMenu.Separator
+    ref={ref}
+    className={cn("my-1 h-px bg-ui-20", className)}
+    {...filterDomProps(props)}
+  />
+));
+MenuSeparator.displayName = "MenuSeparator";
+
+export const MenuArrow = DropdownMenu.Arrow;
+
+export const SubMenu = DropdownMenu.Sub;
+export const SubMenuTrigger = DropdownMenu.SubTrigger;
+
+export const SubMenuContent = forwardRef<
+  HTMLDivElement,
+  DropdownMenu.DropdownMenuSubContentProps & Record<string, any>
+>(({ className, ...props }, ref) => (
+  <DropdownMenu.SubContent
+    ref={ref}
+    className={cn(contentClasses, className)}
+    {...filterDomProps(props)}
+  />
+));
+SubMenuContent.displayName = "SubMenuContent";

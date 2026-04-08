@@ -1,5 +1,5 @@
 import { useBreakpoint } from "use-breakpoint";
-import { BreakpointToken } from "@envelope-ui/styled/tokens";
+import { BreakpointToken } from "../../../styled/tokens";
 
 type BreakpointTokenType = BreakpointToken | "base";
 
@@ -14,7 +14,7 @@ const breakpointsRaw = {
 } as Record<BreakpointToken, string>;
 
 const breakpoints: Record<BreakpointToken, number> = Object.keys(breakpointsRaw).reduce(
-  (acc, key) => {
+  (acc, key: BreakpointToken) => {
     acc[key] = parseInt(breakpointsRaw[key].replace("px", ""));
     return acc;
   },
@@ -27,7 +27,7 @@ type Values<T> = Breakpoints<T> | T[];
 function toObject<T>(values: T[]): Breakpoints<T> {
   return values.reduce(
     (acc, value, index) => {
-      acc[Object.keys(breakpoints)[index]] = value;
+      acc[Object.keys(breakpoints)[index] as BreakpointToken] = value;
       return acc;
     },
     {
@@ -42,7 +42,9 @@ export function useBreakpointValue<T>(values: Partial<Values<T>>): T | undefined
 
   // get the value for the current breakpoint, if the value is not defined, find the lower defined value.
 
-  const breakpointsInOrder = Object.keys(valueObj).sort((a, b) => breakpoints[b] - breakpoints[a]);
+  const breakpointsInOrder: BreakpointToken[] = Object.keys(valueObj).sort(
+    (a: BreakpointToken, b: BreakpointToken) => breakpoints[b] - breakpoints[a],
+  ) as BreakpointToken[];
   for (let v of breakpointsInOrder) {
     if (breakpoints[v] > breakpoints[result.breakpoint]) {
       // ignore larger values

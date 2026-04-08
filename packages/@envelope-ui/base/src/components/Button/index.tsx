@@ -1,141 +1,76 @@
-import { cva, RecipeVariantProps } from "@envelope-ui/styled/css";
-import React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import React, { forwardRef } from "react";
 import { Spinner } from "../Spinner";
-import { styled, Flex, Box } from "@envelope-ui/styled/jsx";
-import { HTMLStyledProps } from "@envelope-ui/styled/types";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-export const buttonRecipe = cva({
-  base: {
-    whiteSpace: "nowrap",
-    borderRadius: "md",
-    transition: "all 0.2s ease-in-out",
-    alignItems: "center",
-    justifyContent: "center",
-    display: "flex",
-    userSelect: "none",
-    gap: "2",
-    _disabled: {
-      cursor: "not-allowed",
+export const buttonVariants = cva(
+  "whitespace-nowrap rounded-md transition-all duration-200 items-center justify-center flex select-none gap-2",
+  {
+    defaultVariants: {
+      size: "md",
+      variant: "solid",
+      isLoading: false,
     },
-  },
-  defaultVariants: {
-    size: "md",
-    variant: "solid",
-    isLoading: false,
-  },
-  variants: {
-    variant: {
-      solid: {
-        bg: "ui.5",
-        color: "ui.100",
-        _hover: {
-          bg: "ui.10",
-        },
+    variants: {
+      variant: {
+        solid: "bg-ui-5 text-ui-100 hover:bg-ui-10",
+        primary: "bg-pink-100 text-ui-light-100 hover:bg-pink-60",
+        secondary: "bg-yellow-100 text-ui-light-100 hover:bg-yellow-60",
+        tertiary: "bg-ui-light-100 text-ui-dark-100 hover:bg-ui-light-60",
+        ghost: "bg-transparent text-ui-100 hover:bg-ui-5",
+        outline:
+          "bg-transparent text-ui-100 border border-ui-60 rounded-md hover:bg-ui-5",
       },
-      primary: {
-        bg: "pink.100",
-        color: "uiLight.100",
-        _hover: {
-          bg: "pink.60",
-        },
+      size: {
+        sm: "h-8 font-body text-sm font-semibold px-2 py-1",
+        md: "h-10 font-body text-base font-semibold px-4 py-1",
+        lg: "h-12 font-body text-lg font-semibold px-6 py-2",
+        xl: "h-14 font-body text-lg font-semibold px-8 py-3",
       },
-      secondary: {
-        bg: "yellow.100",
-        color: "uiLight.100",
-        _hover: {
-          bg: "yellow.60",
-        },
-      },
-      tertiary: {
-        bg: "uiLight.100",
-        color: "uiDark.100",
-        _hover: {
-          bg: "uiLight.60",
-        },
-      },
-      ghost: {
-        bg: "transparent",
-        color: "ui.100",
-        _hover: {
-          bg: "ui.5",
-        },
-      },
-      outline: {
-        bg: "transparent",
-        color: "ui.100",
-        borderWidth: "1px",
-        borderColor: "ui.60!",
-        borderRadius: "md",
-        _hover: {
-          bg: "ui.5",
-        },
-        _dark: {
-          borderColor: "ui.20",
-        },
+      isLoading: {
+        true: "opacity-50 cursor-wait",
+        false: "opacity-100 cursor-pointer",
       },
     },
-    size: {
-      sm: {
-        h: "8",
-        textStyle: "label.sm",
-        px: "2",
-        py: "1",
-      },
-      md: {
-        h: "10",
-        textStyle: "label.md",
-        px: "4",
-        py: "1",
-      },
-      lg: {
-        h: "12",
-        textStyle: "label.lg",
-        px: "6",
-        py: "2",
-      },
-      xl: {
-        h: "14",
-        textStyle: "label.lg",
-        px: "8",
-        py: "3",
-      },
-    },
-    isLoading: {
-      true: {
-        opacity: "0.5",
-        cursor: "wait",
-      },
-      false: {
-        opacity: "1",
-        cursor: "pointer",
-      },
-    },
-  },
-});
+  }
+);
 
-export const ButtonPrimitive = styled("button", buttonRecipe);
+export type ButtonProps = React.ComponentPropsWithRef<"button"> &
+  VariantProps<typeof buttonVariants> & Record<string, any>;
 
-export type ButtonProps = HTMLStyledProps<"button"> & RecipeVariantProps<typeof buttonRecipe>;
-
-export const Button = ({ isLoading, children, size, ...rest }: ButtonProps) => {
-  return (
-    <ButtonPrimitive position="relative" size={size} {...rest}>
-      <Flex gap={rest.gap} opacity={isLoading ? "0" : "1"} alignItems="center">
-        {children}
-      </Flex>
-      {isLoading && (
-        <Box
-          position="absolute"
-          inset="0"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, isLoading, children, ...rest }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          buttonVariants({ variant, size, isLoading }),
+          "disabled:cursor-not-allowed",
+          className
+        )}
+        {...filterDomProps(rest)}
+      >
+        <span
+          className={cn(
+            "flex items-center gap-2",
+            isLoading ? "opacity-0" : "opacity-100"
+          )}
         >
-          <Spinner size={size} />
-        </Box>
-      )}
-    </ButtonPrimitive>
-  );
-};
+          {children}
+        </span>
+        {isLoading && (
+          <span className="absolute inset-0 flex items-center justify-center">
+            <Spinner size={size} />
+          </span>
+        )}
+      </button>
+    );
+  }
+);
+Button.displayName = "Button";
+
+/** @deprecated Use `buttonVariants` instead */
+export const buttonRecipe = buttonVariants;
 
 export * from "./group";

@@ -1,14 +1,15 @@
-import { Box, BoxProps, Flex, FlexProps, HStack, HTMLStyledProps } from "@envelope-ui/styled/jsx";
 import React, { PropsWithChildren, useMemo } from "react";
 import { Button } from "../Button";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-type StepperControlsProps = FlexProps & {
+type StepperControlsProps = React.ComponentPropsWithRef<"div"> & {
   index: number;
   pageCount: number;
   onIndexChange?: (index: number) => void;
   onPrevious?: () => void;
   onNext?: () => void;
-  buttonProps?: HTMLStyledProps<"button">;
+  buttonClassName?: string;
 };
 
 export const StepperControls = ({
@@ -18,7 +19,8 @@ export const StepperControls = ({
   onIndexChange,
   pageCount,
   children,
-  buttonProps,
+  className,
+  buttonClassName,
   ...props
 }: PropsWithChildren<StepperProps>) => {
   const handleIndexChange = (newIndex: number) => {
@@ -26,39 +28,33 @@ export const StepperControls = ({
   };
 
   return (
-    <Flex gap="8" {...props}>
+    <div className={cn("flex gap-8", className)} {...filterDomProps(props)}>
       <Button
         aria-label="Previous"
-        borderRadius="full"
+        className={cn("rounded-full transition-all duration-200 pointer-events-auto", buttonClassName)}
         onClick={() => {
           if (index > 0) {
             handleIndexChange(index - 1);
             onPrevious?.();
           }
         }}
-        pointerEvents="auto"
-        transition="all 0.2s"
-        {...(buttonProps ?? {})}
       >
         {"<"}
       </Button>
       {children}
       <Button
         aria-label="Next"
-        borderRadius="full"
+        className={cn("rounded-full transition-all duration-200 pointer-events-auto", buttonClassName)}
         onClick={() => {
           if (index < pageCount - 1) {
             handleIndexChange(index + 1);
             onNext?.();
           }
         }}
-        pointerEvents="auto"
-        transition="all 0.2s"
-        {...(buttonProps ?? {})}
       >
         {">"}
       </Button>
-    </Flex>
+    </div>
   );
 };
 
@@ -70,7 +66,7 @@ type StepContext = {
 export type StepperProps = StepperControlsProps & {
   step?: (index: number, ctx: StepContext) => React.ReactNode;
   hideControls?: boolean;
-  stepperOverrides?: BoxProps;
+  stepDotClassName?: string;
 };
 
 export const Stepper = ({
@@ -81,12 +77,13 @@ export const Stepper = ({
   step,
   pageCount,
   hideControls,
-  stepperOverrides,
+  stepDotClassName,
+  ...rest
 }: StepperProps) => {
   const pageArray = useMemo(() => Array.from("0".repeat(pageCount)), [pageCount]);
 
   const stepper = (
-    <HStack gap="4">
+    <div className="flex items-center gap-4">
       {pageArray.map((_, i) =>
         step ? (
           step(i, {
@@ -94,19 +91,17 @@ export const Stepper = ({
             isActive: i === index,
           })
         ) : (
-          <Box
+          <div
             key={i}
-            width="2"
-            height="2"
-            borderRadius="full"
-            transition="all 0.2s"
-            transform={`scale(${i === index ? 1.25 : 1.0})`}
-            bg={index == i ? "ui.40" : "ui.10"}
-            {...stepperOverrides}
+            className={cn(
+              "w-2 h-2 rounded-full transition-all duration-200",
+              i === index ? "bg-ui-40 scale-125" : "bg-ui-10",
+              stepDotClassName
+            )}
           />
         ),
       )}
-    </HStack>
+    </div>
   );
 
   if (hideControls) {

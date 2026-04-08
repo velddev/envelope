@@ -1,24 +1,27 @@
-import React, { ForwardedRef, forwardRef } from "react";
-import { HTMLStyledProps } from "@envelope-ui/styled/jsx";
+import React, { forwardRef } from "react";
 import { Button } from "../Button";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-type FabProps = HTMLStyledProps<"button"> & {};
+type FabProps = React.ComponentPropsWithRef<"button"> & {
+  variant?: "primary" | "secondary" | "tertiary" | "ghost" | "outline";
+} & Record<string, any>;
 
-export const Fab = forwardRef(function Fab(props: FabProps, ref: ForwardedRef<HTMLButtonElement>) {
-  return (
-    <Button
-      {...props}
-      variant="primary"
-      boxShadow="lg"
-      width="16"
-      height="16"
-      borderRadius="full"
-      ref={ref}
-      position="fixed"
-      right="4"
-      bottom="4"
-    >
-      {props.children}
-    </Button>
-  );
-});
+export const Fab = forwardRef<HTMLButtonElement, FabProps>(
+  ({ className, variant = "primary", ...props }, ref) => {
+    return (
+      <Button
+        variant={variant}
+        className={cn(
+          "shadow-lg w-16 h-16 rounded-full fixed right-4 bottom-4",
+          className
+        )}
+        ref={ref}
+        {...filterDomProps(props)}
+      >
+        {props.children}
+      </Button>
+    );
+  }
+);
+Fab.displayName = "Fab";

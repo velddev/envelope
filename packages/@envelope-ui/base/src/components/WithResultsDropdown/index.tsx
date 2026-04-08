@@ -1,18 +1,16 @@
 import React, { ReactNode, useRef } from "react";
-import { VstackProps, VStack } from "@envelope-ui/styled/jsx";
-import { useOnClickOutside } from "src/hooks/useOutsideClick";
+import { useOnClickOutside } from "../../hooks/useOutsideClick";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
-type Props<T> = VstackProps & {
+type Props<T> = React.ComponentPropsWithRef<"div"> & {
   isOpen?: boolean;
   items?: T[];
   renderCard: (item: T, index: number) => ReactNode;
   children?: ReactNode;
   innerRef?: React.Ref<HTMLDivElement>;
-  /**
-   * Whenever the focus of the results dropdown changes outside of the dropdown scope.
-   */
   onFocusOutside?: () => void;
-};
+} & Record<string, any>;
 
 export function WithResultsDropdown<T>({
   isOpen,
@@ -21,37 +19,26 @@ export function WithResultsDropdown<T>({
   onFocusOutside,
   renderCard,
   children,
+  className,
   ...props
 }: Props<T>) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useOnClickOutside(containerRef, onFocusOutside);
+  useOnClickOutside(containerRef, onFocusOutside ?? (() => {}));
 
   return (
-    <VStack alignItems="start" w="full" gap="0" position="relative" ref={containerRef}>
+    <div className={cn("flex flex-col items-start w-full gap-0 relative", className)} ref={containerRef}>
       {children}
-      <VStack
-        mt="4"
-        w="full"
-        alignItems="start"
-        justify="start"
-        bg="bg.100"
-        position="absolute"
-        borderRadius="md"
-        border="1px solid"
-        borderColor="ui.10"
-        shadow="md"
-        gap="0"
-        maxH="240px"
-        overflowY="auto"
-        pointerEvents={isOpen ? "auto" : "none"}
-        opacity={isOpen ? 1 : 0}
-        transition="0.2s all"
-        {...props}
-        ref={innerRef}
+      <div
+        ref={innerRef as React.Ref<HTMLDivElement>}
+        className={cn(
+          "mt-4 w-full flex flex-col items-start justify-start bg-bg-100 absolute rounded-md border border-solid border-ui-10 shadow-md gap-0 max-h-60 overflow-y-auto transition-all duration-200",
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        )}
+        {...filterDomProps(props)}
       >
         {items?.map(renderCard)}
-      </VStack>
-    </VStack>
+      </div>
+    </div>
   );
 }

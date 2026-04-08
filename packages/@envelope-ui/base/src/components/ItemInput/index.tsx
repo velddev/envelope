@@ -1,7 +1,8 @@
-import { Box, Wrap, HTMLStyledProps } from "@envelope-ui/styled/jsx";
 import uniqueId from "lodash/uniqueId";
-import React, { useRef } from "react";
-import { Input } from "../Input";
+import React, { ChangeEvent, useRef } from "react";
+import { Input, InputProps } from "../Input";
+import { cn } from "../../utils/cn";
+import { filterDomProps } from "../../utils/filterDomProps";
 
 export type Item<T = unknown> = T & BaseItem;
 
@@ -10,9 +11,8 @@ export type BaseItem = {
   value: string;
 };
 
-export type ItemInputProps<T> = HTMLStyledProps<"input"> & {
+export type ItemInputProps<T> = Omit<InputProps, "onChange"> & {
   onItemCreate: (value: string) => Omit<Item<T>, "key">;
-
   renderItem?: (item: Item<T>, index: number) => React.ReactNode;
   onChangeItems?: (items: Item<T>[]) => void;
   items?: Item<T>[];
@@ -21,7 +21,7 @@ export type ItemInputProps<T> = HTMLStyledProps<"input"> & {
 };
 
 function defaultTag<T>(item: Item<T>) {
-  return <Box key={item.key}>{item.value}</Box>;
+  return <div key={item.key}>{item.value}</div>;
 }
 
 export function ItemInput<T>({
@@ -31,6 +31,7 @@ export function ItemInput<T>({
   onChangeText,
   items,
   textValue,
+  className,
   ...props
 }: ItemInputProps<T>) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -43,36 +44,28 @@ export function ItemInput<T>({
       return;
     }
 
-    if (e.key === "Backspace" && !textValue) {
-      onChangeItems(items.slice(0, items.length - 1));
+    if (e.key === "Backspace" && !textValue && items != null) {
+      onChangeItems?.(items.slice(0, items.length - 1));
     }
   };
 
   return (
-    <Wrap
-      height="unset"
-      transition="0.2s all"
-      w="full"
-      borderRadius="md"
-      borderColor="ui.20"
-      borderWidth="1px"
-      p="2"
-      gap="1"
-      _focusWithin={{
-        borderColor: "ui.100",
-      }}
+    <div
+      className={cn(
+        "flex flex-wrap h-auto transition-all duration-200 w-full rounded-md border border-ui-20 p-2 gap-1 focus-within:border-ui-100",
+        className
+      )}
     >
       {items?.map(renderItem)}
       <Input
-        variant="unstyled"
-        flex={1}
-        p="0"
+        className="flex-1 p-0"
         onKeyDown={handleInput}
         ref={inputRef}
         value={textValue}
-        onChange={(e) => onChangeText?.(e.target.value)}
-        {...props}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeText?.(e.target.value)}
+        {...filterDomProps(props)}
+        variant="unstyled"
       />
-    </Wrap>
+    </div>
   );
 }

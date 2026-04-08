@@ -8,7 +8,7 @@ export function useOnClickOutside<T extends HTMLElement = HTMLElement>(
   mouseEvent: "mousedown" | "mouseup" = "mousedown",
 ): void {
   useEffect(() => {
-    const listener = (event) => {
+    const listener = (event: MouseEvent) => {
       const el = ref?.current;
       if (!el || el.contains(event.target as Node)) {
         return;
