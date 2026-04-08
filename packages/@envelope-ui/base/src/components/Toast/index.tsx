@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { toast as sonnerToast, Toaster as SonnerToaster } from "sonner";
 import { filterDomProps } from "../../utils/filterDomProps";
 
@@ -13,4 +13,4 @@ export const Toaster = ({ className, ...rest }: ToasterProps) => {
   );
 };
 
-export const toast: (label: string | ReactNode) => void = sonnerToast;
+export const toast = sonnerToast;
