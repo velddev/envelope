@@ -1,14 +1,11 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.tsx"],
-  splitting: true,
-  sourcemap: true,
-  dts: true,
+  name: "@envelope-ui/base",
+  entry: ["src/index.tsx", "src/client.ts"],
   format: ["cjs", "esm"],
-  minify: false,
-  clean: false,
-  treeshake: true,
-  external: ["@envelope-ui/styled"],
-  shims: true,
+  dts: true,
+  clean: true,
+  minify: true,
+  external: ["@envelope-ui/styled", "react", "react-dom"],
 });

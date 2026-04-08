@@ -28,7 +28,7 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
               <div
                 className="grid gap-8 max-w-[95vw]"
                 style={{
-                  gridTemplateColumns: `repeat(${children.length}, ${90 / colCount}%)`,
+                  gridTemplateColumns: `repeat(${children.length}, ${90 / (colCount ?? 1)}%)`,
                 }}
               >
                 {children.map((x, i) => (
@@ -45,7 +45,7 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
         <Stepper
           index={index}
           onIndexChange={setIndex}
-          pageCount={1 + Math.max(0, children.length - colCount)}
+          pageCount={1 + Math.max(0, children.length - (colCount ?? 1))}
         />
       </div>
     </>
@@ -61,7 +61,7 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
       <div className="relative w-full">
         <StepperControls
           className="w-full justify-between absolute inset-0 items-center z-10 px-1 lg:px-4 pointer-events-none"
-          pageCount={1 + children.length - colCount}
+          pageCount={1 + children.length - (colCount ?? 1)}
           index={index}
           onIndexChange={setIndex}
           buttonClassName="bg-bg-100 pointer-events-auto hover:bg-bg2-100 disabled:opacity-0"
@@ -75,7 +75,7 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
             <div
               className="grid gap-8 max-w-[95vw]"
               style={{
-                gridTemplateColumns: `repeat(${children.length}, ${90 / colCount}%)`,
+                gridTemplateColumns: `repeat(${children.length}, ${90 / (colCount ?? 1)}%)`,
               }}
             >
               {children.map((x, i) => (

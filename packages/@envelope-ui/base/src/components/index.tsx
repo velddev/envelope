@@ -1,11 +1,12 @@
 export * from "./Accordion";
-export * from "./Button";
+export * from "./Button/button";
 export { CardBox } from "./CardBox";
 export { Carousel, CarouselInsideControls } from "./Carousel";
 export * from "./Drawer";
 export { Image } from "./Image";
 export * from "./Input";
-export { ItemInput, Item, BaseItem, ItemInputProps } from "./ItemInput";
+export { ItemInput } from "./ItemInput";
+export type { Item, BaseItem, ItemInputProps } from "./ItemInput";
 export { Fab } from "./Fab";
 export * from "./NavigationMenu";
 export * from "./Menu";

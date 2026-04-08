@@ -1,3 +1,4 @@
+"use client";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import React, { forwardRef } from "react";
 import { cn } from "../../utils/cn";
