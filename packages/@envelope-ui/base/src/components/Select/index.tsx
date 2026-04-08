@@ -72,7 +72,7 @@ export const Option = forwardRef<HTMLDivElement, OptionProps>(
           "text-ui-100 shrink-0 px-2 py-1 hover:bg-ui-5 cursor-pointer outline-none",
           className
         )}
-        {...filterDomProps(rest)}
+        {...filterDomProps(rest) as any}
       >
         <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
       </RadixSelect.Item>
