@@ -1,7 +1,6 @@
 import { useBreakpoint } from "use-breakpoint";
-import { BreakpointToken } from "../../../styled/tokens";
 
-type BreakpointTokenType = BreakpointToken | "base";
+type BreakpointToken = "base" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
 const breakpointsRaw = {
   base: "0px",
@@ -16,11 +15,11 @@ const breakpointsRaw = {
 const breakpointKeys: BreakpointToken[] = Object.keys(breakpointsRaw) as BreakpointToken[];
 
 const breakpoints: Record<BreakpointToken, number> = breakpointKeys.reduce((acc, key) => {
-  acc[key] = parseInt(breakpointsRaw[key].replace("px", ""));
+  acc[key] = parseInt(breakpointsRaw[key]!.replace("px", ""));
   return acc;
 }, {} as Record<BreakpointToken, number>);
 
-type Breakpoints<T> = Record<BreakpointTokenType, T>;
+type Breakpoints<T> = Record<BreakpointToken, T>;
 type Values<T> = Breakpoints<T> | T[];
 
 function toObject<T>(values: T[]): Breakpoints<T> {
@@ -48,9 +47,9 @@ export function useBreakpointValue<T>(values: Partial<Values<T>>): T | undefined
 
   const valueObjKeys = Object.keys(valueObj) as BreakpointToken[];
 
-  const breakpointsInOrder = valueObjKeys.sort((a, b) => breakpoints[b] - breakpoints[a]);
-  for (let v of breakpointsInOrder) {
-    if (breakpoints[v] > breakpoints[result.breakpoint]) {
+  const breakpointsInOrder = valueObjKeys.sort((a, b) => (breakpoints[b] ?? 0) - (breakpoints[a] ?? 0));
+  for (const v of breakpointsInOrder) {
+    if ((breakpoints[v] ?? 0) > (breakpoints[result.breakpoint as BreakpointToken] ?? 0)) {
       // ignore larger values
       continue;
     }

@@ -32,7 +32,7 @@ export const Carousel = ({ columns, children }: CarouselProps) => {
                 }}
               >
                 {children.map((x, i) => (
-                  <div ref={(el) => (refs.current[i] = el)} key={i} className="w-full">
+                  <div ref={(el) => { if (el) refs.current[i] = el; }} key={i} className="w-full">
                     {x}
                   </div>
                 ))}
@@ -79,7 +79,7 @@ export const CarouselInsideControls = ({ columns, children }: CarouselProps) => 
               }}
             >
               {children.map((x, i) => (
-                <div ref={(el) => (refs.current[i] = el)} key={i} className="w-full">
+                <div ref={(el) => { if (el) refs.current[i] = el; }} key={i} className="w-full">
                   {x}
                 </div>
               ))}

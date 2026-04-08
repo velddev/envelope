@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/**.ts*", "node_modules/@envelope-ui/*"],
+  "include": ["src/**/**.ts*"],
   "exclude": ["build/", "node_modules/", "**/*.test.ts*"]
 }
