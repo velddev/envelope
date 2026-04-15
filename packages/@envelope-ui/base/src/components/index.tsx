@@ -11,6 +11,7 @@ export { Fab } from "./Fab";
 export * from "./NavigationMenu";
 export * from "./Menu";
 export * from "./Modal";
+export { useModal, useModalContext } from "./Modal/hooks";
 export { MotionBox } from "./MotionBox";
 export * from "./Portal";
 export * from "./Select";

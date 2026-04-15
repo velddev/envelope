@@ -1,8 +1,9 @@
 "use client";
-import React, { createContext, PropsWithChildren, useState } from "react";
+import React, { createContext, PropsWithChildren, useRef, useState } from "react";
 
 type Modal = {
   id: string;
+  zIndex: number;
 };
 
 export type AddModalResult = {
@@ -26,22 +27,16 @@ const BASE_Z_INDEX = 10000;
 
 export const ModalStackProvider = ({ children }: PropsWithChildren<{}>) => {
   const [modals, setModals] = useState<Modal[]>([]);
+  const counterRef = useRef(0);
 
   const addModal = (): AddModalResult => {
-    let key = Math.random().toString(36).substring(7);
-    setModals((prev) => {
-      key = key + "-" + prev.length;
-      const modal = {
-        id: key,
-      };
+    const index = counterRef.current++;
+    const key = Math.random().toString(36).substring(7) + "-" + index;
+    const zIndex = BASE_Z_INDEX + index;
 
-      return [...prev, modal];
-    });
+    setModals((prev) => [...prev, { id: key, zIndex }]);
 
-    return {
-      key,
-      zIndex: BASE_Z_INDEX + modals.length,
-    };
+    return { key, zIndex };
   };
 
   const closeModal = (id: string) => {

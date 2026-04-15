@@ -4,6 +4,7 @@ import React, { createContext, PropsWithChildren, useContext, useEffect, useStat
 const ModalContext = createContext<UseModalResult>({
   isOpen: false,
   open: () => {},
+  zIndex: 0,
 });
 
 export const ModalProvider = ({
@@ -30,6 +31,7 @@ export type UseModalResult =
   | {
       isOpen: false;
       open: () => void;
+      zIndex: number;
     };
 
 export type UseModalInput = {
@@ -66,6 +68,15 @@ export const useModal = (input: UseModalInput): UseModalResult => {
       }
     }
   }, [modal, input.isOpen]);
+
+  // Clean up on unmount to prevent stale stack entries
+  useEffect(() => {
+    return () => {
+      if (modal != null) {
+        modalStack.closeModal(modal.key);
+      }
+    };
+  }, [modal]);
 
   return {
     zIndex: modal?.zIndex ?? 0,
