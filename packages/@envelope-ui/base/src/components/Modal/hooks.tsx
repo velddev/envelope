@@ -1,4 +1,4 @@
-import { AddModalResult, useModalStack } from "@/hooks/useModalStack";
+import { AddModalResult, useModalStack } from "../../hooks/useModalStack";
 import React, { createContext, PropsWithChildren, useContext, useEffect, useState } from "react";
 
 const ModalContext = createContext<UseModalResult>({
