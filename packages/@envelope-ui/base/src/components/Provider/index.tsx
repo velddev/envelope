@@ -1,11 +1,10 @@
-import { ColorModeProvider } from "@/hooks";
-import { ModalStackProvider } from "@/hooks/useModalStack";
+import { ColorModeProvider } from "../../hooks";
 import React, { PropsWithChildren } from "react";
 
 export const EnvelopeProvider = ({ children }: PropsWithChildren<{}>) => {
   return (
     <ColorModeProvider>
-      <ModalStackProvider>{children}</ModalStackProvider>
+      {children}
     </ColorModeProvider>
   );
 };

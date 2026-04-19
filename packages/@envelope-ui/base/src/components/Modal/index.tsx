@@ -23,19 +23,14 @@ export const ModalOverlay = forwardRef<
 ModalOverlay.displayName = "ModalOverlay";
 
 type ModalContentProps = Dialog.DialogContentProps &
-  React.ComponentPropsWithRef<"div"> & {
-    zIndex?: number | string;
-  } & Record<string, any>;
+  React.ComponentPropsWithRef<"div"> & Record<string, any>;
 
 export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
-  ({ children, className, zIndex, ...props }, ref) => {
+  ({ children, className, ...props }, ref) => {
     return (
       <ModalPortal>
-        <ModalOverlay style={{ zIndex }} />
-        <div
-          className="fixed inset-0 flex items-center justify-center"
-          style={{ zIndex }}
-        >
+        <ModalOverlay className="z-50" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
           <Dialog.Content
             ref={ref}
             className={cn(
