@@ -273,3 +273,90 @@
   line-height: 1.25rem;
   font-weight: 600;
 }
+
+/* ── Button Utilities ──────────────────────────────────── */
+
+/* Base — shared across all button variants/sizes */
+@utility btn {
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  transition-property: all;
+  transition-duration: 200ms;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  user-select: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+/* Variants — color schemes */
+@utility btn-solid {
+  background-color: var(--color-ui-5);
+  color: var(--color-ui-100);
+  &:hover { background-color: var(--color-ui-10); }
+}
+
+@utility btn-primary {
+  background-color: var(--color-pink-100);
+  color: rgb(0, 0, 0);
+  &:hover { background-color: var(--color-pink-60); }
+}
+
+@utility btn-secondary {
+  background-color: var(--color-yellow-100);
+  color: rgb(0, 0, 0);
+  &:hover { background-color: var(--color-yellow-60); }
+}
+
+@utility btn-tertiary {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  &:hover { background-color: var(--color-ui-light-60); }
+}
+
+@utility btn-ghost {
+  background-color: transparent;
+  color: var(--color-ui-100);
+  &:hover { background-color: var(--color-ui-5); }
+}
+
+@utility btn-outline {
+  background-color: transparent;
+  color: var(--color-ui-100);
+  border: 1px solid var(--color-ui-60);
+  &:hover { background-color: var(--color-ui-5); }
+}
+
+/* Sizes */
+@utility btn-sm {
+  height: 2rem;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+}
+
+@utility btn-md {
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+}
+
+@utility btn-lg {
+  height: 3rem;
+  font-size: 1.125rem;
+  padding: 0.5rem 1.5rem;
+}
+
+@utility btn-xl {
+  height: 3.5rem;
+  font-size: 1.125rem;
+  padding: 0.75rem 2rem;
+}
+
+/* States */
+@utility btn-loading {
+  opacity: 0.5;
+  cursor: wait;
+}
