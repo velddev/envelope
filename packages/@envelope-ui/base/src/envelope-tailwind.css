@@ -252,24 +252,24 @@
   font-weight: 400;
 }
 
-/* Label — UI labels, buttons, form labels */
+/* Label — UI labels, buttons, form labels (same sizing as paragraph, heavier weight) */
 @utility label-lg {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+
+@utility label-md {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.5rem;
   font-weight: 500;
 }
 
-@utility label-md {
+@utility label-sm {
   font-family: var(--font-body);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 500;
-}
-
-@utility label-sm {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  line-height: 1rem;
   font-weight: 500;
 }
