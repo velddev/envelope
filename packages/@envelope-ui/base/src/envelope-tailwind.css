@@ -257,19 +257,19 @@
   font-family: var(--font-body);
   font-size: 1.125rem;
   line-height: 1.75rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @utility label-md {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @utility label-sm {
   font-family: var(--font-body);
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
 }
