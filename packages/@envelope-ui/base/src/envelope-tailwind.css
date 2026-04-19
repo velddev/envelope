@@ -1,0 +1,275 @@
+@theme {
+  /* ── Breakpoints ── */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ── Fonts ── */
+  --font-mono: "Roboto Mono", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+
+  /* ── Colors: Static (not mode-dependent) ── */
+  --color-red-100: rgb(238, 93, 93);
+  --color-red-80: rgba(238, 93, 93, 0.8);
+  --color-red-60: rgba(238, 93, 93, 0.6);
+  --color-red-40: rgba(238, 93, 93, 0.4);
+  --color-red-20: rgba(238, 93, 93, 0.2);
+  --color-red-10: rgba(238, 93, 93, 0.1);
+
+  --color-pink-100: rgb(255, 98, 145);
+  --color-pink-80: rgba(255, 98, 145, 0.8);
+  --color-pink-60: rgba(255, 98, 145, 0.6);
+  --color-pink-40: rgba(255, 98, 145, 0.4);
+  --color-pink-20: rgba(255, 98, 145, 0.2);
+  --color-pink-10: rgba(255, 98, 145, 0.1);
+
+  --color-purple-100: rgb(155, 101, 223);
+  --color-purple-80: rgba(155, 101, 223, 0.8);
+  --color-purple-60: rgba(155, 101, 223, 0.6);
+  --color-purple-40: rgba(155, 101, 223, 0.4);
+  --color-purple-20: rgba(155, 101, 223, 0.2);
+  --color-purple-10: rgba(155, 101, 223, 0.1);
+
+  --color-yellow-100: rgb(255, 227, 164);
+  --color-yellow-80: rgba(255, 227, 164, 0.8);
+  --color-yellow-60: rgba(255, 227, 164, 0.6);
+  --color-yellow-40: rgba(255, 227, 164, 0.4);
+  --color-yellow-20: rgba(255, 227, 164, 0.2);
+  --color-yellow-10: rgba(255, 227, 164, 0.1);
+
+  /* ── Colors: Raw light/dark primitives ── */
+  --color-ui-light-5: rgba(0, 0, 0, 0.05);
+  --color-ui-light-10: rgba(0, 0, 0, 0.1);
+  --color-ui-light-20: rgba(0, 0, 0, 0.2);
+  --color-ui-light-30: rgba(0, 0, 0, 0.3);
+  --color-ui-light-40: rgba(0, 0, 0, 0.4);
+  --color-ui-light-50: rgba(0, 0, 0, 0.5);
+  --color-ui-light-60: rgba(0, 0, 0, 0.6);
+  --color-ui-light-70: rgba(0, 0, 0, 0.7);
+  --color-ui-light-80: rgba(0, 0, 0, 0.8);
+  --color-ui-light-90: rgba(0, 0, 0, 0.9);
+  --color-ui-light-100: rgb(0, 0, 0);
+
+  --color-ui-dark-5: rgba(255, 255, 255, 0.05);
+  --color-ui-dark-10: rgba(255, 255, 255, 0.1);
+  --color-ui-dark-20: rgba(255, 255, 255, 0.2);
+  --color-ui-dark-30: rgba(255, 255, 255, 0.3);
+  --color-ui-dark-40: rgba(255, 255, 255, 0.4);
+  --color-ui-dark-50: rgba(255, 255, 255, 0.5);
+  --color-ui-dark-60: rgba(255, 255, 255, 0.6);
+  --color-ui-dark-70: rgba(255, 255, 255, 0.7);
+  --color-ui-dark-80: rgba(255, 255, 255, 0.8);
+  --color-ui-dark-90: rgba(255, 255, 255, 0.9);
+  --color-ui-dark-100: rgb(255, 255, 255);
+
+  /* ── Colors: Semantic (mode-aware via CSS variables) ── */
+  --color-ui-5: var(--env-ui-5);
+  --color-ui-10: var(--env-ui-10);
+  --color-ui-20: var(--env-ui-20);
+  --color-ui-30: var(--env-ui-30);
+  --color-ui-40: var(--env-ui-40);
+  --color-ui-50: var(--env-ui-50);
+  --color-ui-60: var(--env-ui-60);
+  --color-ui-70: var(--env-ui-70);
+  --color-ui-80: var(--env-ui-80);
+  --color-ui-90: var(--env-ui-90);
+  --color-ui-100: var(--env-ui-100);
+
+  --color-uix-5: var(--env-uix-5);
+  --color-uix-10: var(--env-uix-10);
+  --color-uix-20: var(--env-uix-20);
+  --color-uix-30: var(--env-uix-30);
+  --color-uix-40: var(--env-uix-40);
+  --color-uix-50: var(--env-uix-50);
+  --color-uix-60: var(--env-uix-60);
+  --color-uix-70: var(--env-uix-70);
+  --color-uix-80: var(--env-uix-80);
+  --color-uix-90: var(--env-uix-90);
+  --color-uix-100: var(--env-uix-100);
+
+  --color-bg-5: var(--env-bg-5);
+  --color-bg-10: var(--env-bg-10);
+  --color-bg-20: var(--env-bg-20);
+  --color-bg-40: var(--env-bg-40);
+  --color-bg-60: var(--env-bg-60);
+  --color-bg-80: var(--env-bg-80);
+  --color-bg-100: var(--env-bg-100);
+
+  --color-bg2-5: var(--env-bg2-5);
+  --color-bg2-10: var(--env-bg2-10);
+  --color-bg2-20: var(--env-bg2-20);
+  --color-bg2-40: var(--env-bg2-40);
+  --color-bg2-60: var(--env-bg2-60);
+  --color-bg2-80: var(--env-bg2-80);
+  --color-bg2-100: var(--env-bg2-100);
+
+  /* ── Keyframes ── */
+  --animate-accordion-expand: accordion-expand 200ms ease-out;
+  --animate-accordion-collapse: accordion-collapse 200ms ease-out;
+  --animate-slide-up: slide-up 200ms ease-out;
+  --animate-slide-down: slide-down 200ms ease-out;
+  --animate-slide-left: slide-left 200ms ease-out;
+  --animate-slide-right: slide-right 200ms ease-out;
+  --animate-slide-up-full: slide-up-full 200ms ease-out;
+  --animate-slide-down-full: slide-down-full 200ms ease-out;
+  --animate-slide-left-full: slide-left-full 200ms ease-out;
+  --animate-slide-right-full: slide-right-full 200ms ease-out;
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-fade-out: fade-out 200ms ease-out;
+
+  @keyframes accordion-expand {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+
+  @keyframes accordion-collapse {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+  @keyframes slide-up {
+    0% { transform: translateY(2px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slide-down {
+    0% { transform: translateY(-2px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slide-left {
+    0% { transform: translateX(2px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-right {
+    0% { transform: translateX(-2px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-up-full {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slide-down-full {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slide-left-full {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-right-full {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+}
+
+/* ── Typography Utilities ──────────────────────────────── */
+
+/* Display — hero sections, large headings */
+@utility display-lg {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+@utility display-md {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+@utility display-sm {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+/* Heading — section headings */
+@utility heading-lg {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+@utility heading-md {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@utility heading-sm {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+/* Paragraph — body text */
+@utility paragraph-lg {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+@utility paragraph-md {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+@utility paragraph-sm {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+/* Label — UI labels, buttons, form labels */
+@utility label-lg {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+@utility label-md {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+@utility label-sm {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
